@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Laura.iml" filepath="$PROJECT_DIR$/.idea/modules/Laura.iml" group="Laura" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="Laura/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lauracore/lauracore.iml" filepath="$PROJECT_DIR$/.idea/modules/lauracore/lauracore.iml" group="Laura/lauracore" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/laurafoundation/laurafoundation.iml" filepath="$PROJECT_DIR$/.idea/modules/laurafoundation/laurafoundation.iml" group="Laura/laurafoundation" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lauraui/lauraui.iml" filepath="$PROJECT_DIR$/.idea/modules/lauraui/lauraui.iml" group="Laura/lauraui" />
     </modules>
   </component>
 </project>

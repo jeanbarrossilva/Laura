@@ -13,9 +13,6 @@
     <string name="balance">Balance</string>
 
     <!-- Acquisition -->
-    <string name="general">General</string>
-    <string name="flight_ticket">Flight ticket</string>
-    <string name="placeholder_flight_duration">%s – %s</string>
     <string name="label_acquisition_icon">Acquisition category icon</string>
 
     <!-- Acquisition Composer -->

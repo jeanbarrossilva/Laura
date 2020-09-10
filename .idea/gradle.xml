@@ -12,6 +12,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/lauracore" />
+            <option value="$PROJECT_DIR$/laurafoundation" />
+            <option value="$PROJECT_DIR$/lauraui" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

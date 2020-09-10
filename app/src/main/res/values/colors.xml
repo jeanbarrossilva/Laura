@@ -5,7 +5,4 @@
     <color name="colorAccent">#FFE647</color>
     <color name="acquisition">#6BC668</color>
     <color name="acquisition_listing">@android:color/white</color>
-    <color name="laura_edit_text">#FBFBFB</color>
-    <color name="laura_spinner">#ECECEC</color>
-    <color name="laura_spinner_text">#CD000000</color>
 </resources>
