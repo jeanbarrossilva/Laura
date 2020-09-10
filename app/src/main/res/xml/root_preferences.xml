@@ -1,0 +1,25 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/salary">
+
+        <DropDownPreference
+            app:key="currency"
+            app:title="@string/change_currency" />
+
+        <com.jeanbarrossilva.laura.kit.LauraEditTextPreference
+            android:inputType="numberDecimal"
+            app:key="salary_value"
+            app:title="@string/change_value"
+            app:summary="@string/summary_change_value" />
+
+        <com.dr1009.app.chronodialogpreference.DateDialogPreference
+            app:key="salary_renew"
+            app:title="@string/renew_date"
+            app:defaultValue="2023-1-1"
+            app:customFormat="dd/MM" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
