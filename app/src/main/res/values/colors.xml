@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="colorPrimary">#6ACA67</color>
-    <color name="colorPrimaryDark">#62BA5F</color>
-    <color name="colorAccent">#FFE647</color>
-    <color name="acquisition">#6BC668</color>
-    <color name="acquisition_listing">@android:color/white</color>
-</resources>

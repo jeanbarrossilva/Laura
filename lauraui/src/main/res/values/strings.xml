@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Toolbar labels -->
+    <string name="wallet">Wallet</string>
+    <string name="settings">Settings</string>
+
     <!-- Onboarding -->
     <string name="welcome">Welcome to %s!</string>
     <string name="question_salary">What\'s your salary?</string>

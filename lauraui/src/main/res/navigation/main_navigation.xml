@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/walletFragment">
+    app:startDestination="@id/walletFragment"
+    tools:ignore="UnusedNavigation">
 
     <action
         android:id="@+id/action_global_onboardingFragment"

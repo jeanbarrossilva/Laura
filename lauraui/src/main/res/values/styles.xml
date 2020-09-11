@@ -28,4 +28,36 @@
     <declare-styleable name="LauraEditTextPreference">
         <attr name="android:inputType" />
     </declare-styleable>
+
+    <!-- DELETE -->
+    <style
+        name="BillButton"
+        parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:padding">15dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">10dp</item>
+    </style>
+
+    <style
+        name="BillHighlightedButton"
+        parent="Widget.MaterialComponents.Button">
+        <item name="android:padding">15dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">10dp</item>
+    </style>
+
+    <style
+        name="BillTextInputLayout"
+        parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+    </style>
+
+    <declare-styleable name="CurrencyAmountView">
+        <attr name="currency" format="string" />
+        <attr name="amount" format="float" />
+    </declare-styleable>
+    <!-- DELETE -->
 </resources>
