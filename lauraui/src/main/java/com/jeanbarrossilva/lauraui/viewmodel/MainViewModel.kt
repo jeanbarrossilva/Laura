@@ -1,7 +1,8 @@
-package com.jeanbarrossilva.laura.main
+package com.jeanbarrossilva.lauraui.viewmodel
 
 import android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS
 import androidx.annotation.IdRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.edit
 import androidx.core.view.forEach
@@ -12,10 +13,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import androidx.preference.PreferenceManager
 import com.google.android.material.navigation.NavigationView
-import com.jeanbarrossilva.laura.R
-import com.jeanbarrossilva.laura.ext.ContextX.isDark
+import com.jeanbarrossilva.lauraui.R
+import com.jeanbarrossilva.lauraui.ext.ContextX.isDark
 
-class MainViewModel(private val activity: MainActivity, @IdRes containerId: Int) : ViewModel() {
+class MainViewModel(private val activity: AppCompatActivity, @IdRes containerId: Int) : ViewModel() {
     private val preferences = PreferenceManager.getDefaultSharedPreferences(activity)
     private val navController = activity.findNavController(containerId)
 
