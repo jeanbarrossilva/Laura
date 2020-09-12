@@ -21,10 +21,6 @@
         <attr name="count" format="integer" />
     </declare-styleable>
 
-    <declare-styleable name="PresentationLayout">
-        <attr name="android:title" format="string" />
-    </declare-styleable>
-
     <declare-styleable name="LauraEditTextPreference">
         <attr name="android:inputType" />
     </declare-styleable>

@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.lauraui.kit
+package com.jeanbarrossilva.lauraui.viewholder
 
 import android.view.View
 import android.view.View.VISIBLE

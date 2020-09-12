@@ -1,8 +1,8 @@
-package com.jeanbarrossilva.lauraui.kit
+package com.jeanbarrossilva.lauraui.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.jeanbarrossilva.lauraui.OnboardingFragment
+import com.jeanbarrossilva.lauraui.root.OnboardingFragment
 
 class OnboardingAdapter(fragment: OnboardingFragment, private val children: List<Fragment>) : FragmentStateAdapter(fragment) {
     override fun getItemCount() = children.size

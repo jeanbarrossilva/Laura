@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.lauraui.kit
+package com.jeanbarrossilva.lauraui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,6 +7,7 @@ import com.jeanbarrossilva.laurafoundation.Acquisition
 import com.jeanbarrossilva.laurafoundation.AcquisitionCategory.FlightTicket
 import com.jeanbarrossilva.laurafoundation.ext.AcquisitionX.formattedValue
 import com.jeanbarrossilva.lauraui.R
+import com.jeanbarrossilva.lauraui.viewholder.AcquisitionViewHolder
 
 class AcquisitionAdapter(private val acquisitions: List<Acquisition>) : RecyclerView.Adapter<AcquisitionViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =

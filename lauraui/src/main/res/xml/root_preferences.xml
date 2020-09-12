@@ -8,7 +8,7 @@
             app:key="currency"
             app:title="@string/change_currency" />
 
-        <com.jeanbarrossilva.lauraui.kit.LauraEditTextPreference
+        <com.jeanbarrossilva.lauraui.preference.LauraEditTextPreference
             android:inputType="numberDecimal"
             app:key="salary_value"
             app:title="@string/change_value"

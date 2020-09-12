@@ -1,12 +1,13 @@
-package com.jeanbarrossilva.lauraui.kit
+package com.jeanbarrossilva.lauraui.viewmodel
 
 import android.view.View
 import androidx.annotation.IdRes
 import androidx.lifecycle.ViewModel
 import androidx.viewpager2.widget.ViewPager2
 import com.jeanbarrossilva.lauraui.component.IndicatorLayout
-import com.jeanbarrossilva.lauraui.OnboardingSalaryFragment
-import com.jeanbarrossilva.lauraui.OnboardingFragment
+import com.jeanbarrossilva.lauraui.adapter.OnboardingAdapter
+import com.jeanbarrossilva.lauraui.root.OnboardingSalaryFragment
+import com.jeanbarrossilva.lauraui.root.OnboardingFragment
 
 class OnboardingViewModel(private val fragment: OnboardingFragment, @IdRes private val pagerId: Int) : ViewModel() {
     private val pager = fragment.view?.findViewById<ViewPager2>(pagerId)
