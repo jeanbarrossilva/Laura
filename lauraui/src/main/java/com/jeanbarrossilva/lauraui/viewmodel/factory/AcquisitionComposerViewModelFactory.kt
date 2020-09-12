@@ -3,7 +3,7 @@ package com.jeanbarrossilva.lauraui.viewmodel.factory
 import androidx.annotation.IdRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.jeanbarrossilva.lauraui.root.AcquisitionComposerFragment
+import com.jeanbarrossilva.lauraui.fragment.AcquisitionComposerFragment
 
 class AcquisitionComposerViewModelFactory(private val fragment: AcquisitionComposerFragment, @IdRes private val nameFieldRes: Int)
     : ViewModelProvider.Factory {

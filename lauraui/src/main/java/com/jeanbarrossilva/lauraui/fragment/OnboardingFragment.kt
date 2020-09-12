@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.lauraui.root
+package com.jeanbarrossilva.lauraui.fragment
 
 import android.content.Context
 import android.os.Bundle

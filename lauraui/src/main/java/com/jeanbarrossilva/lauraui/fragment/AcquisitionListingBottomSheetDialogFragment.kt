@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.lauraui.root
+package com.jeanbarrossilva.lauraui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
