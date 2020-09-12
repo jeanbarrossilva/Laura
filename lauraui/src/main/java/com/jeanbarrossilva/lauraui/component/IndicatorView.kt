@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.lauraui
+package com.jeanbarrossilva.lauraui.component
 
 import android.content.Context
 import android.util.AttributeSet

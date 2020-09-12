@@ -4,7 +4,7 @@ import android.view.View
 import androidx.annotation.IdRes
 import androidx.lifecycle.ViewModel
 import androidx.viewpager2.widget.ViewPager2
-import com.jeanbarrossilva.lauraui.IndicatorLayout
+import com.jeanbarrossilva.lauraui.component.IndicatorLayout
 import com.jeanbarrossilva.lauraui.OnboardingSalaryFragment
 import com.jeanbarrossilva.lauraui.OnboardingFragment
 
