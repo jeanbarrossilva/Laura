@@ -14,6 +14,6 @@ class AcquisitionComposerFragment : Fragment(R.layout.fragment_acquisition_compo
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.compose(add, currency_amount)
+        viewModel.compose(null, currency_amount)
     }
 }

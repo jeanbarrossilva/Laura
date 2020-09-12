@@ -1,10 +1,11 @@
-package com.jeanbarrossilva.lauraui
+package com.jeanbarrossilva.lauraui.component
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.Gravity.CENTER_HORIZONTAL
 import android.widget.LinearLayout
 import androidx.core.view.children
+import com.jeanbarrossilva.lauraui.R
 import com.jeanbarrossilva.lauraui.ext.NumberX.dp
 import top.defaults.drawabletoolbox.DrawableBuilder
 
