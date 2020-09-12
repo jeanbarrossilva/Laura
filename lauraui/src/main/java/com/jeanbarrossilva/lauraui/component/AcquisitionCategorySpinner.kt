@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.widget.AppCompatSpinner
-import com.jeanbarrossilva.laurafoundation.AcquisitionCategory
+import com.jeanbarrossilva.laurafoundation.data.AcquisitionCategory
 import com.jeanbarrossilva.lauraui.R
 import kotlin.reflect.full.createInstance
 
