@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.*
+import com.jeanbarrossilva.laurafoundation.LauraFoundation.currencies
 import com.jeanbarrossilva.lauraui.R
 import com.jeanbarrossilva.lauraui.ext.NumberX.dp
 import java.util.Currency
@@ -17,8 +18,6 @@ import java.util.Locale
 class CurrencyAmountView : RelativeLayout {
     private lateinit var amountField: EditText
     private lateinit var currencySpinner: Spinner
-
-    private val currencies = Currency.getAvailableCurrencies()
 
     var currency: Currency = Locale.getDefault().let { defaultLocale -> Currency.getInstance(defaultLocale) }
         set(value) = currencySpinner.setSelection(currencies.indexOf(value), true)
