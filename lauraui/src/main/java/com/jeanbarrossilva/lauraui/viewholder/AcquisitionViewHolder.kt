@@ -5,8 +5,8 @@ import android.view.View.VISIBLE
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.jeanbarrossilva.laurafoundation.Acquisition
-import com.jeanbarrossilva.laurafoundation.AcquisitionCategory
+import com.jeanbarrossilva.laurafoundation.data.Acquisition
+import com.jeanbarrossilva.laurafoundation.data.AcquisitionCategory
 import com.jeanbarrossilva.laurafoundation.ext.LocalDateTimeX.isSameDayAs
 import com.jeanbarrossilva.lauraui.R
 import kotlinx.android.synthetic.main.view_acquisition.view.*

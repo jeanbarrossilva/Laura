@@ -6,7 +6,7 @@ import android.widget.EditText
 import androidx.annotation.IdRes
 import androidx.core.view.doOnLayout
 import androidx.lifecycle.ViewModel
-import com.jeanbarrossilva.laurafoundation.Acquisition
+import com.jeanbarrossilva.laurafoundation.data.Acquisition
 import com.jeanbarrossilva.lauraui.component.CurrencyAmountView
 import com.jeanbarrossilva.lauraui.fragment.AcquisitionComposerFragment
 

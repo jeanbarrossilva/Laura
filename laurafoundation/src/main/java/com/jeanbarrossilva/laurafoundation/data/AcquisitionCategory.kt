@@ -1,7 +1,8 @@
-package com.jeanbarrossilva.laurafoundation
+package com.jeanbarrossilva.laurafoundation.data
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import com.jeanbarrossilva.laurafoundation.R
 import java.time.LocalDateTime
 
 sealed class AcquisitionCategory(@StringRes val name: Int, @DrawableRes val icon: Int) {

@@ -3,8 +3,8 @@ package com.jeanbarrossilva.lauraui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.jeanbarrossilva.laurafoundation.Acquisition
-import com.jeanbarrossilva.laurafoundation.AcquisitionCategory.FlightTicket
+import com.jeanbarrossilva.laurafoundation.data.Acquisition
+import com.jeanbarrossilva.laurafoundation.data.AcquisitionCategory.FlightTicket
 import com.jeanbarrossilva.laurafoundation.ext.AcquisitionX.formattedValue
 import com.jeanbarrossilva.lauraui.R
 import com.jeanbarrossilva.lauraui.viewholder.AcquisitionViewHolder

@@ -1,6 +1,6 @@
 package com.jeanbarrossilva.laurafoundation.ext
 
-import com.jeanbarrossilva.laurafoundation.Acquisition
+import com.jeanbarrossilva.laurafoundation.data.Acquisition
 import java.text.DecimalFormat
 
 object AcquisitionX {

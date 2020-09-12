@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.jeanbarrossilva.lauracore.WalletModel
-import com.jeanbarrossilva.laurafoundation.Acquisition
+import com.jeanbarrossilva.laurafoundation.data.Acquisition
 import com.jeanbarrossilva.lauraui.R
 import com.jeanbarrossilva.lauraui.fragment.WalletFragment
 import java.text.DecimalFormat
