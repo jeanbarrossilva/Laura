@@ -16,7 +16,7 @@
         android:importantForAutofill="no"
         tools:text="GRU → NAP" />
 
-    <com.jeanbarrossilva.lauraui.CurrencyAmountView
+    <com.jeanbarrossilva.lauraui.component.CurrencyAmountView
         android:id="@+id/currency_amount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

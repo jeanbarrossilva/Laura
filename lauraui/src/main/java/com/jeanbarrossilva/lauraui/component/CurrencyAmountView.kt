@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.lauraui
+package com.jeanbarrossilva.lauraui.component
 
 import android.content.Context
 import android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL
@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.*
+import com.jeanbarrossilva.lauraui.R
 import com.jeanbarrossilva.lauraui.ext.NumberX.dp
 import java.util.Currency
 import java.util.Locale

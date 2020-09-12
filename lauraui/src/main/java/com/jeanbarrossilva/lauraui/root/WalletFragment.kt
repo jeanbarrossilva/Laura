@@ -1,11 +1,12 @@
-package com.jeanbarrossilva.lauraui
+package com.jeanbarrossilva.lauraui.root
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.jeanbarrossilva.lauraui.kit.WalletViewModel
-import com.jeanbarrossilva.lauraui.kit.WalletViewModelFactory
+import com.jeanbarrossilva.lauraui.R
+import com.jeanbarrossilva.lauraui.viewmodel.WalletViewModel
+import com.jeanbarrossilva.lauraui.viewmodel.factory.WalletViewModelFactory
 import kotlinx.android.synthetic.main.fragment_wallet.*
 import kotlinx.android.synthetic.main.fragment_wallet.currency_symbol
 
