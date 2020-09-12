@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.lauraui.root
+package com.jeanbarrossilva.lauraui.fragment
 
 import androidx.fragment.app.Fragment
 

@@ -8,7 +8,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.jeanbarrossilva.lauracore.WalletModel
 import com.jeanbarrossilva.laurafoundation.Acquisition
 import com.jeanbarrossilva.lauraui.R
-import com.jeanbarrossilva.lauraui.root.WalletFragment
+import com.jeanbarrossilva.lauraui.fragment.WalletFragment
 import java.text.DecimalFormat
 
 class WalletViewModel(private val fragment: WalletFragment, @IdRes private val fabId: Int) : ViewModel() {
