@@ -19,9 +19,9 @@ class AcquisitionComposerViewModel(private val fragment: AcquisitionComposerFrag
         fragment.view?.doOnLayout { it.windowInsetsController?.show(ime()) }
     }
 
-    fun compose(button: Button, currencyAmountView: CurrencyAmountView) {
-        button.setOnClickListener {
-            val composedAcquisition = Acquisition(name = name, currency = currencyAmountView.currency, value = currencyAmountView.amount ?: 0)
+    fun compose(button: Button?, currencyAmountView: CurrencyAmountView) {
+        button?.setOnClickListener {
+            val composed = Acquisition(name = name, currency = currencyAmountView.currency, value = currencyAmountView.getAmount() ?: 0)
             fragment.view?.windowInsetsController?.hide(ime())
         }
     }

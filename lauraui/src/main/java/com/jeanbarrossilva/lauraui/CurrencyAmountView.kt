@@ -17,7 +17,10 @@ class CurrencyAmountView : RelativeLayout {
     private lateinit var amountField: EditText
     private lateinit var currencySpinner: Spinner
 
+    private val currencies = Currency.getAvailableCurrencies()
+
     var currency: Currency = Locale.getDefault().let { defaultLocale -> Currency.getInstance(defaultLocale) }
+        set(value) = currencySpinner.setSelection(currencies.indexOf(value), true)
 
     constructor(context: Context) : super(context) {
         start()
@@ -42,6 +45,7 @@ class CurrencyAmountView : RelativeLayout {
     private fun initValues(attrs: AttributeSet? = null, defStyleAttr: Int = 0) {
         amountField = EditText(ContextThemeWrapper(context, R.style.LauraEditText), attrs, defStyleAttr).apply {
             inputType = TYPE_NUMBER_FLAG_DECIMAL
+            isSingleLine = true
             layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
             setPaddingRelative(155.dp, paddingTop, paddingEnd, paddingBottom)
         }
@@ -52,19 +56,17 @@ class CurrencyAmountView : RelativeLayout {
 
             layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
                 marginStart = 4.5.dp
+                addRule(ALIGN_START)
                 addRule(CENTER_VERTICAL)
             }
 
-            onItemSelectedListener = object: AdapterView.OnItemSelectedListener, AdapterView.OnItemClickListener {
+            onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                    currency = Currency.getAvailableCurrencies().elementAt(position)
+                    currency = currencies.elementAt(position)
                     Log.d("CurrencyAmountView", "Selected currency: ${currency.currencyCode}.")
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                }
-
-                override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 }
             }
         }
