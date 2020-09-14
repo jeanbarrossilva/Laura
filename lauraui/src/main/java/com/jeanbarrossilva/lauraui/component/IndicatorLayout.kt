@@ -3,6 +3,8 @@ package com.jeanbarrossilva.lauraui.component
 import android.content.Context
 import android.util.AttributeSet
 import android.view.Gravity.CENTER_HORIZONTAL
+import android.view.View
+import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.view.children
 import com.jeanbarrossilva.lauraui.R
@@ -18,6 +20,11 @@ class IndicatorLayout @JvmOverloads constructor(context: Context, private val at
         loadAttrs()
         setupIndicators()
         highlightIndicatorAt(0)
+    }
+
+    override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
+        if (child is IndicatorView) super.addView(child, index, params) else throw IllegalStateException("$child is not an IndicatorView. " +
+                "Views added to IndicatorLayout must be inherited from IndicatorView.")
     }
 
     fun highlightIndicatorAt(highlightedIndex: Int) {
