@@ -1,5 +1,6 @@
 package com.jeanbarrossilva.laurafoundation.data
 
+import android.location.Location
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.jeanbarrossilva.laurafoundation.R
@@ -9,11 +10,8 @@ sealed class AcquisitionCategory(@StringRes val name: Int, @DrawableRes val icon
     object GeneralAcquisition : AcquisitionCategory(R.string.acquisition_category_general, R.drawable.ic_question)
 
     data class FlightTicket(
-        val takeOff: LocalDateTime = LocalDateTime.now(),
-        val landing: LocalDateTime = LocalDateTime.from(takeOff).plusDays(1)
-    )
-        : AcquisitionCategory(R.string.acquisition_category_flight_ticket, R.drawable.ic_local_airport) {
-        val landingTime = "${landing.hour}:${landing.minute}"
-        val takeOffTime = "${takeOff.hour}:${takeOff.minute}"
+        val location: Pair<Location?, Location?> = null to null,
+        val time: Pair<LocalDateTime, LocalDateTime> = LocalDateTime.now().let { now -> now to LocalDateTime.from(now).plusDays(1) }
+    ) : AcquisitionCategory(R.string.acquisition_category_flight_ticket, R.drawable.ic_local_airport) {
     }
 }

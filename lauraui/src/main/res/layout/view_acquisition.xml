@@ -1,106 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="15dp"
+    android:layout_marginBottom="20dp"
     android:orientation="vertical"
-    app:cardCornerRadius="10dp"
-    app:cardBackgroundColor="?android:colorBackground"
+    tools:layout_marginTop="20dp"
     tools:layout_marginHorizontal="20dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageButton
+            android:id="@+id/icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/bg_acquisition_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:src="@drawable/ic_local_airport" />
+
         <LinearLayout
-            android:id="@+id/details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="15dp"
+            android:layout_marginStart="30dp"
+            android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/icon">
 
-            <ImageView
-                android:id="@+id/icon"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:padding="10dp"
-                android:contentDescription="@string/label_acquisition_icon"
-                android:src="@drawable/ic_question"
-                android:background="@drawable/bg_acquisition_icon"
-                app:tint="@android:color/white"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                tools:src="@drawable/ic_local_airport" />
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:orientation="vertical">
+                android:fontFamily="@font/syne"
+                android:textSize="16sp"
+                tools:text="GRU → NAP" />
 
-                <TextView
-                    android:id="@+id/name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="17sp"
-                    tools:text="GAL → NAP" />
-
-                <TextView
-                    android:id="@+id/flight_date_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:alpha="?android:secondaryContentAlpha"
-                    android:visibility="gone"
-                    android:textColor="?android:textColorSecondary"
-                    android:textSize="12sp"
-                    tools:visibility="visible"
-                    tools:text="October 8, 2023, 03:50 – 19:25" />
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/rubik"
+                android:textStyle="bold"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="25sp"
+                tools:text="R$ 6,580.75" />
 
         </LinearLayout>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/layout_value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:contentPadding="10dp"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:layout_constraintTop_toBottomOf="@+id/details">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/currency_symbol"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:alpha="?android:secondaryContentAlpha"
-                    android:fontFamily="@font/poppins_light"
-                    android:textColor="@android:color/white"
-                    tools:text="R$" />
-
-                <TextView
-                    android:id="@+id/value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:textColor="@android:color/white"
-                    android:textSize="25sp"
-                    tools:text="6.420,00" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
+        <ImageView
+            android:id="@+id/indicator"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="10dp"
+            android:rotation="90"
+            app:tint="@android:color/holo_red_light"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:src="@drawable/ic_double_arrow"
+            tools:tint="@android:color/holo_red_light"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.cardview.widget.CardView>
+</LinearLayout>

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="acquisition_listing">#1B1B1B</color>
+    <color name="acquisition_icon">#2C2C2C</color>
+    <color name="acquisition_listing">#353535</color>
 </resources>
