@@ -20,13 +20,6 @@ class MainViewModel(private val activity: AppCompatActivity, @IdRes containerId:
     private val preferences = PreferenceManager.getDefaultSharedPreferences(activity)
     private val navController = activity.findNavController(containerId)
 
-    fun setupStatusBar() {
-        if (activity.isDark) {
-            activity.window.addFlags(FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            activity.window.decorView.systemUiVisibility
-        }
-    }
-
     fun welcome() {
         val isFirstLaunch = preferences.getBoolean("isFirstLaunch", true)
 
