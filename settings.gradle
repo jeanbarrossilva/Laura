@@ -1,5 +1,4 @@
 include ':lauracore'
-include ':lauraui'
 include ':laurafoundation'
 include ':app'
 

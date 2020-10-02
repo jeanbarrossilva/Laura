@@ -3,8 +3,8 @@ package com.jeanbarrossilva.laura
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.jeanbarrossilva.lauraui.viewmodel.MainViewModel
-import com.jeanbarrossilva.lauraui.viewmodel.factory.MainViewModelFactory
+import com.jeanbarrossilva.laura.ui.viewmodel.MainViewModel
+import com.jeanbarrossilva.laura.ui.viewmodel.factory.MainViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

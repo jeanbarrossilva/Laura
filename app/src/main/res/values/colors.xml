@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#10A9FF</color>
+    <color name="colorPrimaryDark">#0D91DC</color>
+    <color name="colorAccent">#FF5858</color>
+    <color name="acquisition_icon">#FAFAFA</color>
+    <color name="acquisition_listing">?android:colorBackground</color>
+    <color name="laura_edit_text">#F4F4F4</color>
+    <color name="laura_spinner">#ECECEC</color>
+    <color name="laura_spinner_text">#CD000000</color>
+</resources>
