@@ -6,7 +6,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.preference.DialogPreference
 import androidx.preference.PreferenceViewHolder
-import com.jeanbarrossilva.lauraui.R
+import com.jeanbarrossilva.laura.R
 
 class LauraEditTextPreference(context: Context) : DialogPreference(context) {
     var field: EditText? = null

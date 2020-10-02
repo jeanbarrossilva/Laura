@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.ui.viewmodel.AcquisitionComposerViewModel
 import com.jeanbarrossilva.laura.ui.viewmodel.factory.AcquisitionComposerViewModelFactory
-import com.jeanbarrossilva.lauraui.R
 import kotlinx.android.synthetic.main.fragment_acquisition_composer.*
 
 class AcquisitionComposerFragment : Fragment(R.layout.fragment_acquisition_composer) {

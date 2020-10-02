@@ -9,8 +9,8 @@ import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.*
+import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laurafoundation.LauraFoundation.currencies
-import com.jeanbarrossilva.lauraui.R
 import com.jeanbarrossilva.laura.ui.ext.NumberX.dp
 import java.util.Currency
 import java.util.Locale

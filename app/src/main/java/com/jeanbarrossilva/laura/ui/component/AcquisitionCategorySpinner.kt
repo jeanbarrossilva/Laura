@@ -8,8 +8,8 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.widget.AppCompatSpinner
+import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laurafoundation.data.AcquisitionCategory
-import com.jeanbarrossilva.lauraui.R
 import kotlin.reflect.full.createInstance
 
 class AcquisitionCategorySpinner @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0)

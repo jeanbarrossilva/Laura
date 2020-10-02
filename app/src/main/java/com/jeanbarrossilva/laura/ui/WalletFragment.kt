@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.jeanbarrossilva.lauraui.R
+import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.ui.viewmodel.WalletViewModel
 import com.jeanbarrossilva.laura.ui.viewmodel.factory.WalletViewModelFactory
 import kotlinx.android.synthetic.main.fragment_wallet.*

@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.ui.viewmodel.OnboardingViewModel
 import com.jeanbarrossilva.laura.ui.viewmodel.factory.OnboardingViewModelFactory
-import com.jeanbarrossilva.lauraui.R
 import kotlinx.android.synthetic.main.fragment_onboarding.*
 
 class OnboardingFragment : Fragment(R.layout.fragment_onboarding) {

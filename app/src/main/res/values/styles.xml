@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style
+        name="AppTheme"
+        parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="toolbarNavigationButtonStyle">@style/LauraToolbarNavigationButtonStyle</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">?android:colorBackground</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+
+    <style
+        name="LauraToolbarNavigationButtonStyle"
+        parent="Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="tint">@color/colorPrimary</item>
+    </style>
+
+    <style
         name="LauraButton"
         parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="android:padding">15dp</item>

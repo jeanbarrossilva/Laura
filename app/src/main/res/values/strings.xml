@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Bill</string>
+
     <!-- Toolbar labels -->
     <string name="wallet">Wallet</string>
     <string name="settings">Settings</string>

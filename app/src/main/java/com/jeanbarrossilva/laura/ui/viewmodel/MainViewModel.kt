@@ -12,7 +12,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import androidx.preference.PreferenceManager
 import com.google.android.material.navigation.NavigationView
-import com.jeanbarrossilva.lauraui.R
+import com.jeanbarrossilva.laura.R
 
 class MainViewModel(private val activity: AppCompatActivity, @IdRes containerId: Int) : ViewModel() {
     private val preferences = PreferenceManager.getDefaultSharedPreferences(activity)

@@ -3,9 +3,9 @@ package com.jeanbarrossilva.laura.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laurafoundation.data.Acquisition
 import com.jeanbarrossilva.laurafoundation.ext.AcquisitionX.formattedValue
-import com.jeanbarrossilva.lauraui.R
 import com.jeanbarrossilva.laura.ui.viewholder.AcquisitionViewHolder
 
 class AcquisitionAdapter(private val acquisitions: List<Acquisition>) : RecyclerView.Adapter<AcquisitionViewHolder>() {

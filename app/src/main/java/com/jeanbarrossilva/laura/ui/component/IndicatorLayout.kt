@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.view.children
-import com.jeanbarrossilva.lauraui.R
+import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.ui.ext.NumberX.dp
 import top.defaults.drawabletoolbox.DrawableBuilder
 

@@ -5,9 +5,9 @@ import androidx.annotation.IdRes
 import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.lauracore.WalletModel
 import com.jeanbarrossilva.laurafoundation.data.Acquisition
-import com.jeanbarrossilva.lauraui.R
 import com.jeanbarrossilva.laura.ui.WalletFragment
 import java.text.DecimalFormat
 
