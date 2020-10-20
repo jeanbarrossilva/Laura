@@ -1,78 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <ScrollView
-        android:id="@+id/scroll_main_layout_container"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="20dp"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="20dp"
+        app:contentPadding="40dp"
+        app:cardCornerRadius="@dimen/lauraRadius">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:weightSum="1">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:weightSum="1">
+                android:layout_weight="0.80">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.30"
-                    android:gravity="center">
+                <TextView
+                    android:id="@+id/titleView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wallet"
+                    android:textAllCaps="true" />
 
-                    <TextView
-                        android:id="@+id/currency_symbol"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:alpha="?android:secondaryContentAlpha"
-                        android:textSize="20sp"
-                        tools:text="R$" />
-
-                    <TextView
-                        android:id="@+id/balance"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/rubik"
-                        android:textSize="50sp"
-                        tools:text="125,780.95" />
-
-                </LinearLayout>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.7"
-                    android:paddingTop="5dp"
-                    android:elevation="2dp"
-                    android:background="@drawable/bg_acquisition_listing"
-                    tools:listitem="@layout/view_acquisition" />
+                <TextView
+                    android:id="@+id/balanceView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/rubik"
+                    android:textStyle="bold"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="30sp"
+                    tools:text="R$ 180,545.80" />
 
             </LinearLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/modifyWalletButton"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="30dp"
+                android:layout_gravity="center"
+                android:layout_weight="0.18"
+                app:icon="@drawable/ic_plus_black_symbol"
+                app:iconSize="17dp"
+                app:iconPadding="0dp"
+                app:iconGravity="textStart"
+                app:cornerRadius="100dp" />
 
-    </ScrollView>
+        </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:src="@drawable/ic_add"
-        app:tint="@android:color/white"
-        android:backgroundTint="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:layout_marginTop="50dp"
+        android:layout_marginHorizontal="30dp"
+        tools:listitem="@layout/view_acquisition" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

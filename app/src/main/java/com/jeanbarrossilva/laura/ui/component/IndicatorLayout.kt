@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.view.children
 import com.jeanbarrossilva.laura.R
-import com.jeanbarrossilva.laura.ui.ext.NumberX.dp
+import com.jeanbarrossilva.laura.ext.NumberX.dp
 import top.defaults.drawabletoolbox.DrawableBuilder
 
 class IndicatorLayout @JvmOverloads constructor(context: Context, private val attrs: AttributeSet? = null, private val defStyleAttr: Int = 0)

@@ -1,11 +1,10 @@
 package com.jeanbarrossilva.laura.ui.viewmodel.factory
 
-import androidx.annotation.IdRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.jeanbarrossilva.laura.ui.WalletFragment
+import com.jeanbarrossilva.laura.ui.fragment.WalletFragment
 
-class WalletViewModelFactory(private val fragment: WalletFragment, @IdRes private val fabId: Int) : ViewModelProvider.Factory {
+class WalletViewModelFactory(private val fragment: WalletFragment) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T =
-        modelClass.getConstructor(WalletFragment::class.java, Int::class.java).newInstance(fragment, fabId)
+        modelClass.getConstructor(WalletFragment::class.java).newInstance(fragment)
 }

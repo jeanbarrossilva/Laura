@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.viewpager2.widget.ViewPager2
 import com.jeanbarrossilva.laura.ui.component.IndicatorLayout
 import com.jeanbarrossilva.laura.ui.adapter.OnboardingAdapter
-import com.jeanbarrossilva.laura.ui.OnboardingSalaryFragment
-import com.jeanbarrossilva.laura.ui.OnboardingFragment
+import com.jeanbarrossilva.laura.ui.fragment.OnboardingSalaryFragment
+import com.jeanbarrossilva.laura.ui.fragment.OnboardingFragment
 
 class OnboardingViewModel(private val fragment: OnboardingFragment, @IdRes private val pagerId: Int) : ViewModel() {
     private val pager = fragment.view?.findViewById<ViewPager2>(pagerId)

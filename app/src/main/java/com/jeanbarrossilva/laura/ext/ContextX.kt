@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.laura.ui.ext
+package com.jeanbarrossilva.laura.ext
 
 import android.content.Context
 import android.content.res.Configuration.UI_MODE_NIGHT_MASK

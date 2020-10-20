@@ -1,14 +1,16 @@
 package com.jeanbarrossilva.lauracore
 
-import android.content.Context
-import android.content.Context.MODE_PRIVATE
-import android.icu.util.CurrencyAmount
-import com.jeanbarrossilva.laurafoundation.LauraFoundation.currencies
+import com.jeanbarrossilva.laurafoundation.data.Wallet
+import java.util.Currency
+import java.util.Locale
 
-class WalletModel(context: Context?) {
-    private val preferences = context?.getSharedPreferences("wallet", MODE_PRIVATE)
-    private val currency = currencies.find { it.currencyCode == preferences?.getString("currency", "USD") }
-    private val salary = preferences?.getFloat("salary_value", 0f) ?: 0f
+class WalletModel {
+    private val wallets = mutableListOf<Wallet>()
+    val mainWallet = Wallet(name = "Wallet", currency = Locale.getDefault().let { Currency.getInstance(it) }, balance = 0.0)
 
-    val balance = CurrencyAmount(salary, currency)
+    fun getWallets() = wallets
+
+    init {
+        if (mainWallet !in wallets) wallets.add(mainWallet)
+    }
 }

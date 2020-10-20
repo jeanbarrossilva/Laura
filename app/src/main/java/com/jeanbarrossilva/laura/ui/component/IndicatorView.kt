@@ -4,8 +4,8 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
-import com.jeanbarrossilva.laura.ui.ext.ContextX.primaryColor
-import com.jeanbarrossilva.laura.ui.ext.NumberX.dp
+import com.jeanbarrossilva.laura.ext.ContextX.primaryColor
+import com.jeanbarrossilva.laura.ext.NumberX.dp
 import top.defaults.drawabletoolbox.DrawableBuilder
 
 class IndicatorView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0)

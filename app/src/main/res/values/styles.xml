@@ -32,28 +32,35 @@
         parent="Widget.MaterialComponents.Button">
         <item name="android:padding">15dp</item>
         <item name="android:textAllCaps">false</item>
-        <item name="cornerRadius">10dp</item>
+        <item name="cornerRadius">@dimen/lauraRadius</item>
     </style>
 
     <style
-        name="LauraEditText"
+        name="LauraTextInputLayout"
+        parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeColor">@android:color/transparent</item>
+        <item name="boxCornerRadiusTopStart">@dimen/lauraRadius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/lauraRadius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/lauraRadius</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/lauraRadius</item>
+    </style>
+
+    <style
+        name="LauraTextInputEditText"
         parent="Widget.AppCompat.EditText">
-        <item name="android:padding">15dp</item>
-        <item name="android:background">@drawable/bg_laura_edit_text</item>
-    </style>
-
-    <style
-        name="LauraSpinner"
-        parent="Widget.AppCompat.Spinner">
-        <item name="android:minWidth">80dp</item>
-        <item name="android:paddingHorizontal">25dp</item>
-        <item name="android:textColor">@color/laura_spinner_text</item>
-        <item name="android:background">@drawable/bg_laura_spinner</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:backgroundTint">@color/componentOnSurface</item>
     </style>
 
     <declare-styleable name="IndicatorLayout">
         <attr name="android:color" format="color" />
         <attr name="count" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="BottomSheetDialogItem">
+        <attr name="android:icon" format="reference" />
+        <attr name="android:title" format="string" />
     </declare-styleable>
 
     <declare-styleable name="LauraEditTextPreference">

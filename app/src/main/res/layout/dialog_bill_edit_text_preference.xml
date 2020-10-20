@@ -26,7 +26,7 @@
             tools:text="Title" />
 
         <EditText
-            style="@style/LauraEditText"
+            style="@style/LauraTextInputLayout"
             android:id="@+id/field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

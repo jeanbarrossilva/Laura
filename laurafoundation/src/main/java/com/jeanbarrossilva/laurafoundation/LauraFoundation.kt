@@ -1,9 +1,13 @@
 package com.jeanbarrossilva.laurafoundation
 
-import java.util.*
+import java.text.NumberFormat
+import java.util.Currency
 
 object LauraFoundation {
     val currencies = Currency.getAvailableCurrencies().sortedBy { it.currencyCode }
 
-    infix fun currencyFor(locale: Locale) = Currency.getInstance(locale)
+    val currencyFormat = NumberFormat.getInstance().apply {
+        minimumFractionDigits = 2
+        maximumFractionDigits = 2
+    }
 }

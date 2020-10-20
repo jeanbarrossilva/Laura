@@ -1,50 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="30dp"
-    android:orientation="vertical">
-
-    <EditText
-        style="@style/LauraEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/name"
-        android:inputType="text"
-        android:importantForAutofill="no"
-        tools:text="GRU → NAP" />
-
-    <com.jeanbarrossilva.laura.ui.component.CurrencyAmountView
-        android:id="@+id/currency_amount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp" />
+    android:padding="30dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:gravity="center_vertical"
-        android:weightSum="1">
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:alpha="?android:secondaryContentAlpha"
-            android:text="@string/category"
-            android:textStyle="bold"
-            android:textAlignment="viewStart"
-            android:textAllCaps="true"
-            android:textSize="17sp" />
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/LauraTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <com.jeanbarrossilva.laura.ui.component.AcquisitionCategorySpinner
-            android:layout_width="0dp"
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/LauraTextInputEditText"
+                android:id="@+id/nameField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name"
+                tools:text="GRU → NAP" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.jeanbarrossilva.laura.ui.component.CurrencyAmountView
+            android:id="@+id/currencyAmountView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.6" />
+            android:layout_marginTop="20dp" />
 
     </LinearLayout>
 
-</LinearLayout>
+    <Button
+        style="@style/LauraHighlightedButton"
+        android:id="@+id/addButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="@string/add"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

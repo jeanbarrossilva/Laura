@@ -2,4 +2,7 @@
 <resources>
     <string name="acquisition_category_general">General</string>
     <string name="acquisition_category_flight_ticket">Flight ticket</string>
+
+    <string name="bottom_sheet_dialog_item_title_new_wallet">New Wallet</string>
+    <string name="bottom_sheet_dialog_item_title_add_quantity">Add quantity</string>
 </resources>
