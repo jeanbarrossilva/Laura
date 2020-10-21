@@ -1,6 +1,5 @@
 package com.jeanbarrossilva.laura.ext
 
-import android.widget.Button
 import com.google.android.material.textfield.TextInputEditText
 
 object TextInputEditTextX {

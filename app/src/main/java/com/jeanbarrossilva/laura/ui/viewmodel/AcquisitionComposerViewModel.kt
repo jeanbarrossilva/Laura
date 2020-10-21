@@ -1,6 +1,8 @@
 package com.jeanbarrossilva.laura.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.navigation.fragment.findNavController
+import com.jeanbarrossilva.laura.LauraApplication
 import com.jeanbarrossilva.laura.activities.MainActivity.Companion.withFab
 import com.jeanbarrossilva.laura.ext.TextInputEditTextX.onEmpty
 import com.jeanbarrossilva.laurafoundation.data.Acquisition
@@ -17,10 +19,18 @@ class AcquisitionComposerViewModel(private val fragment: AcquisitionComposerFrag
 
     fun compose() {
         fragment.addButton?.setOnClickListener {
-            listOfNotNull(fragment.nameField, fragment.currencyAmountView.amountField).onEmpty { "This field is required." }
+            listOfNotNull(fragment.nameField, fragment.currencyAmountView.amountField).onEmpty {
+                "This field is required."
+            }
 
-            val composed = Acquisition(name = fragment.nameField.text.toString(), currency = fragment.currencyAmountView.currency,
-                value = fragment.currencyAmountView.getAmount()!!)
+            val composed = Acquisition(
+                name = fragment.nameField.text.toString(),
+                currency = fragment.currencyAmountView.currency,
+                price = fragment.currencyAmountView.getAmount()!!
+            )
+
+            LauraApplication.acquisitionDatabase.dao().add(composed)
+            fragment.findNavController().popBackStack()
         }
     }
 }

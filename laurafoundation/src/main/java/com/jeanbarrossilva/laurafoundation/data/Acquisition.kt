@@ -1,6 +1,18 @@
 package com.jeanbarrossilva.laurafoundation.data
 
-import com.jeanbarrossilva.laurafoundation.data.AcquisitionCategory.GeneralAcquisition
-import java.util.*
+import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
+import java.util.Currency
+import java.util.UUID
 
-data class Acquisition(val category: AcquisitionCategory = GeneralAcquisition, val name: String, var currency: Currency, var value: Number)
+@Parcelize
+@Entity(tableName = "acquisitions")
+data class Acquisition(
+    @PrimaryKey val uuid: String = UUID.randomUUID().toString(),
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "currency") var currency: Currency,
+    @ColumnInfo(name = "price") var price: Float
+) : Parcelable

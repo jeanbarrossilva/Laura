@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laurafoundation.data.Acquisition
-import com.jeanbarrossilva.laurafoundation.ext.AcquisitionX.formattedValue
 import com.jeanbarrossilva.laura.ui.viewholder.AcquisitionViewHolder
+import com.jeanbarrossilva.laurafoundation.LauraFoundation
 
 class AcquisitionAdapter(private val acquisitions: List<Acquisition>) : RecyclerView.Adapter<AcquisitionViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -16,8 +16,7 @@ class AcquisitionAdapter(private val acquisitions: List<Acquisition>) : Recycler
     override fun onBindViewHolder(holder: AcquisitionViewHolder, position: Int) {
         acquisitions[position].let { acquisition ->
             holder.name.text = acquisition.name
-            holder.price.text = "${acquisition.currency.symbol} ${acquisition.formattedValue}"
-            holder.icon.setImageResource(acquisition.category.icon)
+            holder.price.text = "${acquisition.currency.symbol} ${LauraFoundation.currencyFormat.format(acquisition.price)}"
         }
     }
 

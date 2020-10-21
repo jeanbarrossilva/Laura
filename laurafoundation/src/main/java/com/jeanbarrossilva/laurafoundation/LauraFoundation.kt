@@ -6,7 +6,7 @@ import java.util.Currency
 object LauraFoundation {
     val currencies = Currency.getAvailableCurrencies().sortedBy { it.currencyCode }
 
-    val currencyFormat = NumberFormat.getInstance().apply {
+    val currencyFormat: NumberFormat = NumberFormat.getInstance().apply {
         minimumFractionDigits = 2
         maximumFractionDigits = 2
     }

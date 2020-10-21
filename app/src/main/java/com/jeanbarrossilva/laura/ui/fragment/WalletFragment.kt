@@ -23,6 +23,7 @@ class WalletFragment : Fragment(R.layout.fragment_wallet) {
 
         viewModel.run {
             showInfoIn(titleView, balanceView)
+            loadAcquisitionsIn(acquisitionsView)
             showWalletModifier(modifyWalletButton)
         }
     }
