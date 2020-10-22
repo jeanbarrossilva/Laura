@@ -7,6 +7,7 @@ import com.jeanbarrossilva.laura.activities.MainActivity.Companion.withFab
 import com.jeanbarrossilva.laura.ext.TextInputEditTextX.onEmpty
 import com.jeanbarrossilva.laurafoundation.data.Acquisition
 import com.jeanbarrossilva.laura.ui.fragment.AcquisitionComposerFragment
+import com.jeanbarrossilva.laurafoundation.data.Wallet
 import kotlinx.android.synthetic.main.fragment_acquisition_composer.*
 import kotlinx.android.synthetic.main.view_acquisition.*
 import kotlinx.android.synthetic.main.view_currency_amount.view.*
@@ -30,6 +31,7 @@ class AcquisitionComposerViewModel(private val fragment: AcquisitionComposerFrag
             )
 
             LauraApplication.acquisitionDatabase.dao().add(composed)
+            Wallet.main.balance.value = Wallet.main.balance.value?.minus(composed.price)
             fragment.findNavController().popBackStack()
         }
     }
