@@ -1,16 +1,31 @@
 package com.jeanbarrossilva.laurafoundation.data
 
 import android.annotation.SuppressLint
-import androidx.lifecycle.MutableLiveData
+import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 import java.util.*
 
-data class Wallet(var name: MutableLiveData<String>, val currency: MutableLiveData<Currency>, val balance: MutableLiveData<Double>) {
+@Parcelize
+@Entity(tableName = "wallets")
+data class Wallet(
+    @PrimaryKey val uuid: String = UUID.randomUUID().toString(),
+    @ColumnInfo(name = "name") var name: String,
+    @ColumnInfo(name = "currency") val currency: Currency,
+    @ColumnInfo(name = "balance") var balance: Float
+) : Parcelable {
+    override fun equals(other: Any?) = other is Wallet && other.uuid == this.uuid
+
+    override fun hashCode() = uuid.hashCode()
+
     companion object {
         @SuppressLint("ConstantLocale")
         val main = Wallet(
-            name = MutableLiveData("Wallet"),
-            currency = MutableLiveData(Locale.getDefault().let { Currency.getInstance(it) }),
-            balance = MutableLiveData(0.0)
+            name = "Main",
+            currency = Locale.getDefault().let { defaultLocale -> Currency.getInstance(defaultLocale) },
+            balance = Acquirer.salary
         )
     }
 }

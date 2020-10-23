@@ -1,17 +1,29 @@
 package com.jeanbarrossilva.laura
 
 import android.app.Application
-import com.jeanbarrossilva.laurafoundation.data.base.AcquisitionDatabase
+import androidx.lifecycle.LiveData
+import com.jeanbarrossilva.laurafoundation.data.Acquisition
+import com.jeanbarrossilva.laurafoundation.data.Wallet
+import com.jeanbarrossilva.laurafoundation.data.base.LauraDatabase
 import com.jeanbarrossilva.laurafoundation.ext.RoomDatabaseX.from
 
 class LauraApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        acquisitionDatabase = AcquisitionDatabase::class.from(this)
+
+        database = LauraDatabase::class.from(this)
+        wallets = database.walletDao().all()
+        acquisitions = database.acquisitionDao().all()
     }
 
     companion object {
-        lateinit var acquisitionDatabase: AcquisitionDatabase
+        lateinit var database: LauraDatabase
+            private set
+
+        lateinit var wallets: LiveData<List<Wallet>>
+            private set
+
+        lateinit var acquisitions: LiveData<List<Acquisition>>
             private set
     }
 }

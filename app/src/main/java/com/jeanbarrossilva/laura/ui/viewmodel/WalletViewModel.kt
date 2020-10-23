@@ -9,28 +9,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.jeanbarrossilva.laura.LauraApplication
 import com.jeanbarrossilva.laura.activities.MainActivity.Companion.withFab
 import com.jeanbarrossilva.laura.R
-import com.jeanbarrossilva.laura.ext.LiveDataX.observeFrom
 import com.jeanbarrossilva.laura.ui.adapter.AcquisitionAdapter
 import com.jeanbarrossilva.laura.ui.dialog.ScopedBottomSheetDialog
 import com.jeanbarrossilva.laura.ui.fragment.WalletFragment
-import com.jeanbarrossilva.lauracore.WalletModel
 import com.jeanbarrossilva.laurafoundation.LauraFoundation
 import com.jeanbarrossilva.laurafoundation.data.BottomSheetDialogScope.WalletModifierScope
 import com.jeanbarrossilva.laurafoundation.data.Wallet
 
 class WalletViewModel(private val fragment: WalletFragment) : ViewModel() {
-    @Suppress("Unused")
-    private val model = WalletModel()
-
-    private val acquisitions = LauraApplication.acquisitionDatabase.dao().all()
+    private val acquisitions = LauraApplication.database.acquisitionDao().all()
 
     @Suppress("SetTextI18n")
     fun showInfoIn(walletTitleView: TextView, balanceView: TextView) {
-        Wallet.main.name.observe(fragment) { walletTitleView.text = it }
-
-        listOf(Wallet.main.currency, Wallet.main.balance).observeFrom(fragment) {
-            balanceView.text = "${Wallet.main.currency.value?.symbol} ${LauraFoundation.currencyFormat.format(Wallet.main.balance.value)}"
-        }
+        walletTitleView.text = Wallet.main.name
+        balanceView.text = "${Wallet.main.currency.symbol} ${LauraFoundation.currencyFormat.format(Wallet.main.balance)}"
     }
 
     fun loadAcquisitionsIn(view: RecyclerView) {

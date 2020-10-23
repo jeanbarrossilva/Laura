@@ -1,16 +1,17 @@
 package com.jeanbarrossilva.laura.ui.viewmodel
 
 import android.view.View
-import androidx.annotation.IdRes
 import androidx.lifecycle.ViewModel
 import androidx.viewpager2.widget.ViewPager2
+import com.jeanbarrossilva.laura.R
+import com.jeanbarrossilva.laura.activities.MainActivity.Companion.withFab
 import com.jeanbarrossilva.laura.ui.component.IndicatorLayout
 import com.jeanbarrossilva.laura.ui.adapter.OnboardingAdapter
 import com.jeanbarrossilva.laura.ui.fragment.OnboardingSalaryFragment
 import com.jeanbarrossilva.laura.ui.fragment.OnboardingFragment
 
-class OnboardingViewModel(private val fragment: OnboardingFragment, @IdRes private val pagerId: Int) : ViewModel() {
-    private val pager = fragment.view?.findViewById<ViewPager2>(pagerId)
+class OnboardingViewModel(private val fragment: OnboardingFragment) : ViewModel() {
+    private val pager = fragment.view?.findViewById<ViewPager2>(R.id.pager)
     private val presentationFragments = listOf(OnboardingSalaryFragment())
 
     fun showFragments() {
@@ -27,5 +28,9 @@ class OnboardingViewModel(private val fragment: OnboardingFragment, @IdRes priva
             override fun onViewDetachedFromWindow(view: View?) {
             }
         })
+    }
+
+    init {
+        withFab { hide() }
     }
 }

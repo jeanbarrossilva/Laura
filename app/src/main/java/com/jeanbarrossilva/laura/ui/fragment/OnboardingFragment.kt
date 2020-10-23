@@ -11,7 +11,7 @@ import com.jeanbarrossilva.laura.ui.viewmodel.factory.OnboardingViewModelFactory
 import kotlinx.android.synthetic.main.fragment_onboarding.*
 
 class OnboardingFragment : Fragment(R.layout.fragment_onboarding) {
-    private val viewModel by viewModels<OnboardingViewModel> { OnboardingViewModelFactory(this, R.id.pager) }
+    private val viewModel by viewModels<OnboardingViewModel> { OnboardingViewModelFactory(fragment = this) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

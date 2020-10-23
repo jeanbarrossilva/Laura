@@ -30,8 +30,8 @@ class AcquisitionComposerViewModel(private val fragment: AcquisitionComposerFrag
                 price = fragment.currencyAmountView.getAmount()!!
             )
 
-            LauraApplication.acquisitionDatabase.dao().add(composed)
-            Wallet.main.balance.value = Wallet.main.balance.value?.minus(composed.price)
+            LauraApplication.database.acquisitionDao().add(composed)
+            Wallet.main.balance -= composed.price
             fragment.findNavController().popBackStack()
         }
     }

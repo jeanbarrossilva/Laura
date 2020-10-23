@@ -1,11 +1,10 @@
 package com.jeanbarrossilva.laura.ui.viewmodel.factory
 
-import androidx.annotation.IdRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.jeanbarrossilva.laura.ui.fragment.OnboardingFragment
 
-class OnboardingViewModelFactory(private val fragment: OnboardingFragment, @IdRes private val pagerId: Int) : ViewModelProvider.Factory {
+class OnboardingViewModelFactory(private val fragment: OnboardingFragment) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T =
-        modelClass.getConstructor(OnboardingFragment::class.java, Int::class.java).newInstance(fragment, pagerId)
+        modelClass.getConstructor(OnboardingFragment::class.java).newInstance(fragment)
 }
