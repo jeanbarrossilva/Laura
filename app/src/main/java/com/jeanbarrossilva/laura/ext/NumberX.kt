@@ -11,6 +11,4 @@ object NumberX {
     }
 
     val Number.dp get() = dimensionAs(this, COMPLEX_UNIT_DIP)
-
-    infix fun Number.percentOf(other: Number) = this.toFloat() * (other.toFloat() / 100)
 }

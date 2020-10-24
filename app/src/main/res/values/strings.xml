@@ -20,7 +20,7 @@
 
     <!-- Acquisition -->
     <string name="placeholder_flight_duration">%s – %s</string>
-    <string name="label_acquisition_icon">Acquisition category icon</string>
+    <string name="label_acquisition_icon">Acquisition icon</string>
 
     <!-- AcquisitionComposer -->
     <string name="new_acquisition">New acquisition</string>

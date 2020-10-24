@@ -28,8 +28,8 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.jeanbarrossilva.laura.ui.component.CurrencyAmountView
-            android:id="@+id/currencyAmountView"
+        <com.jeanbarrossilva.laura.ui.component.PriceFieldView
+            android:id="@+id/priceField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp" />

@@ -4,6 +4,7 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.jeanbarrossilva.laurafoundation.ext.NumberX.percentOf
 import kotlinx.android.parcel.Parcelize
 import java.util.Currency
 import java.util.UUID
@@ -15,4 +16,6 @@ data class Acquisition(
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "currency") var currency: Currency,
     @ColumnInfo(name = "price") var price: Float
-) : Parcelable
+) : Parcelable {
+    infix fun isExpensiveFor(wallet: Wallet) = price > 50 percentOf wallet.balance
+}

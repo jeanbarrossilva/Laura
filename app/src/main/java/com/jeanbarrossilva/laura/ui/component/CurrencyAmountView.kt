@@ -51,8 +51,7 @@ class CurrencyAmountView : LinearLayout {
             true
         }
 
-        currencyButton.setOnClickListener {
-            currenciesPopup.show()
-        }
+        currencyButton.text = currency.symbol
+        currencyButton.setOnClickListener { currenciesPopup.show() }
     }
 }
