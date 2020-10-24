@@ -3,13 +3,10 @@ package com.jeanbarrossilva.laura.ext
 import com.google.android.material.textfield.TextInputEditText
 
 object TextInputEditTextX {
-    fun List<TextInputEditText>.onEmpty(errorMessage: (TextInputEditText) -> String) {
-        forEach { field ->
-            field.text?.ifEmpty {
-                field.error = errorMessage(field)
-            }
+    fun TextInputEditText.required(errorMessage: (TextInputEditText) -> String) {
+        text?.ifEmpty {
+            error = errorMessage(this)
+            return
         }
-
-        return
     }
 }

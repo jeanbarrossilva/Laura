@@ -15,7 +15,7 @@ class WalletFragment : Fragment(R.layout.fragment_wallet) {
 
     override fun onResume() {
         super.onResume()
-        withFab { show() }
+        withFab(R.drawable.ic_add) { show() }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

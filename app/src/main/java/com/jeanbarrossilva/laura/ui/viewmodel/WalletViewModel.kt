@@ -36,7 +36,7 @@ class WalletViewModel(private val fragment: WalletFragment) : ViewModel() {
     }
 
     init {
-        withFab {
+        withFab(R.drawable.ic_add) {
             setOnClickListener { fragment.findNavController().navigate(R.id.action_walletFragment_to_acquisitionComposerFragment) }
         }
     }

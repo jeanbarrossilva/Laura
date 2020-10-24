@@ -3,6 +3,7 @@ package com.jeanbarrossilva.laura.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.annotation.DrawableRes
 import com.github.javiersantos.piracychecker.piracyChecker
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.jeanbarrossilva.laura.R
@@ -36,6 +37,11 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private lateinit var companionFab: FloatingActionButton
 
-        fun withFab(block: FloatingActionButton.() -> Unit) = if (this::companionFab.isInitialized) block(companionFab) else null
+        fun withFab(@DrawableRes imageRes: Int? = null, block: (FloatingActionButton.() -> Unit)? = null) {
+            if (this::companionFab.isInitialized) {
+                imageRes?.let { companionFab.setImageResource(it) }
+                block?.invoke(companionFab)
+            }
+        }
     }
 }
