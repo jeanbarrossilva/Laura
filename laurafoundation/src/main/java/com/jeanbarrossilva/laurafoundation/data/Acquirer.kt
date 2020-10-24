@@ -10,8 +10,16 @@ object Acquirer {
     var salary = 0f
         private set
 
+    var currentWallet = Wallet.main
+        private set
+
     fun setSalary(context: Context, value: Float) {
         salary = value
-        preferences(context).edit { putFloat("salary", value) }
+        preferences(context).edit { putFloat("salary", salary) }
+    }
+
+    fun setCurrentWallet(context: Context, wallet: Wallet) {
+        currentWallet = wallet
+        preferences(context).edit { putString("currentWallet", currentWallet.uuid) }
     }
 }

@@ -13,16 +13,16 @@ import com.jeanbarrossilva.laura.ui.adapter.AcquisitionAdapter
 import com.jeanbarrossilva.laura.ui.dialog.ScopedBottomSheetDialog
 import com.jeanbarrossilva.laura.ui.fragment.WalletFragment
 import com.jeanbarrossilva.laurafoundation.LauraFoundation
+import com.jeanbarrossilva.laurafoundation.data.Acquirer
 import com.jeanbarrossilva.laurafoundation.data.BottomSheetDialogScope.WalletModifierScope
-import com.jeanbarrossilva.laurafoundation.data.Wallet
 
 class WalletViewModel(private val fragment: WalletFragment) : ViewModel() {
     private val acquisitions = LauraApplication.database.acquisitionDao().all()
 
     @Suppress("SetTextI18n")
     fun showInfoIn(walletTitleView: TextView, balanceView: TextView) {
-        walletTitleView.text = Wallet.main.name
-        balanceView.text = "${Wallet.main.currency.symbol} ${LauraFoundation.currencyFormat.format(Wallet.main.balance)}"
+        walletTitleView.text = Acquirer.currentWallet.name
+        balanceView.text = "${Acquirer.currentWallet.currency.symbol} ${LauraFoundation.currencyFormat.format(Acquirer.currentWallet.balance)}"
     }
 
     fun loadAcquisitionsIn(view: RecyclerView) {
