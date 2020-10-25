@@ -7,24 +7,18 @@
     android:layout_height="wrap_content"
     android:weightSum="1">
 
-    <TextView
-        android:id="@+id/currencyView"
+    <FrameLayout
+        android:id="@+id/currencyLayout"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="0.25"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:translationY="1.5dp"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:textColor="?android:textColorPrimary"
-        android:textSize="20sp" />
+        android:layout_weight="0.3"
+        android:layout_gravity="center" />
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/LauraTextInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.75"
+        android:layout_weight="0.70"
         android:layout_marginStart="15dp">
 
         <com.google.android.material.textfield.TextInputEditText

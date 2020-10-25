@@ -5,5 +5,5 @@ import android.util.TypedValue
 import androidx.annotation.AttrRes
 
 object ThemeX {
-    fun Theme.attr(@AttrRes res: Int) = TypedValue().apply typedValue@{ resolveAttribute(res, this@typedValue, true) }
+    fun Theme.attr(@AttrRes res: Int) = TypedValue().apply { resolveAttribute(res, this, true) }
 }
