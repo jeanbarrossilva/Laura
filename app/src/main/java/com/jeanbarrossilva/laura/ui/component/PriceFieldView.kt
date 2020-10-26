@@ -10,7 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.afollestad.materialdialogs.utils.MDUtil.maybeSetTextColor
 import com.jeanbarrossilva.laura.R
-import kotlinx.android.synthetic.main.view_price_field.view.currencyLayout
+import kotlinx.android.synthetic.main.view_price_field.view.*
 import java.util.Currency
 import java.util.Locale
 
@@ -32,6 +32,12 @@ open class PriceFieldView : LinearLayout {
     var currency: Currency = Locale.getDefault().let { defaultLocale ->
         Currency.getInstance(defaultLocale)
     }
+
+    var amount = amountField.text.toString().toFloatOrNull()
+        set(value) {
+            field = value
+            value.toString().let { amountField.setText(it) }
+        }
 
     constructor(context: Context) : super(context) {
         start()

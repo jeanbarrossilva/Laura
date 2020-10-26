@@ -18,4 +18,6 @@ data class Acquisition(
     @ColumnInfo(name = "price") var price: Float
 ) : Parcelable {
     infix fun isExpensiveFor(wallet: Wallet) = price > 50 percentOf wallet.balance
+
+    infix fun isInsaneFor(wallet: Wallet) = price > wallet.balance
 }
