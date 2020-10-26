@@ -10,8 +10,8 @@ android {
         applicationId 'com.jeanbarrossilva.laura'
         minSdkVersion 30
         targetSdkVersion 30
-        versionCode 1
-        versionName '1.0'
+        versionCode app_version_code
+        versionName app_version_name
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
