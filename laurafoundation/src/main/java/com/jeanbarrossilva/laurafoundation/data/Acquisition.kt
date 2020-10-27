@@ -12,7 +12,7 @@ import java.util.UUID
 @Parcelize
 @Entity(tableName = "acquisitions")
 data class Acquisition(
-    @PrimaryKey val uuid: String = UUID.randomUUID().toString(),
+    @PrimaryKey(autoGenerate = true) val id: Long = 0L,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "currency") var currency: Currency,
     @ColumnInfo(name = "price") var price: Float

@@ -12,6 +12,9 @@ interface AcquisitionDao {
     @Query("SELECT * FROM acquisitions")
     fun all(): LiveData<List<Acquisition>>
 
+    @Query("SELECT * FROM acquisitions WHERE :id LIKE id")
+    fun identifiedAs(id: Long): Acquisition
+
     @Insert
     fun add(acquisition: Acquisition)
 
