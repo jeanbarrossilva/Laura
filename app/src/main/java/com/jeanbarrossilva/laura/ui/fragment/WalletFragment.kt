@@ -18,6 +18,11 @@ class WalletFragment : Fragment(R.layout.fragment_wallet) {
         withFab(R.drawable.ic_add) { show() }
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        viewModel.acquisitionTracker.onSaveInstanceState(outState)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -25,6 +30,8 @@ class WalletFragment : Fragment(R.layout.fragment_wallet) {
             showInfoIn(titleView, balanceView)
             loadAcquisitionsIn(acquisitionsView)
             showWalletModifier(modifyWalletButton)
+
+            savedInstanceState?.let { acquisitionTracker.onRestoreInstanceState(it) }
         }
     }
 }
