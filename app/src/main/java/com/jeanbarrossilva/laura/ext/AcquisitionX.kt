@@ -6,12 +6,12 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.jeanbarrossilva.laura.LauraApplication
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laurafoundation.data.Acquirer
-import com.jeanbarrossilva.laurafoundation.data.Acquisition
+import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence.Acquisition
 import com.jeanbarrossilva.laurafoundation.data.Wallet
 
 object AcquisitionX {
     private fun Acquisition.register(fragment: Fragment? = null) {
-        LauraApplication.database.acquisitionDao().add(this).also { Acquirer.currentWallet.balance -= price }
+        LauraApplication.database.balanceInfluenceDao().add(this).also { Acquirer.currentWallet.balance -= amount }
         fragment?.findNavController()?.popBackStack()
     }
 

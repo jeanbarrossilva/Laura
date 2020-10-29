@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.jeanbarrossilva.laura.activities.MainActivity.Companion.withFab
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.ui.viewmodel.WalletViewModel
@@ -15,7 +16,11 @@ class WalletFragment : Fragment(R.layout.fragment_wallet) {
 
     override fun onResume() {
         super.onResume()
-        withFab(R.drawable.ic_add) { show() }
+
+        withFab(R.drawable.ic_add) {
+            setOnClickListener { findNavController().navigate(R.id.action_walletFragment_to_acquisitionComposerFragment) }
+            show()
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

@@ -1,10 +1,10 @@
 package com.jeanbarrossilva.laura.ui.keyprovider
 
 import androidx.recyclerview.selection.ItemKeyProvider
-import com.jeanbarrossilva.laurafoundation.data.Acquisition
+import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
 
-class AcquisitionKeyProvider(private val acquisitions: List<Acquisition>, scope: Int) : ItemKeyProvider<Acquisition>(scope) {
-    override fun getKey(position: Int) = acquisitions[position]
+class AcquisitionKeyProvider(private val influences: List<BalanceInfluence>, scope: Int) : ItemKeyProvider<Long>(scope) {
+    override fun getKey(position: Int) = influences[position].id
 
-    override fun getPosition(key: Acquisition) = acquisitions.indexOf(key)
+    override fun getPosition(key: Long) = influences.find { acquisition -> key == acquisition.id }.let { influences.indexOf(it) }
 }

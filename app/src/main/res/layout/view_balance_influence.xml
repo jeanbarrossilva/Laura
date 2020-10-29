@@ -68,13 +68,13 @@
         android:layout_gravity="center_vertical"
         android:layout_marginEnd="10dp"
         android:layout_weight="0.10"
-        android:rotation="90"
         android:scaleType="fitCenter"
+        android:src="@drawable/ic_double_arrow"
         app:tint="@android:color/holo_red_light"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:src="@drawable/ic_double_arrow"
+        tools:rotation="90"
         tools:tint="@android:color/holo_red_light" />
 
 </LinearLayout>

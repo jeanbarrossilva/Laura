@@ -47,12 +47,13 @@ class MainViewModel(private val activity: AppCompatActivity) : ViewModel() {
     fun welcome() {
         val isFirstLaunch = preferences.getBoolean("isFirstLaunch", true)
 
-        if (DEBUG || isFirstLaunch) {
-            navController.navigate(R.id.action_global_onboardingFragment)
-            preferences.edit { putBoolean("isFirstLaunch", false) }
+        when {
+            DEBUG || isFirstLaunch -> {
+                navController.navigate(R.id.action_global_onboardingFragment)
+                preferences.edit { putBoolean("isFirstLaunch", false) }
+            }
+            isFirstLaunch -> LauraApplication.database.walletDao().add(Wallet.main)
         }
-
-        if (isFirstLaunch) LauraApplication.database.walletDao().add(Wallet.main)
     }
 
     fun setupActionBar(view: Toolbar, navigationView: NavigationView, drawer: DrawerLayout) {

@@ -33,12 +33,6 @@ open class PriceFieldView : LinearLayout {
         Currency.getInstance(defaultLocale)
     }
 
-    var amount: Float? = null
-        set(value) {
-            field = value
-            value?.toString()?.let { amountField.setText(it) }
-        }
-
     constructor(context: Context) : super(context) {
         start()
     }
@@ -52,18 +46,15 @@ open class PriceFieldView : LinearLayout {
         start(attrs, defStyleAttr)
     }
 
+    fun getAmount() = amountField.text.toString().toFloatOrNull()
+
     private fun start(attrs: AttributeSet? = null, defStyleAttr: Int = 0) {
         inflate(context, R.layout.view_price_field, this)
         initViews(attrs, defStyleAttr)
-        initVariables()
         currencyLayout.addView(currencyView)
     }
 
     private fun initViews(attrs: AttributeSet?, defStyleAttr: Int) {
         currencyView = TextView(context, attrs, defStyleAttr).apply { textSize = 20f }
-    }
-
-    private fun initVariables() {
-        amount = amountField.text.toString().toFloatOrNull()
     }
 }

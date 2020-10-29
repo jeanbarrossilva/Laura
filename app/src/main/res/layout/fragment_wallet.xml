@@ -80,7 +80,7 @@
             android:layout_marginTop="50dp"
             android:isScrollContainer="false"
             android:overScrollMode="never"
-            tools:listitem="@layout/view_acquisition" />
+            tools:listitem="@layout/view_balance_influence" />
 
     </LinearLayout>
 

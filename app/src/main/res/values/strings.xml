@@ -17,6 +17,8 @@
     <string name="add_quantity">Add quantity</string>
     <string name="new_wallet">New wallet</string>
     <string name="label_add_quantity_icon">Dollar symbol icon</string>
+    <string name="dialog_add_quantity_message">Quantity to be added to the balance of your %s wallet.</string>
+    <string name="dialog_add_quantity_field_hint">Quantity</string>
 
     <!-- Acquisition -->
     <string name="placeholder_flight_duration">%s – %s</string>

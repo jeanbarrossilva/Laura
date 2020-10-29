@@ -4,6 +4,7 @@ buildscript {
         app_version_name = '1.0.0-alpha01'
 
         kotlin_version = '1.4.10'
+        material_dialogs_version = '3.3.0'
         navigation_version = '2.3.1'
         room_version = '2.2.5'
     }

@@ -2,9 +2,11 @@ package com.jeanbarrossilva.laura
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import com.jeanbarrossilva.laurafoundation.data.Acquisition
+import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
 import com.jeanbarrossilva.laurafoundation.data.Wallet
 import com.jeanbarrossilva.laurafoundation.data.base.LauraDatabase
+import com.jeanbarrossilva.laurafoundation.data.dao.BalanceInfluenceDao
+import com.jeanbarrossilva.laurafoundation.data.dao.WalletDao
 import com.jeanbarrossilva.laurafoundation.ext.RoomDatabaseX.from
 
 class LauraApplication : Application() {
@@ -13,7 +15,7 @@ class LauraApplication : Application() {
 
         database = LauraDatabase::class.from(this)
         wallets = database.walletDao().all()
-        acquisitions = database.acquisitionDao().all()
+        balanceInfluences = database.balanceInfluenceDao().all()
     }
 
     companion object {
@@ -23,7 +25,6 @@ class LauraApplication : Application() {
         lateinit var wallets: LiveData<List<Wallet>>
             private set
 
-        lateinit var acquisitions: LiveData<List<Acquisition>>
-            private set
+        lateinit var balanceInfluences: LiveData<List<BalanceInfluence>>
     }
 }
