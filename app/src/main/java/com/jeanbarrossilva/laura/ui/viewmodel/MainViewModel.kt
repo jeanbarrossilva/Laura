@@ -1,6 +1,5 @@
 package com.jeanbarrossilva.laura.ui.viewmodel
 
-import android.content.Context.MODE_PRIVATE
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.edit
@@ -29,7 +28,7 @@ class MainViewModel(private val activity: AppCompatActivity) : ViewModel() {
     fun piracyCheck() {
         if (!DEBUG) {
             activity.piracyChecker {
-                saveResultToSharedPreferences(activity.getPreferences(MODE_PRIVATE), "isLegit")
+                saveResultToSharedPreferences(preferences, "isLegit")
                 enableGooglePlayLicensing(Key.googlePlayLicense)
                 enableSigningCertificate(Key.certificate)
                 enableInstallerId(GOOGLE_PLAY)
@@ -45,14 +44,9 @@ class MainViewModel(private val activity: AppCompatActivity) : ViewModel() {
     }
 
     fun welcome() {
-        val isFirstLaunch = preferences.getBoolean("isFirstLaunch", true)
-
-        when {
-            DEBUG || isFirstLaunch -> {
-                navController.navigate(R.id.action_global_onboardingFragment)
-                preferences.edit { putBoolean("isFirstLaunch", false) }
-            }
-            isFirstLaunch -> LauraApplication.database.walletDao().add(Wallet.main)
+        ifIsFirstLaunch {
+            navController.navigate(R.id.action_global_onboardingFragment)
+            LauraApplication.database.walletDao().add(Wallet.main)
         }
     }
 
@@ -60,7 +54,16 @@ class MainViewModel(private val activity: AppCompatActivity) : ViewModel() {
         setupToolbar(view, drawer)
         navigationView.setupWithNavController(navController)
     }
+    
+    private fun ifIsFirstLaunch(block: () -> Unit) {
+        val isIt = preferences.getBoolean("isFirstLaunch", true)
 
+        if (isIt) {
+            block()
+            preferences.edit { putBoolean("isFirstLaunch", false) }
+        }
+    }
+    
     private fun setupToolbar(view: Toolbar, drawer: DrawerLayout) {
         activity.setSupportActionBar(view)
         view.setNavigationOnClickListener { drawer.open() }
