@@ -13,6 +13,7 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.input.input
 import com.jeanbarrossilva.laura.LauraApplication
 import com.jeanbarrossilva.laura.R
+import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.register
 import com.jeanbarrossilva.laura.ui.adapter.BalanceInfluenceAdapter
 import com.jeanbarrossilva.laura.ui.detailslookup.AcquisitionDetailsLookup
 import com.jeanbarrossilva.laura.ui.dialog.ScopedBottomSheetDialog
@@ -65,10 +66,9 @@ class WalletViewModel(private val fragment: WalletFragment) : ViewModel() {
                     message(text = context.getString(R.string.dialog_add_quantity_message).format(Acquirer.currentWallet.name))
 
                     input(hintRes = R.string.dialog_add_quantity_field_hint, inputType = TYPE_CLASS_NUMBER) { _, inserted ->
-                        val quantity = inserted.toString().toFloat()
-                        val rise = BalanceInfluence.Rise(context = context, walletId = Acquirer.currentWallet.uuid, amount = quantity)
-
-                        Acquirer.currentWallet.balance =+ quantity
+                        inserted.toString().toFloat().let { quantity ->
+                            BalanceInfluence.Rise(context = context, walletId = Acquirer.currentWallet.uuid, amount = quantity).register()
+                        }
                     }
 
                     positiveButton(android.R.string.ok) { dismiss() }

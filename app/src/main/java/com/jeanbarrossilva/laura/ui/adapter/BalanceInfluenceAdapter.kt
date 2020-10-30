@@ -23,7 +23,7 @@ class BalanceInfluenceAdapter(val influences: List<BalanceInfluence>) : Recycler
     override fun onBindViewHolder(holder: BalanceInfluenceViewHolder, position: Int) {
         influences[position].let { influence ->
             holder.name.text = influence.name
-            holder.price.text = "${influence.currency.symbol} ${LauraFoundation.currencyFormat.format(influence.amount)}"
+            holder.price.text = "${influence.wallet.currency.symbol} ${LauraFoundation.currencyFormat.format(influence.amount)}"
             holder.icon.setImageResource(influence.icon)
 
             with(holder.indicator) {
