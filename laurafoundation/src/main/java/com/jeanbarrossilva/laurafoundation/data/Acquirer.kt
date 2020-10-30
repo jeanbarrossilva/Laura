@@ -20,6 +20,6 @@ object Acquirer {
 
     fun setCurrentWallet(context: Context, wallet: Wallet) {
         currentWallet = wallet
-        preferences(context).edit { putString("currentWallet", currentWallet.uuid) }
+        preferences(context).edit { putLong("currentWallet", currentWallet.id) }
     }
 }

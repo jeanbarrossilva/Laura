@@ -21,7 +21,7 @@ class AcquisitionComposerViewModel(private val fragment: AcquisitionComposerFrag
                     field.required { "This field is required." }
                 }
 
-                Acquisition(walletId = Acquirer.currentWallet.uuid, name = nameField.text.toString(), amount = priceField.getAmount()!!)
+                Acquisition(walletId = Acquirer.currentWallet.id, name = nameField.text.toString(), amount = priceField.getAmount()!!)
                     .let { if (it.isExpensive) it.warn(context) { it.registerAndPop(fragment) } else it.registerAndPop(fragment) }
             }
         }

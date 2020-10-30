@@ -67,7 +67,7 @@ class WalletViewModel(private val fragment: WalletFragment) : ViewModel() {
 
                     input(hintRes = R.string.dialog_add_quantity_field_hint, inputType = TYPE_CLASS_NUMBER) { _, inserted ->
                         inserted.toString().toFloat().let { quantity ->
-                            BalanceInfluence.Rise(context = context, walletId = Acquirer.currentWallet.uuid, amount = quantity).register()
+                            BalanceInfluence.Rise(context = context, walletId = Acquirer.currentWallet.id, amount = quantity).register()
                         }
                     }
 

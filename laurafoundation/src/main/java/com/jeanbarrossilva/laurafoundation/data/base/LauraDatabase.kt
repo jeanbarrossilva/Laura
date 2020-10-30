@@ -9,7 +9,7 @@ import com.jeanbarrossilva.laurafoundation.data.converter.CurrencyTypeConverter
 import com.jeanbarrossilva.laurafoundation.data.dao.BalanceInfluenceDao
 import com.jeanbarrossilva.laurafoundation.data.dao.WalletDao
 
-@Database(entities = [Wallet::class, BalanceInfluence::class], version = 7, exportSchema = false)
+@Database(entities = [Wallet::class, BalanceInfluence::class], version = 9, exportSchema = false)
 @TypeConverters(CurrencyTypeConverter::class)
 abstract class LauraDatabase : RoomDatabase() {
     abstract fun walletDao(): WalletDao
