@@ -12,6 +12,9 @@ interface WalletDao {
     @Query("SELECT * FROM wallets")
     fun all(): LiveData<List<Wallet>>
 
+    @Query("SELECT * FROM wallets WHERE uuid LIKE :uuid")
+    fun identifiedAs(uuid: String): Wallet
+
     @Insert
     fun add(wallet: Wallet)
 

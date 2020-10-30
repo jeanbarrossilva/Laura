@@ -4,7 +4,6 @@ import android.text.InputType.TYPE_CLASS_NUMBER
 import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.ViewModel
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.selection.ItemKeyProvider.SCOPE_MAPPED
 import androidx.recyclerview.selection.SelectionPredicates.createSelectAnything
 import androidx.recyclerview.selection.SelectionTracker
@@ -13,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.input.input
 import com.jeanbarrossilva.laura.LauraApplication
-import com.jeanbarrossilva.laura.activities.MainActivity.Companion.withFab
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.ui.adapter.BalanceInfluenceAdapter
 import com.jeanbarrossilva.laura.ui.detailslookup.AcquisitionDetailsLookup
@@ -68,13 +66,7 @@ class WalletViewModel(private val fragment: WalletFragment) : ViewModel() {
 
                     input(hintRes = R.string.dialog_add_quantity_field_hint, inputType = TYPE_CLASS_NUMBER) { _, inserted ->
                         val quantity = inserted.toString().toFloat()
-
-                        val rise = BalanceInfluence.Rise(
-                            context = context,
-                            walletId = Acquirer.currentWallet.uuid,
-                            currency = Acquirer.currentWallet.currency,
-                            amount = quantity
-                        )
+                        val rise = BalanceInfluence.Rise(context = context, walletId = Acquirer.currentWallet.uuid, amount = quantity)
 
                         Acquirer.currentWallet.balance =+ quantity
                     }

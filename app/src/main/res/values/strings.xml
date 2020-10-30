@@ -32,8 +32,6 @@
     <string name="dialog_title_expensive_acquisition">Expensive acquisition</string>
     <string name="dialog_message_expensive_acquisition">This acquisition is expensive for your %s wallet. Are you sure you want to
         register?</string>
-    <string name="dialog_message_very_expensive_acquisition">This acquisition is expensive for your %s wallet and will let it with a
-        negative balance. Are you sure you want to register?</string>
 
     <!-- Preferences -->
     <string name="salary">Salary</string>

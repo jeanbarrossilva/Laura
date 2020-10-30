@@ -1,38 +1,30 @@
 package com.jeanbarrossilva.laura.ext
 
+import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.afollestad.materialdialogs.MaterialDialog
-import com.jeanbarrossilva.laura.LauraApplication
 import com.jeanbarrossilva.laura.R
-import com.jeanbarrossilva.laurafoundation.data.Acquirer
+import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.register
+import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.wallet
 import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence.Acquisition
-import com.jeanbarrossilva.laurafoundation.data.Wallet
+import com.jeanbarrossilva.laurafoundation.ext.NumberX.percentOf
 
 object AcquisitionX {
-    private fun Acquisition.register(fragment: Fragment? = null) {
-        LauraApplication.database.balanceInfluenceDao().add(this).also { Acquirer.currentWallet.balance -= amount }
-        fragment?.findNavController()?.popBackStack()
+    val Acquisition.isExpensive get() = amount > 50 percentOf wallet.balance
+
+    fun Acquisition.registerAndPop(fragment: Fragment) {
+        register()
+        fragment.findNavController().popBackStack()
     }
 
-    fun Acquisition.registerOrWarnIfExpensiveFor(wallet: Wallet = Acquirer.currentWallet, fragment: Fragment? = null) {
-        if (this isExpensiveFor wallet || this isInsaneFor wallet) {
-            val message = when {
-                this isExpensiveFor wallet -> R.string.dialog_message_expensive_acquisition
-                this isInsaneFor wallet -> R.string.dialog_message_very_expensive_acquisition
-                else -> 0
-            }
+    fun Acquisition.warn(context: Context, onConfirm: () -> Unit) {
+        MaterialDialog(context).show {
+            title(text = context.getString(R.string.dialog_title_expensive_acquisition).format(wallet.name))
+            message(text = context.getString(R.string.dialog_message_expensive_acquisition).format(wallet.name))
 
-            fragment?.context?.let {
-                MaterialDialog(it).show {
-                    title(text = it.getString(R.string.dialog_title_expensive_acquisition).format(wallet.name))
-                    message(message)
-
-                    positiveButton(android.R.string.ok) { register(fragment) }
-                    negativeButton(android.R.string.cancel) { dismiss() }
-                }
-            }
-        } else
-            register(fragment)
+            positiveButton(android.R.string.ok) { onConfirm() }
+            negativeButton(android.R.string.cancel) { dismiss() }
+        }
     }
 }
