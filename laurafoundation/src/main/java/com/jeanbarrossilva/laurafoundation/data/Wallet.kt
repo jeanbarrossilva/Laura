@@ -1,6 +1,5 @@
 package com.jeanbarrossilva.laurafoundation.data
 
-import android.annotation.SuppressLint
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -17,11 +16,12 @@ data class Wallet(
     @ColumnInfo(name = "balance") var balance: Float
 ) : Parcelable {
     companion object {
-        @SuppressLint("ConstantLocale")
+        @Suppress("ConstantLocale")
         val main = Wallet(
+            id = 1,
             name = "Main",
             currency = Locale.getDefault().let { defaultLocale -> Currency.getInstance(defaultLocale) },
-            balance = Acquirer.salary
+            balance = 0f
         )
     }
 }

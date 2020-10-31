@@ -16,9 +16,9 @@ import com.github.javiersantos.piracychecker.piracyChecker
 import com.google.android.material.navigation.NavigationView
 import com.jeanbarrossilva.laura.BuildConfig.DEBUG
 import com.jeanbarrossilva.laura.LauraApplication
+import com.jeanbarrossilva.laura.LauraApplication.Companion.acquirer
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laurafoundation.Key
-import com.jeanbarrossilva.laurafoundation.data.Acquirer
 import com.jeanbarrossilva.laurafoundation.data.Wallet
 
 class MainViewModel(private val activity: AppCompatActivity) : ViewModel() {
@@ -47,6 +47,7 @@ class MainViewModel(private val activity: AppCompatActivity) : ViewModel() {
         ifIsFirstLaunch {
             navController.navigate(R.id.action_global_onboardingFragment)
             LauraApplication.database.walletDao().add(Wallet.main)
+            acquirer.currentWalletId = Wallet.main.id
         }
     }
 
@@ -69,9 +70,5 @@ class MainViewModel(private val activity: AppCompatActivity) : ViewModel() {
         view.setNavigationOnClickListener { drawer.open() }
         view.menu.forEach { if (it.itemId == R.id.walletFragment) it.isChecked = true }
         AppBarConfiguration(navController.graph, drawer).let { config -> view.setupWithNavController(navController, config) }
-    }
-
-    init {
-        if (DEBUG) Acquirer.setSalary(activity, value = 5000f)
     }
 }

@@ -12,7 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.input.input
 import com.jeanbarrossilva.laura.LauraApplication
+import com.jeanbarrossilva.laura.LauraApplication.Companion.acquirer
 import com.jeanbarrossilva.laura.R
+import com.jeanbarrossilva.laura.ext.AcquirerX.currentWallet
 import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.register
 import com.jeanbarrossilva.laura.ui.adapter.BalanceInfluenceAdapter
 import com.jeanbarrossilva.laura.ui.detailslookup.AcquisitionDetailsLookup
@@ -21,7 +23,6 @@ import com.jeanbarrossilva.laura.ui.fragment.WalletFragment
 import com.jeanbarrossilva.laura.ui.keyprovider.AcquisitionKeyProvider
 import com.jeanbarrossilva.laura.ui.manager.LauraLinearLayoutManager
 import com.jeanbarrossilva.laurafoundation.LauraFoundation
-import com.jeanbarrossilva.laurafoundation.data.Acquirer
 import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
 import com.jeanbarrossilva.laurafoundation.data.BottomSheetDialogItem.AddQuantityItem
 import com.jeanbarrossilva.laurafoundation.data.BottomSheetDialogScope.WalletModifierScope
@@ -31,30 +32,34 @@ class WalletViewModel(private val fragment: WalletFragment) : ViewModel() {
 
     @Suppress("SetTextI18n")
     fun showInfoIn(titleView: TextView, balanceView: TextView) {
-        titleView.text = Acquirer.currentWallet.name
-        balanceView.text = "${Acquirer.currentWallet.currency.symbol} ${LauraFoundation.currencyFormat.format(Acquirer.currentWallet.balance)}"
+        with(acquirer.currentWallet) {
+            titleView.text = name
+            balanceView.text = "${currency.symbol} ${LauraFoundation.currencyFormat.format(balance)}"
+        }
     }
 
     fun loadAcquisitionsIn(view: RecyclerView) {
         view.layoutManager = LauraLinearLayoutManager(view.context)
 
-        LauraApplication.balanceInfluences.observe(fragment) { influences ->
-            view.adapter = BalanceInfluenceAdapter(influences)
+        LauraApplication.balanceInfluences.observe(fragment) {
+            it.reversed().let { influences ->
+                view.adapter = BalanceInfluenceAdapter(influences)
 
-            SelectionTracker
-                .Builder(
-                    "BalanceInfluenceSelection",
-                    view,
-                    AcquisitionKeyProvider(influences, SCOPE_MAPPED),
-                    AcquisitionDetailsLookup(view),
-                    StorageStrategy.createLongStorage()
-                )
-                .withSelectionPredicate(createSelectAnything())
-                .build()
-                .let { selectionTracker ->
-                    acquisitionTracker = selectionTracker
-                    (view.adapter as? BalanceInfluenceAdapter)?.tracker = selectionTracker
-                }
+                SelectionTracker
+                    .Builder(
+                        "BalanceInfluenceSelection",
+                        view,
+                        AcquisitionKeyProvider(influences, SCOPE_MAPPED),
+                        AcquisitionDetailsLookup(view),
+                        StorageStrategy.createLongStorage()
+                    )
+                    .withSelectionPredicate(createSelectAnything())
+                    .build()
+                    .let { selectionTracker ->
+                        acquisitionTracker = selectionTracker
+                        (view.adapter as? BalanceInfluenceAdapter)?.tracker = selectionTracker
+                    }
+            }
         }
     }
 
@@ -63,15 +68,19 @@ class WalletViewModel(private val fragment: WalletFragment) : ViewModel() {
             if (selectedItem is AddQuantityItem)
                 MaterialDialog(button.context).show {
                     title(R.string.add_quantity)
-                    message(text = context.getString(R.string.dialog_add_quantity_message).format(Acquirer.currentWallet.name))
+                    message(text = context.getString(R.string.dialog_add_quantity_message).format(acquirer.currentWallet.name))
 
                     input(hintRes = R.string.dialog_add_quantity_field_hint, inputType = TYPE_CLASS_NUMBER) { _, inserted ->
                         inserted.toString().toFloat().let { quantity ->
-                            BalanceInfluence.Rise(context = context, walletId = Acquirer.currentWallet.id, amount = quantity).register()
+                            BalanceInfluence.Rise(context = context, walletId = acquirer.currentWallet.id, amount = quantity).register()
                         }
                     }
 
-                    positiveButton(android.R.string.ok) { dismiss() }
+                    positiveButton(android.R.string.ok) {
+                        dismiss()
+                        fragment.onResume()
+                    }
+
                     negativeButton(android.R.string.cancel) { dismiss() }
                 }
         }

@@ -1,10 +1,7 @@
 package com.jeanbarrossilva.laurafoundation.data.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.jeanbarrossilva.laurafoundation.data.Wallet
 
 @Dao
@@ -14,6 +11,9 @@ interface WalletDao {
 
     @Query("SELECT * FROM wallets WHERE id LIKE :id")
     fun identifiedAs(id: Long): Wallet
+
+    @Update
+    fun update(wallet: Wallet)
 
     @Insert
     fun add(wallet: Wallet)

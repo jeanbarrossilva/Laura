@@ -1,7 +1,8 @@
 package com.jeanbarrossilva.laura.ext
 
 import com.jeanbarrossilva.laura.LauraApplication
-import com.jeanbarrossilva.laurafoundation.data.Acquirer
+import com.jeanbarrossilva.laura.LauraApplication.Companion.acquirer
+import com.jeanbarrossilva.laura.ext.AcquirerX.currentWallet
 import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
 
 object BalanceInfluenceX {
@@ -9,6 +10,10 @@ object BalanceInfluenceX {
 
     fun BalanceInfluence.register() {
         LauraApplication.database.balanceInfluenceDao().add(this)
-        with(Acquirer.currentWallet) { if (decreases) balance -= amount else balance += amount }
+
+        with(acquirer.currentWallet) {
+            if (decreases) balance -= amount else balance += amount
+            LauraApplication.database.walletDao().update(this)
+        }
     }
 }
