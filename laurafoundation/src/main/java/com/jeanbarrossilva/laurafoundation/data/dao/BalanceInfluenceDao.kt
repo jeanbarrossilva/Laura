@@ -12,6 +12,9 @@ interface BalanceInfluenceDao {
     @Query("SELECT * FROM influences")
     fun all(): LiveData<List<BalanceInfluence>>
 
+    @Query("SELECT * FROM influences WHERE id LIKE :id")
+    fun identifiedAs(id: Long): BalanceInfluence
+
     @Insert
     fun add(influence: BalanceInfluence)
 

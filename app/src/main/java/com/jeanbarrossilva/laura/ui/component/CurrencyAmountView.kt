@@ -5,9 +5,9 @@ import android.util.AttributeSet
 import androidx.appcompat.view.ContextThemeWrapper
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.button.MaterialButton.ICON_GRAVITY_END
+import com.jeanbarrossilva.laura.LauraApplication.Companion.tertiaryTextColor
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.ext.NumberX.dp
-import com.jeanbarrossilva.laura.ext.ThemeX.attr
 
 class CurrencyAmountView : PriceFieldView {
     constructor(context: Context) : super(context) {
@@ -33,7 +33,7 @@ class CurrencyAmountView : PriceFieldView {
             iconGravity = ICON_GRAVITY_END
             cornerRadius = 15.dp
             setIconResource(R.drawable.ic_keyboard_arrow_down)
-            setIconTintResource(context.theme.attr(android.R.attr.textColorTertiary).data)
+            setIconTintResource(tertiaryTextColor)
         }
     }
 }

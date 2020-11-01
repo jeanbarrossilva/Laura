@@ -7,6 +7,7 @@ import androidx.annotation.DrawableRes
 import com.github.javiersantos.piracychecker.piracyChecker
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.jeanbarrossilva.laura.R
+import com.jeanbarrossilva.laura.ui.listener.BalanceInfluenceSelectionListener
 import com.jeanbarrossilva.laura.ui.viewmodel.MainViewModel
 import com.jeanbarrossilva.laura.ui.viewmodel.factory.MainViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
@@ -36,6 +37,8 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private lateinit var companionFab: FloatingActionButton
+
+        lateinit var balanceInfluenceSelectionListener: BalanceInfluenceSelectionListener
 
         fun withFab(@DrawableRes imageRes: Int? = null, block: (FloatingActionButton.() -> Unit)? = null) {
             if (this::companionFab.isInitialized) {

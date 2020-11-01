@@ -15,6 +15,14 @@ data class Wallet(
     @ColumnInfo(name = "currency") val currency: Currency,
     @ColumnInfo(name = "balance") var balance: Float
 ) : Parcelable {
+    operator fun plus(influence: BalanceInfluence) {
+        balance = if (influence.decreases) balance - influence.amount else balance + influence.amount
+    }
+
+    operator fun minus(influence: BalanceInfluence) {
+        balance = if (influence.decreases) balance + influence.amount else balance - influence.amount
+    }
+
     companion object {
         @Suppress("ConstantLocale")
         val main = Wallet(

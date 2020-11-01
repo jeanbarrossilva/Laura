@@ -18,7 +18,12 @@ import com.jeanbarrossilva.laura.BuildConfig.DEBUG
 import com.jeanbarrossilva.laura.LauraApplication
 import com.jeanbarrossilva.laura.LauraApplication.Companion.acquirer
 import com.jeanbarrossilva.laura.R
+import com.jeanbarrossilva.laura.activities.MainActivity.Companion.balanceInfluenceSelectionListener
+import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.unregister
+import com.jeanbarrossilva.laura.ext.MenuX.addIfNotAdded
+import com.jeanbarrossilva.laura.ui.listener.BalanceInfluenceSelectionListener
 import com.jeanbarrossilva.laurafoundation.Key
+import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
 import com.jeanbarrossilva.laurafoundation.data.Wallet
 
 class MainViewModel(private val activity: AppCompatActivity) : ViewModel() {
@@ -70,5 +75,28 @@ class MainViewModel(private val activity: AppCompatActivity) : ViewModel() {
         view.setNavigationOnClickListener { drawer.open() }
         view.menu.forEach { if (it.itemId == R.id.walletFragment) it.isChecked = true }
         AppBarConfiguration(navController.graph, drawer).let { config -> view.setupWithNavController(navController, config) }
+
+        toggleActionsForBalanceInfluenceSelectionIn(view)
+    }
+
+    private fun toggleActionsForBalanceInfluenceSelectionIn(view: Toolbar) {
+        balanceInfluenceSelectionListener = object : BalanceInfluenceSelectionListener {
+            val previousTitle = view.title
+
+            override fun onBeginWith(influences: List<BalanceInfluence>) {
+                view.title = activity.getString(R.string.placeholder_selected_items).format(influences.size)
+
+                listOf(
+                    Triple(R.drawable.ic_delete, R.string.delete, { for (influence in influences) influence.unregister() })
+                ).forEachIndexed { index, (icon, title, onClick) ->
+                    view.menu.addIfNotAdded(itemId = index, order = index, titleRes = title) { onClick(); onEnd() }?.setIcon(icon)
+                }
+            }
+
+            override fun onEnd() {
+                view.title = previousTitle
+                view.menu.clear()
+            }
+        }
     }
 }

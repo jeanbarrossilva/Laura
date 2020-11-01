@@ -5,6 +5,10 @@
     <!-- Toolbar labels -->
     <string name="wallet">Wallet</string>
     <string name="settings">Settings</string>
+    <string name="placeholder_selected_items">%d selected items</string>
+
+    <!-- Toolbar actions -->
+    <string name="delete">Delete</string>
 
     <!-- Onboarding -->
     <string name="welcome">Welcome to %s!</string>
