@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.activities.MainActivity.Companion.withFab
+import com.jeanbarrossilva.laura.ext.ActivityX.hideSoftInput
 import com.jeanbarrossilva.laura.ui.viewmodel.AcquisitionComposerViewModel
 import com.jeanbarrossilva.laura.ui.viewmodel.factory.AcquisitionComposerViewModelFactory
 import kotlinx.android.synthetic.main.fragment_acquisition_composer.*
@@ -25,7 +26,7 @@ class AcquisitionComposerFragment : Fragment(R.layout.fragment_acquisition_compo
     }
 
     override fun onDestroyView() {
-        view?.windowInsetsController?.hide(ime())
+        activity?.hideSoftInput()
         super.onDestroyView()
     }
 }
