@@ -15,13 +15,13 @@ import com.jeanbarrossilva.laura.LauraApplication.Companion.selectedBalanceInflu
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.activities.MainActivity
 import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.wallet
-import com.jeanbarrossilva.laura.ui.listener.BalanceInfluenceSelectionListener
 import com.jeanbarrossilva.laura.ui.viewholder.BalanceInfluenceViewHolder
 import com.jeanbarrossilva.laurafoundation.LauraFoundation
 import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
 
 class BalanceInfluenceAdapter(val influences: List<BalanceInfluence>) : RecyclerView.Adapter<BalanceInfluenceViewHolder>() {
     lateinit var tracker: SelectionTracker<Long>
+    private var didAddTrackerSelectionObserver = false
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         LayoutInflater.from(parent.context).inflate(R.layout.view_balance_influence, parent, false).let { view ->
@@ -67,9 +67,18 @@ class BalanceInfluenceAdapter(val influences: List<BalanceInfluence>) : Recycler
 
     private fun onSelect(influence: BalanceInfluence, block: (Boolean) -> Unit) {
         val isSelected = tracker.isSelected(influence.id)
-        val selectedInfluences = tracker.selection.map { id -> LauraApplication.database.balanceInfluenceDao().identifiedAs(id) }
 
-        with(MainActivity.balanceInfluenceSelectionListener) { if (selectedInfluences.isNotEmpty()) onBeginWith(selectedInfluences) else onEnd() }
+        val selectionObserver = object : SelectionTracker.SelectionObserver<Long>() {
+            override fun onSelectionChanged() {
+                val listener = MainActivity.balanceInfluenceSelectionListener
+                val selectedInfluences = tracker.selection.map { id -> LauraApplication.database.balanceInfluenceDao().identifiedAs(id) }
+
+                super.onSelectionChanged()
+                if (tracker.hasSelection()) listener.onBeginWith(selectedInfluences) else listener.onEnd()
+            }
+        }
+
+        if (!didAddTrackerSelectionObserver) tracker.addObserver(selectionObserver).also { didAddTrackerSelectionObserver = true }
         block(isSelected)
     }
 

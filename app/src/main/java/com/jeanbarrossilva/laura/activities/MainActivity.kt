@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.annotation.DrawableRes
+import androidx.navigation.fragment.NavHostFragment
 import com.github.javiersantos.piracychecker.piracyChecker
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.jeanbarrossilva.laura.R

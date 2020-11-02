@@ -14,7 +14,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.90"
+        android:layout_weight="0.85"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -41,6 +41,7 @@
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:maxLines="1"
                 android:fontFamily="@font/syne"
                 android:textSize="16sp"
                 tools:text="GRU → NAP" />
@@ -50,6 +51,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:maxLines="1"
+                android:autoSizeTextType="uniform"
                 android:fontFamily="@font/rubik"
                 android:textStyle="bold"
                 android:textColor="?android:textColorPrimary"
@@ -65,8 +68,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginEnd="10dp"
-        android:layout_weight="0.10"
+        android:layout_marginStart="10dp"
+        android:layout_weight="0.15"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_double_arrow"
         app:tint="@android:color/holo_red_light"

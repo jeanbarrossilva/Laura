@@ -16,6 +16,7 @@ import com.jeanbarrossilva.laura.LauraApplication.Companion.acquirer
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.ext.AcquirerX.currentWallet
 import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.register
+import com.jeanbarrossilva.laura.ext.FragmentX.reload
 import com.jeanbarrossilva.laura.ui.adapter.BalanceInfluenceAdapter
 import com.jeanbarrossilva.laura.ui.detailslookup.AcquisitionDetailsLookup
 import com.jeanbarrossilva.laura.ui.dialog.ScopedBottomSheetDialog
@@ -77,8 +78,8 @@ class WalletViewModel(private val fragment: WalletFragment) : ViewModel() {
                     }
 
                     positiveButton(android.R.string.ok) {
+                        fragment.reload()
                         dismiss()
-                        fragment.onResume()
                     }
 
                     negativeButton(android.R.string.cancel) { dismiss() }

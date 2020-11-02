@@ -18,8 +18,12 @@ import com.jeanbarrossilva.laura.BuildConfig.DEBUG
 import com.jeanbarrossilva.laura.LauraApplication
 import com.jeanbarrossilva.laura.LauraApplication.Companion.acquirer
 import com.jeanbarrossilva.laura.R
+import com.jeanbarrossilva.laura.activities.MainActivity
 import com.jeanbarrossilva.laura.activities.MainActivity.Companion.balanceInfluenceSelectionListener
+import com.jeanbarrossilva.laura.ext.AcquirerX.currentWallet
+import com.jeanbarrossilva.laura.ext.AppCompatActivityX.currentFragment
 import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.unregister
+import com.jeanbarrossilva.laura.ext.FragmentX.reload
 import com.jeanbarrossilva.laura.ext.MenuX.addIfNotAdded
 import com.jeanbarrossilva.laura.ui.listener.BalanceInfluenceSelectionListener
 import com.jeanbarrossilva.laurafoundation.Key
@@ -52,7 +56,7 @@ class MainViewModel(private val activity: AppCompatActivity) : ViewModel() {
         ifIsFirstLaunch {
             navController.navigate(R.id.action_global_onboardingFragment)
             LauraApplication.database.walletDao().add(Wallet.main)
-            acquirer.currentWalletId = Wallet.main.id
+            acquirer.currentWallet = Wallet.main
         }
     }
 
@@ -94,8 +98,12 @@ class MainViewModel(private val activity: AppCompatActivity) : ViewModel() {
             }
 
             override fun onEnd() {
-                view.title = previousTitle
-                view.menu.clear()
+                with(view) {
+                    title = previousTitle
+                    menu.clear()
+                }
+
+                activity.currentFragment?.reload()
             }
         }
     }
