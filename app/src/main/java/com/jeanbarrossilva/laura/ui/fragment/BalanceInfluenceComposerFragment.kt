@@ -2,18 +2,17 @@ package com.jeanbarrossilva.laura.ui.fragment
 
 import android.os.Bundle
 import android.view.View
-import android.view.WindowInsets.Type.ime
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.activities.MainActivity.Companion.withFab
 import com.jeanbarrossilva.laura.ext.ActivityX.hideSoftInput
-import com.jeanbarrossilva.laura.ui.viewmodel.AcquisitionComposerViewModel
-import com.jeanbarrossilva.laura.ui.viewmodel.factory.AcquisitionComposerViewModelFactory
+import com.jeanbarrossilva.laura.ui.viewmodel.BalanceInfluenceComposerViewModel
+import com.jeanbarrossilva.laura.ui.viewmodel.factory.BalanceInfluenceComposerViewModelFactory
 import kotlinx.android.synthetic.main.fragment_acquisition_composer.*
 
-class AcquisitionComposerFragment : Fragment(R.layout.fragment_acquisition_composer) {
-    private val viewModel by viewModels<AcquisitionComposerViewModel> { AcquisitionComposerViewModelFactory(this) }
+class BalanceInfluenceComposerFragment : Fragment(R.layout.fragment_acquisition_composer) {
+    private val viewModel by viewModels<BalanceInfluenceComposerViewModel> { BalanceInfluenceComposerViewModelFactory(this) }
 
     override fun onResume() {
         super.onResume()

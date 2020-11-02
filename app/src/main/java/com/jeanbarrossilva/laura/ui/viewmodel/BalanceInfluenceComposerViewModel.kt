@@ -10,11 +10,11 @@ import com.jeanbarrossilva.laura.ext.AcquisitionX.registerAndPop
 import com.jeanbarrossilva.laura.ext.AcquisitionX.warn
 import com.jeanbarrossilva.laura.ext.TextInputEditTextX.required
 import com.jeanbarrossilva.laura.ui.component.PriceFieldView
-import com.jeanbarrossilva.laura.ui.fragment.AcquisitionComposerFragment
+import com.jeanbarrossilva.laura.ui.fragment.BalanceInfluenceComposerFragment
 import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence.Acquisition
 import kotlinx.android.synthetic.main.view_price_field.view.amountField
 
-class AcquisitionComposerViewModel(private val fragment: AcquisitionComposerFragment) : ViewModel() {
+class BalanceInfluenceComposerViewModel(private val fragment: BalanceInfluenceComposerFragment) : ViewModel() {
     fun compose(nameField: TextInputEditText, priceField: PriceFieldView) {
         withFab {
             setOnClickListener {

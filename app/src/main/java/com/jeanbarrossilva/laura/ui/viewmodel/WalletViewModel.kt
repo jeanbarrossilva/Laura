@@ -21,7 +21,7 @@ import com.jeanbarrossilva.laura.ui.adapter.BalanceInfluenceAdapter
 import com.jeanbarrossilva.laura.ui.detailslookup.AcquisitionDetailsLookup
 import com.jeanbarrossilva.laura.ui.dialog.ScopedBottomSheetDialog
 import com.jeanbarrossilva.laura.ui.fragment.WalletFragment
-import com.jeanbarrossilva.laura.ui.keyprovider.AcquisitionKeyProvider
+import com.jeanbarrossilva.laura.ui.keyprovider.BalanceInfluencenKeyProvider
 import com.jeanbarrossilva.laura.ui.manager.LauraLinearLayoutManager
 import com.jeanbarrossilva.laurafoundation.LauraFoundation
 import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
@@ -50,7 +50,7 @@ class WalletViewModel(private val fragment: WalletFragment) : ViewModel() {
                     .Builder(
                         "BalanceInfluenceSelection",
                         view,
-                        AcquisitionKeyProvider(influences, SCOPE_MAPPED),
+                        BalanceInfluencenKeyProvider(influences, SCOPE_MAPPED),
                         AcquisitionDetailsLookup(view),
                         StorageStrategy.createLongStorage()
                     )
