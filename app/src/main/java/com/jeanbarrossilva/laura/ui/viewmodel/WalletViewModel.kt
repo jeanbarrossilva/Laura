@@ -4,6 +4,7 @@ import android.text.InputType.TYPE_CLASS_NUMBER
 import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.ViewModel
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.selection.ItemKeyProvider.SCOPE_MAPPED
 import androidx.recyclerview.selection.SelectionPredicates.createSelectAnything
 import androidx.recyclerview.selection.SelectionTracker
@@ -17,13 +18,14 @@ import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.ext.AcquirerX.currentWallet
 import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.register
 import com.jeanbarrossilva.laura.ext.FragmentX.reload
+import com.jeanbarrossilva.laura.ext.WalletX.formattedBalance
 import com.jeanbarrossilva.laura.ui.adapter.BalanceInfluenceAdapter
 import com.jeanbarrossilva.laura.ui.detailslookup.AcquisitionDetailsLookup
 import com.jeanbarrossilva.laura.ui.dialog.ScopedBottomSheetDialog
 import com.jeanbarrossilva.laura.ui.fragment.WalletFragment
+import com.jeanbarrossilva.laura.ui.fragment.WalletFragmentDirections
 import com.jeanbarrossilva.laura.ui.keyprovider.BalanceInfluencenKeyProvider
 import com.jeanbarrossilva.laura.ui.manager.LauraLinearLayoutManager
-import com.jeanbarrossilva.laurafoundation.LauraFoundation
 import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
 import com.jeanbarrossilva.laurafoundation.data.BottomSheetDialogItem.AddQuantityItem
 import com.jeanbarrossilva.laurafoundation.data.BottomSheetDialogScope.WalletModifierScope
@@ -31,11 +33,10 @@ import com.jeanbarrossilva.laurafoundation.data.BottomSheetDialogScope.WalletMod
 class WalletViewModel(private val fragment: WalletFragment) : ViewModel() {
     internal lateinit var acquisitionTracker: SelectionTracker<Long>
 
-    @Suppress("SetTextI18n")
     fun showInfoIn(titleView: TextView, balanceView: TextView) {
         with(acquirer.currentWallet) {
             titleView.text = name
-            balanceView.text = "${currency.symbol} ${LauraFoundation.currencyFormat.format(balance)}"
+            balanceView.text = formattedBalance
         }
     }
 
@@ -44,7 +45,10 @@ class WalletViewModel(private val fragment: WalletFragment) : ViewModel() {
 
         LauraApplication.balanceInfluences.observe(fragment) {
             it.reversed().let { influences ->
-                view.adapter = BalanceInfluenceAdapter(influences)
+                view.adapter = BalanceInfluenceAdapter(influences) { influence ->
+                    val destination = WalletFragmentDirections.actionWalletFragmentToBalanceInfluenceFragment(influence)
+                    fragment.findNavController().navigate(destination)
+                }
 
                 SelectionTracker
                     .Builder(
@@ -72,8 +76,10 @@ class WalletViewModel(private val fragment: WalletFragment) : ViewModel() {
                     message(text = context.getString(R.string.dialog_add_quantity_message).format(acquirer.currentWallet.name))
 
                     input(hintRes = R.string.dialog_add_quantity_field_hint, inputType = TYPE_CLASS_NUMBER) { _, inserted ->
+                        val riseName = context.getString(R.string.rise)
+
                         inserted.toString().toFloat().let { quantity ->
-                            BalanceInfluence.Rise(context = context, walletId = acquirer.currentWallet.id, amount = quantity).register()
+                            BalanceInfluence.Rise(walletId = acquirer.currentWallet.id, name = riseName, amount = quantity).register()
                         }
                     }
 

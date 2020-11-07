@@ -25,7 +25,10 @@
     <string name="dialog_add_quantity_field_hint">Quantity</string>
 
     <!-- BalanceInfluence -->
-    <string name="placeholder_flight_duration">%s – %s</string>
+    <string name="registration_date_standard">Registered on %s</string>
+    <string name="registration_date_extended">Registered on %s, %d:%d</string>
+    <string name="cost">Cost</string>
+    <string name="amount">Amount</string>
     <string name="label_balance_influence_icon">Balance influence icon</string>
 
     <!-- BalanceInfluenceComposer -->

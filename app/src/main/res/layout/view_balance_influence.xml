@@ -18,12 +18,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <ImageButton
+        <com.jeanbarrossilva.laura.ui.component.BalanceInfluenceIconView
             android:id="@+id/icon"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:contentDescription="@string/label_balance_influence_icon"
-            android:background="@drawable/bg_balance_influence_icon"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

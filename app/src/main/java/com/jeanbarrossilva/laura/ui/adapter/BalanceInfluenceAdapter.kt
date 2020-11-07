@@ -14,12 +14,16 @@ import com.jeanbarrossilva.laura.LauraApplication.Companion.primaryTextColor
 import com.jeanbarrossilva.laura.LauraApplication.Companion.selectedBalanceInfluenceIconBackgroundColor
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.activities.MainActivity
+import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.formattedAmount
 import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.wallet
 import com.jeanbarrossilva.laura.ui.viewholder.BalanceInfluenceViewHolder
 import com.jeanbarrossilva.laurafoundation.LauraFoundation
 import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
 
-class BalanceInfluenceAdapter(val influences: List<BalanceInfluence>) : RecyclerView.Adapter<BalanceInfluenceViewHolder>() {
+class BalanceInfluenceAdapter(
+    val influences: List<BalanceInfluence>,
+    private val onInfluenceClick: (BalanceInfluence) -> Unit
+) : RecyclerView.Adapter<BalanceInfluenceViewHolder>() {
     lateinit var tracker: SelectionTracker<Long>
     private var didAddTrackerSelectionObserver = false
 
@@ -32,8 +36,9 @@ class BalanceInfluenceAdapter(val influences: List<BalanceInfluence>) : Recycler
     override fun onBindViewHolder(holder: BalanceInfluenceViewHolder, position: Int) {
         influences[position].let { influence ->
             holder.name.text = influence.name
-            holder.price.text = "${influence.wallet.currency.symbol} ${LauraFoundation.currencyFormat.format(influence.amount)}"
+            holder.price.text = influence.formattedAmount
             holder.icon.setImageResource(influence.icon)
+            holder.itemView.setOnClickListener { onInfluenceClick(influence) }
 
             with(holder.indicator) {
                 val tint = if (influence.decreases) android.R.color.holo_red_light else android.R.color.holo_green_light

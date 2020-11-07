@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="title" format="string" />
+
     <style
         name="AppTheme"
         parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -10,7 +12,7 @@
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:statusBarColor">?android:colorBackground</item>
-        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/rubik</item>
     </style>
 
     <style
@@ -82,7 +84,12 @@
 
     <declare-styleable name="BottomSheetDialogItem">
         <attr name="android:icon" format="reference" />
-        <attr name="android:title" format="string" />
+        <attr name="title" />
+    </declare-styleable>
+
+    <declare-styleable name="BalanceInfluenceTableCellView">
+        <attr name="title" />
+        <attr name="representation" format="string" />
     </declare-styleable>
 
     <declare-styleable name="LauraEditTextPreference">

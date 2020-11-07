@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
     app:startDestination="@id/walletFragment"
-    tools:ignore="UnusedNavigation">
+    tools:ignore="PrivateResource">
 
     <action
         android:id="@+id/action_global_onboardingFragment"
@@ -30,9 +30,18 @@
         <action
             android:id="@+id/action_walletFragment_to_acquisitionComposerFragment"
             app:destination="@id/acquisitionComposerFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
             app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit"
-            tools:ignore="PrivateResource" />
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popExitAnim="@anim/fragment_fade_exit" />
+
+        <action
+            android:id="@+id/action_walletFragment_to_balanceInfluenceFragment"
+            app:destination="@id/balanceInfluenceFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popExitAnim="@anim/fragment_close_exit" />
 
     </fragment>
 
@@ -41,5 +50,17 @@
         android:name="com.jeanbarrossilva.laura.ui.fragment.BalanceInfluenceComposerFragment"
         android:label="@string/new_acquisition"
         tools:layout="@layout/fragment_acquisition_composer" />
+
+    <fragment
+        android:id="@+id/balanceInfluenceFragment"
+        android:name="com.jeanbarrossilva.laura.ui.fragment.BalanceInfluenceFragment"
+        android:label=""
+        tools:layout="@layout/fragment_balance_influence">
+
+        <argument
+            android:name="influence"
+            app:argType="com.jeanbarrossilva.laurafoundation.data.BalanceInfluence" />
+
+    </fragment>
 
 </navigation>

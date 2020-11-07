@@ -1,16 +1,19 @@
 package com.jeanbarrossilva.laurafoundation.ext
 
 import java.time.LocalDateTime
+import java.util.Locale
 
 object StringX {
-    val String.asLocalDateTime: LocalDateTime?
-        get() {
-            return if (length == 16) {
-                val (day, month, year) = Triple(substring(0..1).toInt(), substring(3..4).toInt(), substring(6..9).toInt())
-                val (hour, minute) = substring(12..13).toInt() to substring(15..16).toInt()
+    val String.capitalized get() = capitalize(Locale.ROOT)
+    val String.lowerCased get() = toLowerCase(Locale.ROOT)
 
-                LocalDateTime.of(year, month, day, hour, minute)
-            } else
-                null
-        }
+    fun String.toLocalDateTime(): LocalDateTime? {
+        return if (length == 16) {
+            val (year, month, day) = Triple(substring(0..3).toInt(), substring(5..6).toInt(), substring(8..9).toInt())
+            val (hour, minute) = substring(11..12).toInt() to substring(14..15).toInt()
+
+            LocalDateTime.of(year, month, day, hour, minute)
+        } else
+            null
+    }
 }
