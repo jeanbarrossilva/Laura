@@ -64,7 +64,7 @@
                     android:layout_marginStart="30dp"
                     android:layout_gravity="center"
                     android:layout_weight="0.18"
-                    app:icon="@drawable/ic_plus_black_symbol"
+                    app:icon="@drawable/ic_settings"
                     app:iconSize="17dp"
                     app:iconPadding="0dp"
                     app:iconGravity="textStart"
