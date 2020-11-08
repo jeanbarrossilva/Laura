@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.activities.MainActivity.Companion.withFab
-import com.jeanbarrossilva.laura.ext.ActivityX.hideSoftInput
+import com.jeanbarrossilva.laurafoundation.ext.ActivityX.hideSoftInput
 import com.jeanbarrossilva.laura.ui.viewmodel.BalanceInfluenceComposerViewModel
 import com.jeanbarrossilva.laura.ui.viewmodel.factory.BalanceInfluenceComposerViewModelFactory
 import kotlinx.android.synthetic.main.fragment_acquisition_composer.*

@@ -1,8 +1,8 @@
-package com.jeanbarrossilva.laura.ext
+package com.jeanbarrossilva.laurafoundation.ext
 
 import android.app.Activity
 import android.view.View
-import com.jeanbarrossilva.laura.ext.ContextX.inputMethodManager
+import com.jeanbarrossilva.laurafoundation.ext.ContextX.inputMethodManager
 
 object ActivityX {
     fun Activity.hideSoftInput() {

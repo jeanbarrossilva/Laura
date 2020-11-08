@@ -7,7 +7,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.button.MaterialButton.ICON_GRAVITY_END
 import com.jeanbarrossilva.laura.LauraApplication.Companion.tertiaryTextColor
 import com.jeanbarrossilva.laura.R
-import com.jeanbarrossilva.laura.ext.NumberX.dp
+import com.jeanbarrossilva.laurafoundation.ext.NumberX.dp
 
 class CurrencyAmountView : PriceFieldView {
     constructor(context: Context) : super(context) {

@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.laura.ext
+package com.jeanbarrossilva.laurafoundation.ext
 
 import android.view.View
 import android.widget.LinearLayout

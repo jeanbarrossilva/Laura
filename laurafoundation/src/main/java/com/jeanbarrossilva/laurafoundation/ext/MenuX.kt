@@ -1,7 +1,6 @@
-package com.jeanbarrossilva.laura.ext
+package com.jeanbarrossilva.laurafoundation.ext
 
 import android.view.Menu
-import android.view.MenuItem
 import androidx.annotation.StringRes
 import androidx.core.view.children
 

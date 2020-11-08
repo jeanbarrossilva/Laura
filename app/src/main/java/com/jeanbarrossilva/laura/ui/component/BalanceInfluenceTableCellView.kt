@@ -9,8 +9,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.StringRes
 import com.jeanbarrossilva.laura.R
-import com.jeanbarrossilva.laura.ext.ContextX.obtainStyledAttrs
-import com.jeanbarrossilva.laura.ext.ViewGroupX.addViews
+import com.jeanbarrossilva.laurafoundation.ext.ContextX.obtainStyledAttrs
+import com.jeanbarrossilva.laurafoundation.ext.ViewGroupX.addViews
 
 class BalanceInfluenceTableCellView : LinearLayout {
     private var titleView: TextView? = null
