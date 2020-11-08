@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.core.view.updatePaddingRelative
 import com.jeanbarrossilva.laura.R
-import com.jeanbarrossilva.laurafoundation.data.BalanceInfluenceTableCellConfig
+import com.jeanbarrossilva.laurafoundation.data.LauraTableCellConfig
 import com.jeanbarrossilva.laurafoundation.ext.ContextX.obtainStyledAttrs
 import com.jeanbarrossilva.laurafoundation.ext.NumberX.dp
 import com.jeanbarrossilva.laurafoundation.ext.ViewGroupX.addViews
@@ -85,7 +85,7 @@ class LauraTableCellView : LinearLayout {
         }
     }
 
-    fun configWith(config: BalanceInfluenceTableCellConfig) {
+    fun configWith(config: LauraTableCellConfig) {
         representation = config.representation.toString()
         setTitle(config.title)
     }

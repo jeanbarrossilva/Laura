@@ -2,71 +2,28 @@ package com.jeanbarrossilva.laura.ui.component
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
-import android.view.ViewGroup
-import android.view.ViewGroup.LayoutParams.MATCH_PARENT
-import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-import android.widget.LinearLayout
-import androidx.core.view.children
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.formattedAmount
 import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
-import com.jeanbarrossilva.laurafoundation.data.BalanceInfluenceTableCellConfig
-import com.jeanbarrossilva.laurafoundation.ext.LinearLayoutX.addViewInvalidating
+import com.jeanbarrossilva.laurafoundation.data.LauraTableCellConfig
 
-class BalanceInfluenceTableLayout : LinearLayout {
-    private val cells = children.map { it as LauraTableCellView }
-
+class BalanceInfluenceTableLayout : LauraTableLayout {
     var influence: BalanceInfluence? = null
         set(value) {
             field = value
-            for ((index, cell) in cells.withIndex()) getConfigs()?.get(index)?.let { cell.configWith(it) }
+            cells.forEachIndexed { index, cell -> cell.configWith(getConfigs()[index]) }
         }
 
-    constructor(context: Context) : super(context) {
-        start()
-    }
+    constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
-        start(attrs)
-    }
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
 
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int)
-            : super(context, attrs, defStyleAttr) {
-        start(attrs, defStyleAttr)
-    }
+            : super(context, attrs, defStyleAttr)
 
-    override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
-        when (child) {
-            is LauraTableCellView? -> super.addView(child, index, params)
-            else -> throw IllegalStateException("BalanceInfluenceTableLayout should only have " +
-                    "LauraTableCellView children.")
-        }
-    }
-
-    private fun start(attrs: AttributeSet? = null, defStyleAttr: Int = 0) {
-        config()
-        addCells(attrs, defStyleAttr)
-    }
-
-    private fun config() {
-        orientation = VERTICAL
-    }
-
-    private fun addCells(attrs: AttributeSet?, defStyleAttr: Int) {
-        getConfigs()?.forEach {
-            LauraTableCellView(context, attrs, defStyleAttr)
-                .apply {
-                    layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-                    configWith(it)
-                }
-                .let { addViewInvalidating(it) }
-        }
-    }
-
-    private fun getConfigs(): List<BalanceInfluenceTableCellConfig>? {
+    override fun getConfigs(): List<LauraTableCellConfig> {
         return listOf(
-            BalanceInfluenceTableCellConfig(
+            LauraTableCellConfig(
                 title = if (influence?.decreases == true) R.string.cost else R.string.amount,
                 representation = influence?.formattedAmount
             )
