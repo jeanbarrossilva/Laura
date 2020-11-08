@@ -49,20 +49,10 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/cellsView"
+    <com.jeanbarrossilva.laura.ui.component.BalanceInfluenceTableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="60dp">
-
-        <com.jeanbarrossilva.laura.ui.component.BalanceInfluenceTableCellView
-            android:id="@+id/amountCell"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:title="@string/cost"
-            tools:representation="R$ 6,580.75" />
-
-    </LinearLayout>
+        android:layout_marginTop="60dp" />
 
 </LinearLayout>

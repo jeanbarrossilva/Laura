@@ -8,8 +8,11 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.StringRes
+import androidx.core.view.updatePaddingRelative
 import com.jeanbarrossilva.laura.R
+import com.jeanbarrossilva.laurafoundation.data.BalanceInfluenceTableCellConfig
 import com.jeanbarrossilva.laurafoundation.ext.ContextX.obtainStyledAttrs
+import com.jeanbarrossilva.laurafoundation.ext.NumberX.dp
 import com.jeanbarrossilva.laurafoundation.ext.ViewGroupX.addViews
 
 class BalanceInfluenceTableCellView : LinearLayout {
@@ -28,23 +31,28 @@ class BalanceInfluenceTableCellView : LinearLayout {
             representationView?.text = value
         }
 
-    constructor(context: Context) : super(context) {
+    internal constructor(context: Context) : super(context) {
         start()
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    internal constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
         start(attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int)
+    internal constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int)
         : super(context, attrs, defStyleAttr) {
         start(attrs, defStyleAttr)
     }
 
     private fun start(attrs: AttributeSet? = null, defStyleAttr: Int = 0) {
+        config()
         loadAttrs(attrs, defStyleAttr)
         initViews(attrs, defStyleAttr)
         addViews(titleView, representationView)
+    }
+
+    private fun config() {
+        updatePaddingRelative(bottom = 5.dp)
     }
 
     private fun loadAttrs(attrs: AttributeSet?, defStyleAttr: Int) {
@@ -75,6 +83,11 @@ class BalanceInfluenceTableCellView : LinearLayout {
             layoutParams = params
             setTypeface(typeface, BOLD)
         }
+    }
+
+    fun configWith(config: BalanceInfluenceTableCellConfig) {
+        representation = config.representation.toString()
+        setTitle(config.title)
     }
 
     fun setTitle(@StringRes titleRes: Int) {

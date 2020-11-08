@@ -29,8 +29,8 @@ class BalanceInfluenceFragment : Fragment(R.layout.fragment_balance_influence) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.run {
-            showHeaderInfoIn(iconView, titleView, registrationDateView)
-            configCellsOf(cellsView)
+            showInfoIn(iconView, titleView, registrationDateView)
+            configTableLayout(tableLayout)
         }
     }
 }
