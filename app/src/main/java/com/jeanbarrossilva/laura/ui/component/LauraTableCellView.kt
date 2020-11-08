@@ -15,7 +15,7 @@ import com.jeanbarrossilva.laurafoundation.ext.ContextX.obtainStyledAttrs
 import com.jeanbarrossilva.laurafoundation.ext.NumberX.dp
 import com.jeanbarrossilva.laurafoundation.ext.ViewGroupX.addViews
 
-class BalanceInfluenceTableCellView : LinearLayout {
+class LauraTableCellView : LinearLayout {
     private var titleView: TextView? = null
     private var representationView: TextView? = null
 

@@ -15,7 +15,7 @@ import com.jeanbarrossilva.laurafoundation.data.BalanceInfluenceTableCellConfig
 import com.jeanbarrossilva.laurafoundation.ext.LinearLayoutX.addViewInvalidating
 
 class BalanceInfluenceTableLayout : LinearLayout {
-    private val cells = children.map { it as BalanceInfluenceTableCellView }
+    private val cells = children.map { it as LauraTableCellView }
 
     var influence: BalanceInfluence? = null
         set(value) {
@@ -38,9 +38,9 @@ class BalanceInfluenceTableLayout : LinearLayout {
 
     override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
         when (child) {
-            is BalanceInfluenceTableCellView? -> super.addView(child, index, params)
+            is LauraTableCellView? -> super.addView(child, index, params)
             else -> throw IllegalStateException("BalanceInfluenceTableLayout should only have " +
-                    "BalanceInfluenceTableCellView children.")
+                    "LauraTableCellView children.")
         }
     }
 
@@ -55,7 +55,7 @@ class BalanceInfluenceTableLayout : LinearLayout {
 
     private fun addCells(attrs: AttributeSet?, defStyleAttr: Int) {
         getConfigs()?.forEach {
-            BalanceInfluenceTableCellView(context, attrs, defStyleAttr)
+            LauraTableCellView(context, attrs, defStyleAttr)
                 .apply {
                     layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
                     configWith(it)
