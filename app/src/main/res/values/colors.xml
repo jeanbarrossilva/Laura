@@ -4,8 +4,8 @@
     <color name="colorPrimaryDark">#0D91DC</color>
     <color name="colorAccent">#FF5858</color>
     <color name="componentOnSurface">#FAFAFA</color>
-    <color name="balanceInfluenceBackgroundSelected">#3E3E3E</color>
+    <color name="lauraTextViewBackground">#F4F4F4</color>
+    <color name="selectedBalanceInfluenceBackground">#3E3E3E</color>
     <color name="balanceInfluenceIconBackground">#FAFAFA</color>
-    <color name="balanceInfluenceIconBackgroundSelected">#212121</color>
-    <color name="lauraEditText">#F4F4F4</color>
+    <color name="selectedBalanceInfluenceIconBackground">#212121</color>
 </resources>

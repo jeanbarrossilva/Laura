@@ -7,6 +7,7 @@ import android.view.Gravity.END
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.TextView.AUTO_SIZE_TEXT_TYPE_UNIFORM
 import androidx.annotation.StringRes
 import androidx.core.view.updatePaddingRelative
 import com.jeanbarrossilva.laura.R
@@ -66,13 +67,19 @@ class LauraTableCellView : LinearLayout {
     }
 
     private fun initViews(attrs: AttributeSet?, defStyleAttr: Int) {
-        val params = LayoutParams(0, WRAP_CONTENT).apply { weight = 0.5f }
+        val textConfigFor = { view: TextView ->
+            with(view) {
+                maxLines = 1
+                layoutParams = LayoutParams(0, WRAP_CONTENT).apply { weight = 0.5f }
+                setAutoSizeTextTypeWithDefaults(AUTO_SIZE_TEXT_TYPE_UNIFORM)
+            }
+        }
 
         titleView = TextView(context, attrs, defStyleAttr).apply {
             alpha = 0.7f
             text = title
             textSize = 17f
-            layoutParams = params
+            textConfigFor(this)
         }
 
         representationView = TextView(context, attrs, defStyleAttr).apply {
@@ -80,8 +87,8 @@ class LauraTableCellView : LinearLayout {
             textAlignment = TEXT_ALIGNMENT_VIEW_END
             text = representation
             textSize = 20f
-            layoutParams = params
             setTypeface(typeface, BOLD)
+            textConfigFor(this)
         }
     }
 

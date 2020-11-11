@@ -23,9 +23,9 @@ class LauraApplication : Application() {
         primaryTextColor = colorAttr(android.R.attr.textColorPrimary)
         inversePrimaryTextColor = colorAttr(android.R.attr.textColorPrimaryInverse)
         tertiaryTextColor = colorAttr(android.R.attr.textColorTertiary)
-        selectedBalanceInfluenceBackgroundColor = getColor(R.color.balanceInfluenceBackgroundSelected)
+        selectedBalanceInfluenceBackgroundColor = getColor(R.color.selectedBalanceInfluenceBackground)
         balanceInfluenceIconBackgroundColor = getColor(R.color.balanceInfluenceIconBackground)
-        selectedBalanceInfluenceIconBackgroundColor = getColor(R.color.balanceInfluenceIconBackgroundSelected)
+        selectedBalanceInfluenceIconBackgroundColor = getColor(R.color.selectedBalanceInfluenceIconBackground)
     }
 
     companion object {
