@@ -13,7 +13,9 @@ import com.jeanbarrossilva.laurafoundation.data.ComponentEditorState.*
 import com.jeanbarrossilva.laurafoundation.ext.ComponentEditorX.observe
 import kotlinx.android.synthetic.main.fragment_balance_influence.*
 
-class BalanceInfluenceFragment : Fragment(R.layout.fragment_balance_influence) {
+class BalanceInfluenceFragment : Fragment(R.layout.fragment_balance_influence), ComponentEditor {
+    override val lifecycleOwner = this
+
     private val viewModel by viewModels<BalanceInfluenceViewModel> { BalanceInfluenceViewModelFactory(fragment = this) }
 
     internal val navArgs by navArgs<BalanceInfluenceFragmentArgs>()
