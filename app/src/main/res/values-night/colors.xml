@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="balanceInfluenceBackgroundSelected">#FAFAFA</color>
+    <color name="selectedBalanceInfluenceBackground">#FAFAFA</color>
     <color name="balanceInfluenceIconBackground">#2C2C2C</color>
-    <color name="balanceInfluenceIconBackgroundSelected">#F3F3F3</color>
+    <color name="selectedBalanceInfluenceIconBackground">#F3F3F3</color>
 </resources>

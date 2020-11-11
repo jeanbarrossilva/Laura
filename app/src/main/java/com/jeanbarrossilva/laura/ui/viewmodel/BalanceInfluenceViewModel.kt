@@ -5,14 +5,19 @@ import androidx.lifecycle.ViewModel
 import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.withRegistrationDate
 import com.jeanbarrossilva.laura.ui.component.BalanceInfluenceIconView
 import com.jeanbarrossilva.laura.ui.component.BalanceInfluenceTableLayout
+import com.jeanbarrossilva.laura.ui.component.LauraTextView
 import com.jeanbarrossilva.laura.ui.fragment.BalanceInfluenceFragment
 
 class BalanceInfluenceViewModel(private val fragment: BalanceInfluenceFragment) : ViewModel() {
     private val influence = fragment.navArgs.influence
 
-    fun showInfoIn(iconView: BalanceInfluenceIconView, titleView: TextView, registrationDateView: TextView) {
-        titleView.text = influence.name
+    fun showInfoIn(iconView: BalanceInfluenceIconView, titleView: LauraTextView, registrationDateView: TextView) {
         iconView.setImageResource(influence.icon)
+
+        with(titleView) {
+            componentEditor = fragment
+            setText(influence.name)
+        }
 
         influence.withRegistrationDate(fragment.context) { standard, extended ->
             with(registrationDateView) {

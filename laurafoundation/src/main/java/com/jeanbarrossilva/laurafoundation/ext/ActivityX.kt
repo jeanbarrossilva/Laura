@@ -2,11 +2,11 @@ package com.jeanbarrossilva.laurafoundation.ext
 
 import android.app.Activity
 import android.view.View
-import com.jeanbarrossilva.laurafoundation.ext.ContextX.inputMethodManager
+import com.jeanbarrossilva.laurafoundation.ext.ViewX.hideSoftInput
 
 object ActivityX {
     fun Activity.hideSoftInput() {
         val view = currentFocus ?: View(this)
-        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+        view.hideSoftInput()
     }
 }
