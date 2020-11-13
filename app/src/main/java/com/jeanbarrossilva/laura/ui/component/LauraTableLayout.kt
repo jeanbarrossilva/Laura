@@ -22,16 +22,14 @@ open class LauraTableLayout : LinearLayout {
         start(attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int)
-            : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         start(attrs, defStyleAttr)
     }
 
     override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
         when (child) {
             is LauraTableCellView? -> super.addView(child, index, params)
-            else -> throw IllegalStateException("BalanceInfluenceTableLayout should only have " +
-                    "LauraTableCellView children.")
+            else -> throw IllegalStateException("BalanceInfluenceTableLayout should only have LauraTableCellView children.")
         }
     }
 
@@ -45,11 +43,11 @@ open class LauraTableLayout : LinearLayout {
     }
 
     private fun addCells(attrs: AttributeSet?, defStyleAttr: Int) {
-        getConfigs().forEach {
+        getConfigs().forEach { config ->
             LauraTableCellView(context, attrs, defStyleAttr)
                 .apply {
                     layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-                    configWith(it)
+                    representation = config.representationConfig
                 }
                 .let { addViewInvalidating(it) }
         }

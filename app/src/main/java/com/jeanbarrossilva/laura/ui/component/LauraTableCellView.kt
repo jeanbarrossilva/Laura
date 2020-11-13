@@ -8,10 +8,10 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.TextView.AUTO_SIZE_TEXT_TYPE_UNIFORM
-import androidx.annotation.StringRes
 import androidx.core.view.updatePaddingRelative
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laurafoundation.data.LauraTableCellConfig
+import com.jeanbarrossilva.laurafoundation.data.LauraTableCellRepresentationConfig
 import com.jeanbarrossilva.laurafoundation.ext.ContextX.obtainStyledAttrs
 import com.jeanbarrossilva.laurafoundation.ext.NumberX.dp
 import com.jeanbarrossilva.laurafoundation.ext.ViewGroupX.addViews
@@ -26,10 +26,11 @@ class LauraTableCellView : LinearLayout {
             titleView?.text = value
         }
 
-    var representation: String = ""
+    var representation = LauraTableCellRepresentationConfig(title = "")
         set(value) {
             field = value
-            representationView?.text = value
+            representationView?.text = value.title
+            representationView?.inputType = value.fieldInputType
         }
 
     internal constructor(context: Context) : super(context) {
@@ -40,8 +41,7 @@ class LauraTableCellView : LinearLayout {
         start(attrs)
     }
 
-    internal constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int)
-        : super(context, attrs, defStyleAttr) {
+    internal constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         start(attrs, defStyleAttr)
     }
 
@@ -60,45 +60,41 @@ class LauraTableCellView : LinearLayout {
         context.obtainStyledAttrs(R.styleable.BalanceInfluenceTableCellView, attrs, defStyleAttr) {
             when (it) {
                 R.styleable.BalanceInfluenceTableCellView_title -> title = getString(it).toString()
-                R.styleable.BalanceInfluenceTableCellView_representation ->
-                    representation = getString(it).toString()
+                R.styleable.BalanceInfluenceTableCellView_representation -> representation.title = getString(it).toString()
             }
         }
     }
 
     private fun initViews(attrs: AttributeSet?, defStyleAttr: Int) {
-        val textConfigFor = { view: TextView ->
-            with(view) {
-                maxLines = 1
-                layoutParams = LayoutParams(0, WRAP_CONTENT).apply { weight = 0.5f }
-                setAutoSizeTextTypeWithDefaults(AUTO_SIZE_TEXT_TYPE_UNIFORM)
-            }
-        }
-
         titleView = TextView(context, attrs, defStyleAttr).apply {
             alpha = 0.7f
             text = title
             textSize = 17f
-            textConfigFor(this)
+            configAppearanceOf(this)
         }
 
         representationView = TextView(context, attrs, defStyleAttr).apply {
             gravity = END
+            text = representation.title
+            inputType = representation.fieldInputType
             textAlignment = TEXT_ALIGNMENT_VIEW_END
-            text = representation
             textSize = 20f
             setTypeface(typeface, BOLD)
-            textConfigFor(this)
+            configAppearanceOf(this)
+        }
+    }
+
+    private fun configAppearanceOf(view: TextView) {
+        view.apply {
+            maxLines = 1
+            layoutParams = LayoutParams(0, WRAP_CONTENT).apply { weight = 0.5f }
+            setAutoSizeTextTypeWithDefaults(AUTO_SIZE_TEXT_TYPE_UNIFORM)
         }
     }
 
     fun configWith(config: LauraTableCellConfig) {
-        representation = config.representation.toString()
-        setTitle(config.title)
-    }
-
-    fun setTitle(@StringRes titleRes: Int) {
-        title = context.getString(titleRes)
+        title = context.getString(config.title)
+        representation = config.representationConfig
     }
 
     init {
