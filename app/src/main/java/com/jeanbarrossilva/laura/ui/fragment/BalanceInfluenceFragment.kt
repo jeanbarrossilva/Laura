@@ -9,7 +9,6 @@ import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.activities.MainActivity.Companion.withFab
 import com.jeanbarrossilva.laura.ui.viewmodel.BalanceInfluenceViewModel
 import com.jeanbarrossilva.laura.ui.viewmodel.factory.BalanceInfluenceViewModelFactory
-import com.jeanbarrossilva.laurafoundation.ext.ComponentEditorX.observe
 import kotlinx.android.synthetic.main.fragment_balance_influence.*
 
 class BalanceInfluenceFragment : Fragment(R.layout.fragment_balance_influence) {
@@ -23,7 +22,10 @@ class BalanceInfluenceFragment : Fragment(R.layout.fragment_balance_influence) {
         withFab {
             with(viewModel.componentEditor) {
                 setOnClickListener { changeState() }
-                observe({ state() }) { state -> setImageResource(state?.ifEditing { R.drawable.ic_check } ?: R.drawable.ic_edit) }
+
+                observe({ state() }) {
+                    setImageResource(it?.ifEditing { R.drawable.ic_check } ?: R.drawable.ic_edit)
+                }
             }
         }
     }

@@ -12,7 +12,6 @@ import com.jeanbarrossilva.laura.LauraApplication.Companion.primaryTextColor
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laurafoundation.data.ComponentEditor
 import com.jeanbarrossilva.laurafoundation.data.ComponentEditorState.EditingState
-import com.jeanbarrossilva.laurafoundation.ext.ComponentEditorX.observe
 
 class LauraTextView : AppCompatEditText {
     constructor(context: Context) : super(context)
