@@ -25,7 +25,7 @@ class BalanceInfluenceTableLayout : LauraTableLayout {
     override fun getConfigs(): List<LauraTableCellConfig> {
         return listOf(
             LauraTableCellConfig(
-                title = R.string.amount,
+                title = R.string.BalanceInfluence_amount,
                 LauraTableCellRepresentationConfig(title = influence?.formattedAmount.toString(), InputType.TYPE_CLASS_NUMBER)
             )
         )

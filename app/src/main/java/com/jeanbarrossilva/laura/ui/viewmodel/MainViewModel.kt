@@ -87,10 +87,10 @@ class MainViewModel(private val activity: AppCompatActivity) : ViewModel() {
             val previousTitle = view.title
 
             override fun onBeginWith(influences: List<BalanceInfluence>) {
-                view.title = activity.getString(R.string.placeholder_selected_items).format(influences.size)
+                view.title = activity.getString(R.string.toolbar_label_selected_items).format(influences.size)
 
                 listOf(
-                    Triple(R.drawable.ic_delete, R.string.delete, { for (influence in influences) influence.unregister() })
+                    Triple(R.drawable.ic_delete, R.string.toolbar_action_delete, { for (influence in influences) influence.unregister() })
                 ).forEachIndexed { index, (icon, title, onClick) ->
                     view.menu.addIfNotAdded(itemId = index, order = index, titleRes = title) { onClick(); onEnd() }?.setIcon(icon)
                 }

@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/question_salary"
+            android:text="@string/onboarding_question_salary"
             android:textAlignment="center"
             android:textSize="20sp" />
 

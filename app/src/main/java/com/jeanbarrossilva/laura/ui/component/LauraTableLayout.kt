@@ -43,11 +43,11 @@ open class LauraTableLayout : LinearLayout {
     }
 
     private fun addCells(attrs: AttributeSet?, defStyleAttr: Int) {
-        getConfigs().forEach { config ->
+        getConfigs().forEach {
             LauraTableCellView(context, attrs, defStyleAttr)
                 .apply {
                     layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-                    representation = config.representationConfig
+                    configWith(it)
                 }
                 .let { addViewInvalidating(it) }
         }

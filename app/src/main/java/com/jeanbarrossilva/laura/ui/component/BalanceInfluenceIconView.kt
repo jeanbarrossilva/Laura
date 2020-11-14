@@ -20,7 +20,7 @@ class BalanceInfluenceIconView : AppCompatImageView {
     }
 
     private fun config() {
-        contentDescription = context.getString(R.string.label_balance_influence_icon)
+        contentDescription = context.getString(R.string.BalanceInfluence_content_description_icon)
         scaleType = ScaleType.CENTER_INSIDE
         setBackgroundResource(R.drawable.bg_balance_influence_icon)
     }

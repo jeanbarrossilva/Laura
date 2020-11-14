@@ -72,11 +72,11 @@ class WalletViewModel(private val fragment: WalletFragment) : ViewModel() {
         val dialog = ScopedBottomSheetDialog(button.context, WalletModifierScope) { selectedItem ->
             if (selectedItem is AddQuantityItem)
                 MaterialDialog(button.context).show {
-                    title(R.string.add_quantity)
-                    message(text = context.getString(R.string.dialog_add_quantity_message).format(acquirer.currentWallet.name))
+                    title(R.string.WalletModifier_item_add_quantity)
+                    message(text = context.getString(R.string.WalletModifier_dialog_message_add_quantity).format(acquirer.currentWallet.name))
 
-                    input(hintRes = R.string.dialog_add_quantity_field_hint, inputType = TYPE_CLASS_NUMBER) { _, inserted ->
-                        val riseName = context.getString(R.string.rise)
+                    input(hintRes = R.string.WalletModifier_dialog_hint_add_quantity, inputType = TYPE_CLASS_NUMBER) { _, inserted ->
+                        val riseName = context.getString(R.string.BalanceInfluence_title_rise)
 
                         inserted.toString().toFloat().let { quantity ->
                             BalanceInfluence.Rise(walletId = acquirer.currentWallet.id, name = riseName, amount = quantity).register()

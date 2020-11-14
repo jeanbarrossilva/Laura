@@ -27,7 +27,9 @@ object BalanceInfluenceX {
         crossinline block: (standard: String, extended: String) -> Unit = { _, _ -> }
     ) {
         context?.let {
-            val (standardRes, extendedRes) = R.string.registration_date_standard to R.string.registration_date_extended
+            val (standardRes, extendedRes) =
+                R.string.BalanceInfluence_registration_date_standard to R.string.BalanceInfluence_registration_date_extended
+
             val (standardText, extendedText) = it.getString(standardRes) to it.getString(extendedRes)
 
             with(dateTime) { standardText.format(formattedExternally) to extendedText.format(formattedExternally, hour, minute) }

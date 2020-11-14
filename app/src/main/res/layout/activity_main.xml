@@ -34,7 +34,7 @@
             app:subtitleTextColor="@color/colorPrimary"
             android:backgroundTint="?android:colorBackground"
             app:layout_constraintTop_toTopOf="parent"
-            tools:title="@string/wallet" />
+            tools:title="@string/toolbar_label_wallet" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"

@@ -20,8 +20,8 @@ object AcquisitionX {
 
     fun Acquisition.warn(context: Context, onConfirm: () -> Unit) {
         MaterialDialog(context).show {
-            title(text = context.getString(R.string.dialog_title_expensive_acquisition).format(wallet.name))
-            message(text = context.getString(R.string.dialog_message_expensive_acquisition).format(wallet.name))
+            title(text = context.getString(R.string.BalanceInfluenceComposer_dialog_title_expensive_acquisition).format(wallet.name))
+            message(text = context.getString(R.string.BalanceInfluenceComposer_dialog_message_expensive_acquisition).format(wallet.name))
 
             positiveButton(android.R.string.ok) { onConfirm() }
             negativeButton(android.R.string.cancel) { dismiss() }

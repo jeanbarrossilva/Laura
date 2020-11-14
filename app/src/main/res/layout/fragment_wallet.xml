@@ -37,7 +37,7 @@
                         android:layout_height="wrap_content"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="@string/wallet"
+                        android:text="@string/toolbar_label_wallet"
                         android:textAllCaps="true" />
 
                     <TextView
