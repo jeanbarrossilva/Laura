@@ -9,17 +9,24 @@ import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
 import com.jeanbarrossilva.laurafoundation.ext.LocalDateTimeX.formattedExternally
 
 object BalanceInfluenceX {
+    private val dao = LauraApplication.database.balanceInfluenceDao()
+
     val BalanceInfluence.formattedAmount get() = "${wallet.currency.symbol} ${LauraFoundation.currencyFormat.format(amount)}"
     val BalanceInfluence.wallet get() = LauraApplication.database.walletDao().identifiedAs(walletId)
 
     fun BalanceInfluence.register() {
-        LauraApplication.database.balanceInfluenceDao().add(this)
+        dao.add(this)
         wallet.update { plus(this@register) }
     }
 
     fun BalanceInfluence.unregister() {
-        LauraApplication.database.balanceInfluenceDao().remove(this)
+        dao.remove(this)
         wallet.update { minus(this@unregister) }
+    }
+
+    fun BalanceInfluence.update(block: BalanceInfluence.() -> Unit) {
+        block(this)
+        dao.update(this)
     }
 
     inline fun BalanceInfluence.withRegistrationDate(

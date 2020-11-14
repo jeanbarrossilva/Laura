@@ -18,16 +18,7 @@ class BalanceInfluenceFragment : Fragment(R.layout.fragment_balance_influence) {
 
     override fun onResume() {
         super.onResume()
-
-        withFab {
-            with(viewModel.componentEditor) {
-                setOnClickListener { changeState() }
-
-                observe({ state() }) {
-                    setImageResource(it?.ifEditing { R.drawable.ic_check } ?: R.drawable.ic_edit)
-                }
-            }
-        }
+        withFab { viewModel.configFab(view = this) }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -4,5 +4,7 @@ sealed class ComponentEditorState {
     object NonEditingState : ComponentEditorState()
     object EditingState : ComponentEditorState()
 
-    fun <T> ifEditing(block: () -> T?) = if (this is EditingState) block() else null
+    fun isEditing() = this is EditingState
+
+    fun <T> ifEditing(block: () -> T?) = if (isEditing()) block() else null
 }

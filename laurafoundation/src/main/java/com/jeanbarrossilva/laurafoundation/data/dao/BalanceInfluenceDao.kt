@@ -1,10 +1,7 @@
 package com.jeanbarrossilva.laurafoundation.data.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
 
 @Dao
@@ -14,6 +11,9 @@ interface BalanceInfluenceDao {
 
     @Query("SELECT * FROM influences WHERE id LIKE :id")
     fun identifiedAs(id: Long): BalanceInfluence
+
+    @Update
+    fun update(influence: BalanceInfluence)
 
     @Insert
     fun add(influence: BalanceInfluence)
