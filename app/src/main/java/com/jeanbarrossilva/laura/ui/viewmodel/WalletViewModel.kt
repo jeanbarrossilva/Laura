@@ -51,14 +51,16 @@ class WalletViewModel(private val fragment: WalletFragment) : ViewModel(), FabCo
     }
 
     fun loadAcquisitionsIn(view: RecyclerView) {
+        view.adapter = BalanceInfluenceAdapter { influence ->
+            val destination = WalletFragmentDirections.actionWalletFragmentToBalanceInfluenceFragment(influence)
+            fragment.findNavController().navigate(destination)
+        }
+
         view.layoutManager = LauraLinearLayoutManager(view.context)
 
         LauraApplication.balanceInfluences.observe(fragment) {
             it.reversed().let { influences ->
-                view.adapter = BalanceInfluenceAdapter(influences) { influence ->
-                    val destination = WalletFragmentDirections.actionWalletFragmentToBalanceInfluenceFragment(influence)
-                    fragment.findNavController().navigate(destination)
-                }
+                (view.adapter as? BalanceInfluenceAdapter)?.influences = influences
 
                 SelectionTracker
                     .Builder(

@@ -15,17 +15,20 @@ import com.jeanbarrossilva.laura.LauraApplication.Companion.selectedBalanceInflu
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.activities.MainActivity
 import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.formattedAmount
-import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.wallet
 import com.jeanbarrossilva.laura.ui.viewholder.BalanceInfluenceViewHolder
-import com.jeanbarrossilva.laurafoundation.LauraFoundation
 import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
 
-class BalanceInfluenceAdapter(
-    val influences: List<BalanceInfluence>,
-    private val onInfluenceClick: (BalanceInfluence) -> Unit
-) : RecyclerView.Adapter<BalanceInfluenceViewHolder>() {
-    lateinit var tracker: SelectionTracker<Long>
+class BalanceInfluenceAdapter(private val onInfluenceClick: (BalanceInfluence) -> Unit) :
+    RecyclerView.Adapter<BalanceInfluenceViewHolder>() {
     private var didAddTrackerSelectionObserver = false
+
+    var influences = emptyList<BalanceInfluence>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
+    lateinit var tracker: SelectionTracker<Long>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         LayoutInflater.from(parent.context).inflate(R.layout.view_balance_influence, parent, false).let { view ->
