@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.laurafoundation.ext
+package com.jeanbarrossilva.laura.extension
 
 import android.content.res.Resources
 import android.util.TypedValue

@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.laurafoundation.ext
+package com.jeanbarrossilva.laura.extension
 
 import kotlin.reflect.KClass
 import kotlin.reflect.full.primaryConstructor

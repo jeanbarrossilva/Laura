@@ -19,11 +19,11 @@ import com.jeanbarrossilva.laura.LauraApplication
 import com.jeanbarrossilva.laura.LauraApplication.Companion.acquirer
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.activities.MainActivity.Companion.balanceInfluenceSelectionListener
-import com.jeanbarrossilva.laura.ext.AcquirerX.currentWallet
-import com.jeanbarrossilva.laura.ext.AppCompatActivityX.currentFragment
-import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.unregister
-import com.jeanbarrossilva.laura.ext.FragmentX.reload
-import com.jeanbarrossilva.laurafoundation.ext.MenuX.addIfNotAdded
+import com.jeanbarrossilva.laura.extension.AcquirerX.currentWallet
+import com.jeanbarrossilva.laura.extension.AppCompatActivityX.currentFragment
+import com.jeanbarrossilva.laura.extension.BalanceInfluenceX.unregister
+import com.jeanbarrossilva.laura.extension.FragmentX.reload
+import com.jeanbarrossilva.laura.extension.MenuX.addIfNotAdded
 import com.jeanbarrossilva.laura.ui.listener.BalanceInfluenceSelectionListener
 import com.jeanbarrossilva.laurafoundation.Key
 import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence

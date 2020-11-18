@@ -1,8 +1,8 @@
 package com.jeanbarrossilva.laurafoundation.data.converter
 
 import androidx.room.TypeConverter
-import com.jeanbarrossilva.laurafoundation.ext.LocalDateTimeX.formatted
-import com.jeanbarrossilva.laurafoundation.ext.StringX.toLocalDateTime
+import com.jeanbarrossilva.laura.extension.LocalDateTimeX.formatted
+import com.jeanbarrossilva.laura.extension.StringX.toLocalDateTime
 import java.time.LocalDateTime
 
 class LocalDateTimeTypeConverter {

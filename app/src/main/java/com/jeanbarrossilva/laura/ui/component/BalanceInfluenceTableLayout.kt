@@ -4,7 +4,7 @@ import android.content.Context
 import android.text.InputType
 import android.util.AttributeSet
 import com.jeanbarrossilva.laura.R
-import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.formattedAmount
+import com.jeanbarrossilva.laura.extension.BalanceInfluenceX.formattedAmount
 import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
 import com.jeanbarrossilva.laurafoundation.data.LauraTableCellConfig
 import com.jeanbarrossilva.laurafoundation.data.LauraTableCellRepresentationConfig

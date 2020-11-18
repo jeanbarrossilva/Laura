@@ -1,14 +1,14 @@
-package com.jeanbarrossilva.laura.ext
+package com.jeanbarrossilva.laura.extension
 
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.afollestad.materialdialogs.MaterialDialog
 import com.jeanbarrossilva.laura.R
-import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.register
-import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.wallet
+import com.jeanbarrossilva.laura.extension.BalanceInfluenceX.register
+import com.jeanbarrossilva.laura.extension.BalanceInfluenceX.wallet
 import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence.Acquisition
-import com.jeanbarrossilva.laurafoundation.ext.NumberX.percentOf
+import com.jeanbarrossilva.laura.extension.NumberX.percentOf
 
 object AcquisitionX {
     val Acquisition.isExpensive get() = amount > 50 percentOf wallet.balance

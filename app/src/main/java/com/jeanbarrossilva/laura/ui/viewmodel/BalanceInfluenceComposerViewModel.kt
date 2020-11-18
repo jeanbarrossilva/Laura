@@ -4,11 +4,11 @@ import androidx.lifecycle.ViewModel
 import com.google.android.material.textfield.TextInputEditText
 import com.jeanbarrossilva.laura.LauraApplication.Companion.acquirer
 import com.jeanbarrossilva.laura.activities.MainActivity.Companion.withFab
-import com.jeanbarrossilva.laura.ext.AcquirerX.currentWallet
-import com.jeanbarrossilva.laura.ext.AcquisitionX.isExpensive
-import com.jeanbarrossilva.laura.ext.AcquisitionX.registerAndPop
-import com.jeanbarrossilva.laura.ext.AcquisitionX.warn
-import com.jeanbarrossilva.laura.ext.TextInputEditTextX.required
+import com.jeanbarrossilva.laura.extension.AcquirerX.currentWallet
+import com.jeanbarrossilva.laura.extension.AcquisitionX.isExpensive
+import com.jeanbarrossilva.laura.extension.AcquisitionX.registerAndPop
+import com.jeanbarrossilva.laura.extension.AcquisitionX.warn
+import com.jeanbarrossilva.laura.extension.TextInputEditTextX.required
 import com.jeanbarrossilva.laura.ui.component.PriceFieldView
 import com.jeanbarrossilva.laura.ui.fragment.BalanceInfluenceComposerFragment
 import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence.Acquisition

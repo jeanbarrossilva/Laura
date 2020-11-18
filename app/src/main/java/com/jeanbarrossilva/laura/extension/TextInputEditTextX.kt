@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.laura.ext
+package com.jeanbarrossilva.laura.extension
 
 import com.google.android.material.textfield.TextInputEditText
 

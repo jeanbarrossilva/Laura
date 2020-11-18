@@ -1,7 +1,7 @@
-package com.jeanbarrossilva.laurafoundation.ext
+package com.jeanbarrossilva.laura.extension
 
 import android.widget.EditText
-import com.jeanbarrossilva.laurafoundation.ext.ViewX.showSoftInput
+import com.jeanbarrossilva.laura.extension.ViewX.showSoftInput
 
 object EditTextX {
     fun EditText.focusWithInput() {

@@ -12,9 +12,9 @@ import androidx.core.view.updatePaddingRelative
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laurafoundation.data.LauraTableCellConfig
 import com.jeanbarrossilva.laurafoundation.data.LauraTableCellRepresentationConfig
-import com.jeanbarrossilva.laurafoundation.ext.ContextX.obtainStyledAttrs
-import com.jeanbarrossilva.laurafoundation.ext.NumberX.dp
-import com.jeanbarrossilva.laurafoundation.ext.ViewGroupX.addViews
+import com.jeanbarrossilva.laura.extension.ContextX.obtainStyledAttrs
+import com.jeanbarrossilva.laura.extension.NumberX.dp
+import com.jeanbarrossilva.laura.extension.ViewGroupX.addViews
 
 class LauraTableCellView : LinearLayout {
     private var titleView: TextView? = null

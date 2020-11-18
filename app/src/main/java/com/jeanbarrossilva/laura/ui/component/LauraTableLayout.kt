@@ -9,7 +9,7 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.LinearLayout
 import androidx.core.view.children
 import com.jeanbarrossilva.laurafoundation.data.LauraTableCellConfig
-import com.jeanbarrossilva.laurafoundation.ext.LinearLayoutX.addViewInvalidating
+import com.jeanbarrossilva.laura.extension.LinearLayoutX.addViewInvalidating
 
 open class LauraTableLayout : LinearLayout {
     val cells = children.map { it as LauraTableCellView }

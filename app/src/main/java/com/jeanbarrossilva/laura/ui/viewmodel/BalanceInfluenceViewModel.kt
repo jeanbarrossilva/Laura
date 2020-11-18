@@ -6,13 +6,13 @@ import android.widget.TextView
 import androidx.lifecycle.ViewModel
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.activities.MainActivity
-import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.withRegistrationDate
+import com.jeanbarrossilva.laura.extension.BalanceInfluenceX.withRegistrationDate
 import com.jeanbarrossilva.laura.ui.component.BalanceInfluenceIconView
 import com.jeanbarrossilva.laura.ui.component.BalanceInfluenceTableLayout
 import com.jeanbarrossilva.laura.ui.component.LauraTextView
 import com.jeanbarrossilva.laura.ui.fragment.BalanceInfluenceFragment
 import com.jeanbarrossilva.laurafoundation.data.ComponentEditor
-import com.jeanbarrossilva.laurafoundation.ext.EditTextX.focusWithInput
+import com.jeanbarrossilva.laura.extension.EditTextX.focusWithInput
 import com.jeanbarrossilva.laurafoundation.implementation.FabConfigurator
 
 class BalanceInfluenceViewModel(private val fragment: BalanceInfluenceFragment) : ViewModel(), FabConfigurator<BalanceInfluenceViewModel> {

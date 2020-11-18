@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.laurafoundation.ext
+package com.jeanbarrossilva.laura.extension
 
 import android.view.Menu
 import androidx.annotation.StringRes

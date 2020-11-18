@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.laura.ext
+package com.jeanbarrossilva.laura.extension
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment

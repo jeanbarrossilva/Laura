@@ -1,12 +1,12 @@
-package com.jeanbarrossilva.laura.ext
+package com.jeanbarrossilva.laura.extension
 
 import android.content.Context
 import com.jeanbarrossilva.laura.LauraApplication
 import com.jeanbarrossilva.laura.R
-import com.jeanbarrossilva.laura.ext.WalletX.update
+import com.jeanbarrossilva.laura.extension.WalletX.update
 import com.jeanbarrossilva.laurafoundation.LauraFoundation
 import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
-import com.jeanbarrossilva.laurafoundation.ext.LocalDateTimeX.formattedExternally
+import com.jeanbarrossilva.laura.extension.LocalDateTimeX.formattedExternally
 
 object BalanceInfluenceX {
     private val dao = LauraApplication.database.balanceInfluenceDao()

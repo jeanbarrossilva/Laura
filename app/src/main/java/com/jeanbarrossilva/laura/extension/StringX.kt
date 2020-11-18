@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.laurafoundation.ext
+package com.jeanbarrossilva.laura.extension
 
 import java.time.LocalDateTime
 import java.util.Locale

@@ -1,10 +1,9 @@
-package com.jeanbarrossilva.laurafoundation.ext
+package com.jeanbarrossilva.laura.extension
 
 import android.app.Activity
 import android.view.View
-import com.jeanbarrossilva.laurafoundation.ext.ActivityX.hideSoftInput
-import com.jeanbarrossilva.laurafoundation.ext.ViewX.hideSoftInput
-import com.jeanbarrossilva.laurafoundation.ext.ViewX.showSoftInput
+import com.jeanbarrossilva.laura.extension.ViewX.hideSoftInput
+import com.jeanbarrossilva.laura.extension.ViewX.showSoftInput
 
 object ActivityX {
     private fun Activity.getCurrentFocusOrCreate() = currentFocus ?: View(this)

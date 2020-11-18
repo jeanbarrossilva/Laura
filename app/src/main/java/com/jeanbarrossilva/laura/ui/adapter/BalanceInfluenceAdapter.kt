@@ -14,7 +14,7 @@ import com.jeanbarrossilva.laura.LauraApplication.Companion.primaryTextColor
 import com.jeanbarrossilva.laura.LauraApplication.Companion.selectedBalanceInfluenceIconBackgroundColor
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.activities.MainActivity
-import com.jeanbarrossilva.laura.ext.BalanceInfluenceX.formattedAmount
+import com.jeanbarrossilva.laura.extension.BalanceInfluenceX.formattedAmount
 import com.jeanbarrossilva.laura.ui.viewholder.BalanceInfluenceViewHolder
 import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
 

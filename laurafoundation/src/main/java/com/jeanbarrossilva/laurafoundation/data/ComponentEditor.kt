@@ -5,7 +5,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.jeanbarrossilva.laurafoundation.data.ComponentEditorState.*
-import com.jeanbarrossilva.laurafoundation.ext.MutableLiveDataX.toLiveData
+import com.jeanbarrossilva.laura.extension.MutableLiveDataX.toLiveData
 
 class ComponentEditor(private val lifecycleOwner: LifecycleOwner) {
     private val state = MutableLiveData<ComponentEditorState>(NonEditingState)

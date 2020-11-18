@@ -2,12 +2,12 @@ package com.jeanbarrossilva.laura
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import com.jeanbarrossilva.laurafoundation.ext.ContextX.colorAttr
+import com.jeanbarrossilva.laura.extension.ContextX.colorAttr
 import com.jeanbarrossilva.laurafoundation.data.Acquirer
 import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
 import com.jeanbarrossilva.laurafoundation.data.Wallet
 import com.jeanbarrossilva.laurafoundation.data.base.LauraDatabase
-import com.jeanbarrossilva.laurafoundation.ext.RoomDatabaseX.from
+import com.jeanbarrossilva.laura.extension.RoomDatabaseX.from
 
 class LauraApplication : Application() {
     override fun onCreate() {

@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.laurafoundation.ext
+package com.jeanbarrossilva.laura.extension
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

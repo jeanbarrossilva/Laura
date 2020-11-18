@@ -1,10 +1,9 @@
-package com.jeanbarrossilva.laurafoundation.ext
+package com.jeanbarrossilva.laura.extension
 
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.view.inputmethod.InputMethodManager.HIDE_IMPLICIT_ONLY
 import android.view.inputmethod.InputMethodManager.SHOW_FORCED
-import com.jeanbarrossilva.laurafoundation.ext.ContextX.inputMethodManager
+import com.jeanbarrossilva.laura.extension.ContextX.inputMethodManager
 
 object ViewX {
     fun View.hideSoftInput() = context.inputMethodManager.hideSoftInputFromWindow(windowToken, HIDE_IMPLICIT_ONLY)
