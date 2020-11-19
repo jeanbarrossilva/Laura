@@ -1,7 +1,7 @@
 buildscript {
     ext {
-        app_version_code = 1
-        app_version_name = '1.0.0-alpha01'
+        app_version_code = 3
+        app_version_name = '1.0.0-alpha03'
 
         kotlin_version = '1.4.10'
         material_dialogs_version = '3.3.0'
@@ -16,7 +16,7 @@ buildscript {
 
     dependencies {
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
-        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.android.tools.build:gradle:4.1.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
