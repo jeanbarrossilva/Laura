@@ -11,9 +11,9 @@ import com.jeanbarrossilva.laura.ui.component.BalanceInfluenceIconView
 import com.jeanbarrossilva.laura.ui.component.BalanceInfluenceTableLayout
 import com.jeanbarrossilva.laura.ui.component.LauraTextView
 import com.jeanbarrossilva.laura.ui.fragment.BalanceInfluenceFragment
-import com.jeanbarrossilva.laurafoundation.data.ComponentEditor
+import com.jeanbarrossilva.laura.data.ComponentEditor
 import com.jeanbarrossilva.laura.extension.EditTextX.focusWithInput
-import com.jeanbarrossilva.laurafoundation.implementation.FabConfigurator
+import com.jeanbarrossilva.laura.data.implementation.FabConfigurator
 
 class BalanceInfluenceViewModel(private val fragment: BalanceInfluenceFragment) : ViewModel(), FabConfigurator<BalanceInfluenceViewModel> {
     private val influence = fragment.navArgs.influence

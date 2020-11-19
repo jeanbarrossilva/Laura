@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.laurafoundation.data
+package com.jeanbarrossilva.laura.data
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo

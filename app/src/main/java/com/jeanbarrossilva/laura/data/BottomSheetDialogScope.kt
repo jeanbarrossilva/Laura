@@ -1,6 +1,6 @@
-package com.jeanbarrossilva.laurafoundation.data
+package com.jeanbarrossilva.laura.data
 
-import com.jeanbarrossilva.laurafoundation.data.BottomSheetDialogItem.*
+import com.jeanbarrossilva.laura.data.BottomSheetDialogItem.*
 
 sealed class BottomSheetDialogScope(val items: List<BottomSheetDialogItem>) {
     object WalletModifierScope : BottomSheetDialogScope(listOf(NewWalletItem, AddQuantityItem))

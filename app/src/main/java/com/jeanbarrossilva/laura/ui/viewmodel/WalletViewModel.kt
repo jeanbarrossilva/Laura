@@ -28,10 +28,10 @@ import com.jeanbarrossilva.laura.ui.fragment.WalletFragment
 import com.jeanbarrossilva.laura.ui.fragment.WalletFragmentDirections
 import com.jeanbarrossilva.laura.ui.keyprovider.BalanceInfluencenKeyProvider
 import com.jeanbarrossilva.laura.ui.manager.LauraLinearLayoutManager
-import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
-import com.jeanbarrossilva.laurafoundation.data.BottomSheetDialogItem.AddQuantityItem
-import com.jeanbarrossilva.laurafoundation.data.BottomSheetDialogScope.WalletModifierScope
-import com.jeanbarrossilva.laurafoundation.implementation.FabConfigurator
+import com.jeanbarrossilva.laura.data.BalanceInfluence
+import com.jeanbarrossilva.laura.data.BottomSheetDialogItem.AddQuantityItem
+import com.jeanbarrossilva.laura.data.BottomSheetDialogScope.WalletModifierScope
+import com.jeanbarrossilva.laura.data.implementation.FabConfigurator
 
 class WalletViewModel(private val fragment: WalletFragment) : ViewModel(), FabConfigurator<WalletViewModel> {
     internal lateinit var acquisitionTracker: SelectionTracker<Long>

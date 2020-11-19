@@ -11,7 +11,7 @@ import com.jeanbarrossilva.laura.extension.AcquisitionX.warn
 import com.jeanbarrossilva.laura.extension.TextInputEditTextX.required
 import com.jeanbarrossilva.laura.ui.component.PriceFieldView
 import com.jeanbarrossilva.laura.ui.fragment.BalanceInfluenceComposerFragment
-import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence.Acquisition
+import com.jeanbarrossilva.laura.data.BalanceInfluence.Acquisition
 import kotlinx.android.synthetic.main.view_price_field.view.amountField
 
 class BalanceInfluenceComposerViewModel(private val fragment: BalanceInfluenceComposerFragment) : ViewModel() {

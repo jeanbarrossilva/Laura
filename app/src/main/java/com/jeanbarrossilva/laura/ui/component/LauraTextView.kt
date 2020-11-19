@@ -10,8 +10,8 @@ import androidx.core.view.setPadding
 import androidx.core.view.updateLayoutParams
 import com.jeanbarrossilva.laura.LauraApplication.Companion.primaryTextColor
 import com.jeanbarrossilva.laura.R
-import com.jeanbarrossilva.laurafoundation.data.ComponentEditor
-import com.jeanbarrossilva.laurafoundation.data.ComponentEditorState.EditingState
+import com.jeanbarrossilva.laura.data.ComponentEditor
+import com.jeanbarrossilva.laura.data.ComponentEditorState.EditingState
 
 class LauraTextView : AppCompatEditText {
     constructor(context: Context) : super(context)

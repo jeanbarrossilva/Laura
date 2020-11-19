@@ -16,7 +16,7 @@ import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.activities.MainActivity
 import com.jeanbarrossilva.laura.extension.BalanceInfluenceX.formattedAmount
 import com.jeanbarrossilva.laura.ui.viewholder.BalanceInfluenceViewHolder
-import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
+import com.jeanbarrossilva.laura.data.BalanceInfluence
 
 class BalanceInfluenceAdapter(private val onInfluenceClick: (BalanceInfluence) -> Unit) :
     RecyclerView.Adapter<BalanceInfluenceViewHolder>() {

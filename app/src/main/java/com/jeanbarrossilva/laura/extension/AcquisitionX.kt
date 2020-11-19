@@ -7,7 +7,7 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.extension.BalanceInfluenceX.register
 import com.jeanbarrossilva.laura.extension.BalanceInfluenceX.wallet
-import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence.Acquisition
+import com.jeanbarrossilva.laura.data.BalanceInfluence.Acquisition
 import com.jeanbarrossilva.laura.extension.NumberX.percentOf
 
 object AcquisitionX {

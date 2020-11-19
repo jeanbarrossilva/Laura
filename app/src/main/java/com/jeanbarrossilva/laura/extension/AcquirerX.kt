@@ -1,7 +1,7 @@
 package com.jeanbarrossilva.laura.extension
 
 import com.jeanbarrossilva.laura.LauraApplication
-import com.jeanbarrossilva.laurafoundation.data.Acquirer
+import com.jeanbarrossilva.laura.data.Acquirer
 
 object AcquirerX {
     var Acquirer.currentWallet

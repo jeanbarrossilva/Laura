@@ -1,8 +1,8 @@
-package com.jeanbarrossilva.laurafoundation.data.dao
+package com.jeanbarrossilva.laura.data.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.jeanbarrossilva.laurafoundation.data.Wallet
+import com.jeanbarrossilva.laura.data.Wallet
 
 @Dao
 interface WalletDao {

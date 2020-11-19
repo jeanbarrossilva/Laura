@@ -5,9 +5,9 @@ import android.text.InputType
 import android.util.AttributeSet
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.extension.BalanceInfluenceX.formattedAmount
-import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
-import com.jeanbarrossilva.laurafoundation.data.LauraTableCellConfig
-import com.jeanbarrossilva.laurafoundation.data.LauraTableCellRepresentationConfig
+import com.jeanbarrossilva.laura.data.BalanceInfluence
+import com.jeanbarrossilva.laura.data.LauraTableCellConfig
+import com.jeanbarrossilva.laura.data.LauraTableCellRepresentationConfig
 
 class BalanceInfluenceTableLayout : LauraTableLayout {
     var influence: BalanceInfluence? = null

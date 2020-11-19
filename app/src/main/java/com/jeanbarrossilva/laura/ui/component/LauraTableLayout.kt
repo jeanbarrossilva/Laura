@@ -8,7 +8,7 @@ import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.LinearLayout
 import androidx.core.view.children
-import com.jeanbarrossilva.laurafoundation.data.LauraTableCellConfig
+import com.jeanbarrossilva.laura.data.LauraTableCellConfig
 import com.jeanbarrossilva.laura.extension.LinearLayoutX.addViewInvalidating
 
 open class LauraTableLayout : LinearLayout {

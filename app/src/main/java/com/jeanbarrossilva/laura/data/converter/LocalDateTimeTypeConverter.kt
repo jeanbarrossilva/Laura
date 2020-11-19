@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.laurafoundation.data.converter
+package com.jeanbarrossilva.laura.data.converter
 
 import androidx.room.TypeConverter
 import com.jeanbarrossilva.laura.extension.LocalDateTimeX.formatted

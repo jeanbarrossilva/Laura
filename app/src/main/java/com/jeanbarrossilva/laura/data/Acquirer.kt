@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.laurafoundation.data
+package com.jeanbarrossilva.laura.data
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE

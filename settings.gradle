@@ -1,4 +1,3 @@
-include ':laurafoundation'
 include ':app'
 
 rootProject.name = 'Laura'

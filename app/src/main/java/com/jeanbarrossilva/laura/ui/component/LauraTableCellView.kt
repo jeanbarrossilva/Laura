@@ -10,8 +10,8 @@ import android.widget.TextView
 import android.widget.TextView.AUTO_SIZE_TEXT_TYPE_UNIFORM
 import androidx.core.view.updatePaddingRelative
 import com.jeanbarrossilva.laura.R
-import com.jeanbarrossilva.laurafoundation.data.LauraTableCellConfig
-import com.jeanbarrossilva.laurafoundation.data.LauraTableCellRepresentationConfig
+import com.jeanbarrossilva.laura.data.LauraTableCellConfig
+import com.jeanbarrossilva.laura.data.LauraTableCellRepresentationConfig
 import com.jeanbarrossilva.laura.extension.ContextX.obtainStyledAttrs
 import com.jeanbarrossilva.laura.extension.NumberX.dp
 import com.jeanbarrossilva.laura.extension.ViewGroupX.addViews

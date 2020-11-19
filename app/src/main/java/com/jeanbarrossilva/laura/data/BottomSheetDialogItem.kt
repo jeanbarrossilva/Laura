@@ -1,8 +1,8 @@
-package com.jeanbarrossilva.laurafoundation.data
+package com.jeanbarrossilva.laura.data
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.jeanbarrossilva.laurafoundation.R
+import com.jeanbarrossilva.laura.R
 
 sealed class BottomSheetDialogItem(@DrawableRes val icon: Int, @StringRes val title: Int) {
     object NewWalletItem : BottomSheetDialogItem(

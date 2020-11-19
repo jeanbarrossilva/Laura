@@ -1,10 +1,10 @@
-package com.jeanbarrossilva.laurafoundation.data
+package com.jeanbarrossilva.laura.data
 
 import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.jeanbarrossilva.laurafoundation.data.ComponentEditorState.*
+import com.jeanbarrossilva.laura.data.ComponentEditorState.*
 import com.jeanbarrossilva.laura.extension.MutableLiveDataX.toLiveData
 
 class ComponentEditor(private val lifecycleOwner: LifecycleOwner) {

@@ -1,6 +1,5 @@
 package com.jeanbarrossilva.laura.ui.viewmodel
 
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.edit
 import androidx.core.view.forEach
@@ -10,14 +9,11 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import androidx.preference.PreferenceManager
-import com.github.javiersantos.piracychecker.enums.Display.DIALOG
-import com.github.javiersantos.piracychecker.enums.InstallerID.GOOGLE_PLAY
-import com.github.javiersantos.piracychecker.piracyChecker
 import com.google.android.material.navigation.NavigationView
-import com.jeanbarrossilva.laura.BuildConfig.DEBUG
 import com.jeanbarrossilva.laura.LauraApplication
 import com.jeanbarrossilva.laura.LauraApplication.Companion.acquirer
 import com.jeanbarrossilva.laura.R
+import com.jeanbarrossilva.laura.activities.MainActivity
 import com.jeanbarrossilva.laura.activities.MainActivity.Companion.balanceInfluenceSelectionListener
 import com.jeanbarrossilva.laura.extension.AcquirerX.currentWallet
 import com.jeanbarrossilva.laura.extension.AppCompatActivityX.currentFragment
@@ -25,31 +21,12 @@ import com.jeanbarrossilva.laura.extension.BalanceInfluenceX.unregister
 import com.jeanbarrossilva.laura.extension.FragmentX.reload
 import com.jeanbarrossilva.laura.extension.MenuX.addIfNotAdded
 import com.jeanbarrossilva.laura.ui.listener.BalanceInfluenceSelectionListener
-import com.jeanbarrossilva.laurafoundation.Key
-import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
-import com.jeanbarrossilva.laurafoundation.data.Wallet
+import com.jeanbarrossilva.laura.data.BalanceInfluence
+import com.jeanbarrossilva.laura.data.Wallet
 
-class MainViewModel(private val activity: AppCompatActivity) : ViewModel() {
+class MainViewModel(private val activity: MainActivity) : ViewModel() {
     private val preferences = PreferenceManager.getDefaultSharedPreferences(activity)
     private val navController = activity.findNavController(R.id.container)
-
-    fun piracyCheck() {
-        if (!DEBUG) {
-            activity.piracyChecker {
-                saveResultToSharedPreferences(preferences, "isLegit")
-                enableGooglePlayLicensing(Key.googlePlayLicense)
-                enableSigningCertificate(Key.certificate)
-                enableInstallerId(GOOGLE_PLAY)
-                enableUnauthorizedAppsCheck()
-                enableFoldersCheck()
-                enableStoresCheck()
-                enableAPKCheck()
-
-                display(DIALOG)
-                start()
-            }
-        }
-    }
 
     fun welcome() {
         ifIsFirstLaunch {

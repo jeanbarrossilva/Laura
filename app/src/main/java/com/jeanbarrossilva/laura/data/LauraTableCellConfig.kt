@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.laurafoundation.data
+package com.jeanbarrossilva.laura.data
 
 import androidx.annotation.StringRes
 

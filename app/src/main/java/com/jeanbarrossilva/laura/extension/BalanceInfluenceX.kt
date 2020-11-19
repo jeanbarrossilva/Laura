@@ -4,14 +4,14 @@ import android.content.Context
 import com.jeanbarrossilva.laura.LauraApplication
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.extension.WalletX.update
-import com.jeanbarrossilva.laurafoundation.LauraFoundation
-import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
+import com.jeanbarrossilva.laura.data.BalanceInfluence
 import com.jeanbarrossilva.laura.extension.LocalDateTimeX.formattedExternally
+import com.jeanbarrossilva.laura.extension.NumberX.currencyFormat
 
 object BalanceInfluenceX {
     private val dao = LauraApplication.database.balanceInfluenceDao()
 
-    val BalanceInfluence.formattedAmount get() = "${wallet.currency.symbol} ${LauraFoundation.currencyFormat.format(amount)}"
+    val BalanceInfluence.formattedAmount get() = "${wallet.currency.symbol} ${currencyFormat.format(amount)}"
     val BalanceInfluence.wallet get() = LauraApplication.database.walletDao().identifiedAs(walletId)
 
     fun BalanceInfluence.register() {

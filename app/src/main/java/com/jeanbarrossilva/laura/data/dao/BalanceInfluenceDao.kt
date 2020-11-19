@@ -1,8 +1,8 @@
-package com.jeanbarrossilva.laurafoundation.data.dao
+package com.jeanbarrossilva.laura.data.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.jeanbarrossilva.laurafoundation.data.BalanceInfluence
+import com.jeanbarrossilva.laura.data.BalanceInfluence
 
 @Dao
 interface BalanceInfluenceDao {

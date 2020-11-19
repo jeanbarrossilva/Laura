@@ -10,8 +10,8 @@ import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.ui.listener.BalanceInfluenceSelectionListener
 import com.jeanbarrossilva.laura.ui.viewmodel.MainViewModel
 import com.jeanbarrossilva.laura.ui.viewmodel.factory.MainViewModelFactory
-import com.jeanbarrossilva.laurafoundation.data.ComponentEditor
-import com.jeanbarrossilva.laurafoundation.data.ComponentEditorState.EditingState
+import com.jeanbarrossilva.laura.data.ComponentEditor
+import com.jeanbarrossilva.laura.data.ComponentEditorState.EditingState
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         companionFab = fab
 
         viewModel.run {
-            piracyCheck()
             welcome()
             setupActionBar(toolbar, navigationView, drawerLayout)
         }

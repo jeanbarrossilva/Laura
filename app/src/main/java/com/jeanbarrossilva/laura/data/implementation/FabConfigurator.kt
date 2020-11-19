@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.laurafoundation.implementation
+package com.jeanbarrossilva.laura.data.implementation
 
 import android.widget.ImageButton
 import androidx.lifecycle.ViewModel

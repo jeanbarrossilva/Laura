@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.laurafoundation.data
+package com.jeanbarrossilva.laura.data
 
 import android.text.InputType.TYPE_CLASS_TEXT
 

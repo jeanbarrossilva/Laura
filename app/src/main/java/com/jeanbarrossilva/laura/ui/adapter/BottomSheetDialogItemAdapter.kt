@@ -9,7 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.jeanbarrossilva.laura.R
-import com.jeanbarrossilva.laurafoundation.data.BottomSheetDialogItem
+import com.jeanbarrossilva.laura.data.BottomSheetDialogItem
 import kotlinx.android.synthetic.main.bottom_sheet_dialog_item.view.*
 
 class BottomSheetDialogItemAdapter(

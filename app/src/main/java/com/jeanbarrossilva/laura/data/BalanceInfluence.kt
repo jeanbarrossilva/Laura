@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.laurafoundation.data
+package com.jeanbarrossilva.laura.data
 
 import android.os.Parcelable
 import androidx.annotation.DrawableRes
@@ -6,7 +6,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
-import com.jeanbarrossilva.laurafoundation.R
+import com.jeanbarrossilva.laura.R
 import kotlinx.android.parcel.Parcelize
 import java.time.LocalDateTime
 

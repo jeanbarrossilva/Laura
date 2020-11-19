@@ -1,4 +1,4 @@
-package com.jeanbarrossilva.laurafoundation.data
+package com.jeanbarrossilva.laura.data
 
 sealed class ComponentEditorState {
     object NonEditingState : ComponentEditorState()

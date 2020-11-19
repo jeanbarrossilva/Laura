@@ -59,7 +59,7 @@
 
         <argument
             android:name="influence"
-            app:argType="com.jeanbarrossilva.laurafoundation.data.BalanceInfluence" />
+            app:argType="com.jeanbarrossilva.laura.data.BalanceInfluence" />
 
     </fragment>
 
