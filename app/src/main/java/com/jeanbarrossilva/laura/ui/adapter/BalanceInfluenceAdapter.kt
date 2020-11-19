@@ -1,22 +1,17 @@
 package com.jeanbarrossilva.laura.ui.adapter
 
 import android.content.res.ColorStateList
-import android.graphics.Color.WHITE
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.RecyclerView
 import com.jeanbarrossilva.laura.LauraApplication
-import com.jeanbarrossilva.laura.LauraApplication.Companion.balanceInfluenceIconBackgroundColor
-import com.jeanbarrossilva.laura.LauraApplication.Companion.selectedBalanceInfluenceBackgroundColor
-import com.jeanbarrossilva.laura.LauraApplication.Companion.inversePrimaryTextColor
-import com.jeanbarrossilva.laura.LauraApplication.Companion.primaryTextColor
-import com.jeanbarrossilva.laura.LauraApplication.Companion.selectedBalanceInfluenceIconBackgroundColor
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.activities.MainActivity
 import com.jeanbarrossilva.laura.extension.BalanceInfluenceX.formattedAmount
 import com.jeanbarrossilva.laura.ui.viewholder.BalanceInfluenceViewHolder
 import com.jeanbarrossilva.laura.data.BalanceInfluence
+import com.jeanbarrossilva.laura.extension.ContextX.colorAttr
 
 class BalanceInfluenceAdapter(private val onInfluenceClick: (BalanceInfluence) -> Unit) :
     RecyclerView.Adapter<BalanceInfluenceViewHolder>() {
@@ -52,18 +47,22 @@ class BalanceInfluenceAdapter(private val onInfluenceClick: (BalanceInfluence) -
             }
 
             onSelect(influence) { isSelected ->
-                val primaryOrInverseColor = if (isSelected) inversePrimaryTextColor else primaryTextColor
-                val backgroundColor = if (isSelected) selectedBalanceInfluenceBackgroundColor else WHITE
-                val iconBackgroundColor = if (isSelected) selectedBalanceInfluenceIconBackgroundColor else balanceInfluenceIconBackgroundColor
-                val icon = if (isSelected) R.drawable.ic_check else influence.icon
+                with(holder.itemView.context) {
+                    val primaryOrInverseColor = colorAttr(if (isSelected) android.R.attr.textColorPrimaryInverse else android.R.attr.textColorPrimary)
+                    val backgroundColor =
+                        if (isSelected) getColor(R.color.selectedBalanceInfluenceBackground) else colorAttr(android.R.attr.colorBackground)
+                    val iconBackgroundColor =
+                        getColor(if (isSelected) R.color.selectedBalanceInfluenceIconBackground else R.color.balanceInfluenceIconBackground)
+                    val icon = if (isSelected) R.drawable.ic_check else influence.icon
 
-                holder.itemView.setBackgroundColor(backgroundColor)
-                listOf(holder.name, holder.price).forEach { it.setTextColor(primaryOrInverseColor) }
+                    holder.itemView.setBackgroundColor(backgroundColor)
+                    listOf(holder.name, holder.price).forEach { it.setTextColor(primaryOrInverseColor) }
 
-                with(holder.icon) {
-                    imageTintList = ColorStateList.valueOf(primaryOrInverseColor)
-                    backgroundTintList = ColorStateList.valueOf(iconBackgroundColor)
-                    setImageResource(icon)
+                    with(holder.icon) {
+                        imageTintList = ColorStateList.valueOf(primaryOrInverseColor)
+                        backgroundTintList = ColorStateList.valueOf(iconBackgroundColor)
+                        setImageResource(icon)
+                    }
                 }
             }
         }

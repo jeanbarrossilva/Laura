@@ -8,10 +8,10 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.setMargins
 import androidx.core.view.setPadding
 import androidx.core.view.updateLayoutParams
-import com.jeanbarrossilva.laura.LauraApplication.Companion.primaryTextColor
 import com.jeanbarrossilva.laura.R
 import com.jeanbarrossilva.laura.data.ComponentEditor
 import com.jeanbarrossilva.laura.data.ComponentEditorState.EditingState
+import com.jeanbarrossilva.laura.extension.ContextX.colorAttr
 
 class LauraTextView : AppCompatEditText {
     constructor(context: Context) : super(context)
@@ -28,7 +28,7 @@ class LauraTextView : AppCompatEditText {
 
         this.background = background
         setPadding(spacing)
-        if (!enabled) setTextColor(primaryTextColor)
+        if (!enabled) setTextColor(context.colorAttr(android.R.attr.textColorPrimary))
         updateLayoutParams<ViewGroup.MarginLayoutParams> { setMargins(spacing) }
     }
 
