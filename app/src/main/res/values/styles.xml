@@ -10,8 +10,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="toolbarNavigationButtonStyle">@style/LauraToolbarNavigationButtonStyle</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:windowLightStatusBar">true</item>
-        <item name="android:statusBarColor">?android:colorBackground</item>
+        <item name="android:statusBarColor">@android:color/black</item>
         <item name="android:fontFamily">@font/rubik</item>
     </style>
 
@@ -74,7 +73,6 @@
         name="LauraTextInputEditText"
         parent="Widget.AppCompat.EditText">
         <item name="android:paddingStart">20dp</item>
-        <item name="android:backgroundTint">@color/componentOnSurface</item>
     </style>
 
     <declare-styleable name="IndicatorLayout">
