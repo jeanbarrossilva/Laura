@@ -15,13 +15,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.jeanbarrossilva.lauradata.extension.StringX.upperCased
 import com.jeanbarrossilva.laura2.ui.default.LauraTheme
-import com.jeanbarrossilva.lauradata.extension.NumberX.currencyFormat
-import java.util.Currency
+import com.jeanbarrossilva.lauradata.Wallet
+import com.jeanbarrossilva.lauradata.extension.StringX.upperCased
+import com.jeanbarrossilva.lauradata.extension.WalletX.formattedBalance
 
 @Composable
-fun WalletInfoCard(name: String = "", currency: Currency, balance: Float, onModifyClick: () -> Unit = { }) {
+fun WalletInfoCardFor(wallet: Wallet, onModifyClick: () -> Unit = { }) {
 	LauraTheme.Wrap {
 		Column(Modifier.padding(20.dp)) {
 			Card(
@@ -37,7 +37,7 @@ fun WalletInfoCard(name: String = "", currency: Currency, balance: Float, onModi
 						verticalArrangement = Arrangement.spacedBy(5.dp)
 					) {
 						Text(
-							name.upperCased,
+							wallet.name.upperCased,
 							Modifier.drawOpacity(0.5f),
 							color = MaterialTheme.colors.onSecondary,
 							overflow = TextOverflow.Ellipsis,
@@ -45,7 +45,7 @@ fun WalletInfoCard(name: String = "", currency: Currency, balance: Float, onModi
 						)
 
 						Text(
-							"${currency.symbol} ${currencyFormat.format(balance)}",
+							wallet.formattedBalance,
 							fontSize = 30.sp,
 							fontWeight = FontWeight.Bold,
 							maxLines = 1
