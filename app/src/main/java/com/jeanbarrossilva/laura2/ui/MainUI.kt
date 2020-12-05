@@ -1,36 +1,32 @@
 package com.jeanbarrossilva.laura2.ui
 
-import android.text.InputType
 import androidx.compose.foundation.layout.ExperimentalLayout
-import androidx.compose.material.*
+import androidx.compose.material.DrawerState
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.Check
 import androidx.compose.material.icons.rounded.Menu
+import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.*
 import androidx.compose.ui.focus.ExperimentalFocus
-import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.platform.ContextAmbient
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
-import com.afollestad.materialdialogs.MaterialDialog
-import com.afollestad.materialdialogs.input.input
 import com.jeanbarrossilva.laura2.R
 import com.jeanbarrossilva.laura2.extension.NavControllerX.currentRoute
 import com.jeanbarrossilva.laura2.ui.component.LauraScaffold
-import com.jeanbarrossilva.laura2.ui.component.ModalBottomSheetLayoutItem
 import com.jeanbarrossilva.laura2.ui.component.NavigatorModalDrawerLayoutItem
+import com.jeanbarrossilva.laura2.ui.component.WalletModifierModalBottomSheetLayout
 import com.jeanbarrossilva.laura2.ui.constants.MainUIConstants.HOME_ROUTE
 import com.jeanbarrossilva.laura2.ui.constants.MainUIConstants.ROUTE_BALANCE_INFLUENCE_COMPOSER_UI
 import com.jeanbarrossilva.laura2.ui.constants.MainUIConstants.ROUTE_WALLET_UI
 import com.jeanbarrossilva.laura2.ui.default.LauraTheme
-import com.jeanbarrossilva.lauradata.BalanceInfluence
-import com.jeanbarrossilva.lauradata.BalanceInfluenceType.Rise
 import com.jeanbarrossilva.lauradata.default.ObjectBox
 
 @ExperimentalLayout
@@ -38,7 +34,6 @@ import com.jeanbarrossilva.lauradata.default.ObjectBox
 @ExperimentalMaterialApi
 @Composable
 fun MainUI() {
-    val context = ContextAmbient.current
     val navController = rememberNavController()
     val walletModifierBottomSheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
 	var toolbarIcon by remember { mutableStateOf(Icons.Rounded.Menu) }
@@ -49,45 +44,9 @@ fun MainUI() {
     val wallet = ObjectBox.walletBox.all.first()
 
     LauraTheme.Fill {
-        ModalBottomSheetLayout(
-            sheetContent = {
-                ModalBottomSheetLayoutItem(
-                    walletModifierBottomSheetState,
-                    icon = vectorResource(R.drawable.ic_account_balance_wallet),
-                    title = stringResource(R.string.WalletModifier_item_new_wallet)
-                )
-
-                ModalBottomSheetLayoutItem(
-                    walletModifierBottomSheetState,
-                    icon = vectorResource(R.drawable.ic_attach_money),
-                    title = stringResource(R.string.WalletModifier_item_add_quantity)
-                ) {
-                    MaterialDialog(context).show {
-                        title(R.string.WalletModifier_item_add_quantity)
-                        message(text = context.getString(R.string.WalletModifier_dialog_message_add_quantity).format(wallet.name))
-
-                        input(hintRes = R.string.WalletModifier_dialog_hint_add_quantity, inputType = InputType.TYPE_CLASS_NUMBER) { _, value ->
-                            wallet.influences.add(
-                                BalanceInfluence(
-                                    type = Rise,
-                                    name = context.getString(R.string.BalanceInfluence_title_rise),
-                                    amount = value.toString().toFloat()
-                                )
-                            )
-                        }
-
-                        positiveButton(android.R.string.ok) { dismiss() }
-                        negativeButton(android.R.string.cancel) { dismiss() }
-                    }
-
-                    walletModifierBottomSheetState.hide()
-                }
-            },
-            sheetState = walletModifierBottomSheetState,
-            sheetShape = RectangleShape
-        ) {
+        WalletModifierModalBottomSheetLayout(wallet, walletModifierBottomSheetState) {
             LauraScaffold(
-				toolbarIcon,
+                toolbarIcon,
                 onToolbarButtonClick = { drawerState -> onToolbarButtonClick(drawerState) },
                 toolbarTitle,
                 drawerItems = {
@@ -103,9 +62,9 @@ fun MainUI() {
                 onFabClick
             ) {
                 NavHost(navController, startDestination = HOME_ROUTE) {
-					val isHomeRoute = navController.currentRoute == HOME_ROUTE
+                    val isHomeRoute = navController.currentRoute == HOME_ROUTE
 
-					toolbarIcon = if (isHomeRoute) Icons.Rounded.Menu else Icons.Rounded.ArrowBack
+                    toolbarIcon = if (isHomeRoute) Icons.Rounded.Menu else Icons.Rounded.ArrowBack
                     onToolbarButtonClick = { drawerState ->
                         when (isHomeRoute) {
                             true -> if (drawerState.isClosed) drawerState.open() else drawerState.close()
