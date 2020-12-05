@@ -17,8 +17,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.jeanbarrossilva.laura2.ui.default.LauraTheme
 import com.jeanbarrossilva.lauradata.Wallet
+import com.jeanbarrossilva.lauradata.extension.NumberX.formattedAsCurrency
 import com.jeanbarrossilva.lauradata.extension.StringX.upperCased
-import com.jeanbarrossilva.lauradata.extension.WalletX.formattedBalance
 
 @Composable
 fun WalletInfoCardFor(wallet: Wallet, onModifyClick: () -> Unit = { }) {
@@ -45,7 +45,7 @@ fun WalletInfoCardFor(wallet: Wallet, onModifyClick: () -> Unit = { }) {
 						)
 
 						Text(
-							wallet.formattedBalance,
+							wallet.balance.formattedAsCurrency(wallet.currency),
 							fontSize = 30.sp,
 							fontWeight = FontWeight.Bold,
 							maxLines = 1

@@ -20,11 +20,21 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.jeanbarrossilva.lauradata.BalanceInfluence
 import com.jeanbarrossilva.laura2.ui.default.LauraTheme
+import com.jeanbarrossilva.lauradata.BalanceInfluence
+import com.jeanbarrossilva.lauradata.BalanceInfluenceType.Debit
+import com.jeanbarrossilva.lauradata.BalanceInfluenceType.Rise
+import com.jeanbarrossilva.lauradata.Wallet
+import com.jeanbarrossilva.lauradata.extension.NumberX.formattedAsCurrency
 
+@ExperimentalLayout
 @Composable
-fun BalanceInfluenceCardFor(influence: BalanceInfluence, onClick: () -> Unit = { }) {
+fun BalanceInfluenceCard(wallet: Wallet, influence: BalanceInfluence, onClick: () -> Unit = { }) {
+	val (indicatorIcon, indicatorColor) = when (influence.type) {
+		Debit -> Icons.Rounded.KeyboardArrowDown to Color.Red
+		Rise -> Icons.Rounded.KeyboardArrowUp to Color.Green
+	}
+
 	LauraTheme.Wrap {
 		Card(
 			Modifier
@@ -38,35 +48,37 @@ fun BalanceInfluenceCardFor(influence: BalanceInfluence, onClick: () -> Unit = {
 					.padding(vertical = 20.dp, horizontal = 30.dp),
 				verticalAlignment = Alignment.CenterVertically
 			) {
-				Row(
-					Modifier.weight(0.85f),
-					horizontalArrangement = Arrangement.spacedBy(30.dp)
-				) {
-					Box(
-						Modifier
-							.size(60.dp)
-							.background(color = LauraTheme.Color.balanceInfluenceIconBackground(), shape = RoundedCornerShape(20.dp))
-							.padding(20.dp),
-						alignment = Alignment.Center
+				Box(Modifier.weight(0.85f)) {
+					FlowRow(
+						mainAxisSize = SizeMode.Wrap,
+						mainAxisSpacing = 30.dp
 					) {
-						Icon(Icons.Rounded.Favorite)
-					}
+						Box(
+							Modifier
+								.size(60.dp)
+								.background(color = LauraTheme.Color.balanceInfluenceIconBackground(), shape = RoundedCornerShape(20.dp))
+								.padding(20.dp),
+							alignment = Alignment.Center
+						) {
+							Icon(Icons.Rounded.Favorite)
+						}
 
-					Column(verticalArrangement = Arrangement.spacedBy(5.dp)) {
-						Text(
-							influence.name,
-							color = MaterialTheme.colors.onSecondary.copy(alpha = 0.5f),
-							fontSize = 16.sp,
-							fontFamily = LauraTheme.FontFamily.syne,
-							maxLines = 1
-						)
+						Column(verticalArrangement = Arrangement.spacedBy(5.dp)) {
+							Text(
+								influence.name,
+								color = MaterialTheme.colors.onSecondary.copy(alpha = 0.5f),
+								fontSize = 16.sp,
+								fontFamily = LauraTheme.FontFamily.syne,
+								maxLines = 1
+							)
 
-						Text(
-							"R$ 16,099.00",
-							fontSize = 25.sp,
-							fontWeight = FontWeight.Bold,
-							maxLines = 1
-						)
+							Text(
+								influence.amount.formattedAsCurrency(wallet.currency),
+								fontSize = 25.sp,
+								fontWeight = FontWeight.Bold,
+								maxLines = 1
+							)
+						}
 					}
 				}
 
@@ -75,11 +87,11 @@ fun BalanceInfluenceCardFor(influence: BalanceInfluence, onClick: () -> Unit = {
 					alignment = Alignment.CenterEnd
 				) {
 					Icon(
-						if (influence.decreases) Icons.Rounded.KeyboardArrowDown else Icons.Rounded.KeyboardArrowUp,
+						indicatorIcon,
 						Modifier
 							.fillMaxWidth()
 							.aspectRatio(1f),
-						tint = if (influence.decreases) Color.Red else Color.Green
+						tint = indicatorColor
 					)
 				}
 			}

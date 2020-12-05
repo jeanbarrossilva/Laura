@@ -10,8 +10,4 @@ class Acquirer(context: Context) {
     var salary: Float
         get() = preferences.getFloat("salary", 0f)
         set(value) = preferences.edit { putFloat("salary", value) }
-
-    var currentWalletId: Long
-        get() = preferences.getLong("currentWallet", Wallet.main.id)
-        set(value) = preferences.edit { putLong("currentWallet", value) }
 }

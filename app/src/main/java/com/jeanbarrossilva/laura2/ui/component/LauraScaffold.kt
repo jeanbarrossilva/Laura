@@ -4,11 +4,11 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Menu
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.VectorAsset
 import androidx.compose.ui.unit.dp
-import com.jeanbarrossilva.laura2.extension.ColumnX.ModalLayoutColumn
+import com.jeanbarrossilva.laura2.extension.ColumnX.ModalDrawerLayoutColumn
 import com.jeanbarrossilva.laura2.ui.default.LauraTheme
 
 @Composable
@@ -19,12 +19,13 @@ fun LauraScaffold(
     onFabClick: () -> Unit = { },
     content: @Composable () -> Unit
 ) {
+    val toolbarContentColor = MaterialTheme.colors.onSurface.copy(alpha = 0.5f)
     val drawerState = rememberDrawerState(DrawerValue.Closed)
 
     LauraTheme.Wrap {
         ModalDrawerLayout(
             drawerContent = {
-                ModalLayoutColumn {
+                ModalDrawerLayoutColumn {
                     drawerItems()
                 }
             },
@@ -34,11 +35,21 @@ fun LauraScaffold(
             Scaffold(
                 topBar = {
                     TopAppBar(
-                        title = { Text(toolbarTitle) },
+                        title = {
+                            Text(
+                                toolbarTitle,
+                                color = toolbarContentColor
+                            )
+                        },
                         navigationIcon = {
                             IconButton(
                                 onClick = { if (drawerState.isClosed) drawerState.open() else drawerState.close() },
-                                icon = { Icon(Icons.Rounded.Menu) }
+                                icon = {
+                                    Icon(
+                                        Icons.Rounded.Menu,
+                                        tint = toolbarContentColor
+                                    )
+                                }
                             )
                         },
                         backgroundColor = MaterialTheme.colors.background,

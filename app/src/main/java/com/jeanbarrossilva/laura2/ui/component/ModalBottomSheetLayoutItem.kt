@@ -11,7 +11,13 @@ import com.jeanbarrossilva.laura2.ui.default.LauraTheme
 
 @ExperimentalMaterialApi
 @Composable
-fun ModalBottomSheetLayoutItem(state: ModalBottomSheetState?, icon: VectorAsset, title: String, onClick: () -> Unit = { }) {
+fun ModalBottomSheetLayoutItem(
+	state: ModalBottomSheetState?,
+	icon: VectorAsset,
+	title: String,
+	hidesSheetOnClick: Boolean = true,
+	onClick: () -> Unit = { }
+) {
 	LauraTheme.Wrap {
 		ModalDrawerLayoutItem(
 			Modifier.padding(vertical = 10.dp),
@@ -20,7 +26,7 @@ fun ModalBottomSheetLayoutItem(state: ModalBottomSheetState?, icon: VectorAsset,
 			title,
 			selectsOnClick = false
 		) {
-			state?.hide()
+			if (hidesSheetOnClick) state?.hide()
 			onClick()
 		}
 	}

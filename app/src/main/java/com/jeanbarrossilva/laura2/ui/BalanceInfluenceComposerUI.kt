@@ -6,17 +6,22 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.ExperimentalFocus
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.ui.tooling.preview.Preview
+import androidx.ui.tooling.preview.PreviewParameter
 import com.jeanbarrossilva.laura2.R
 import com.jeanbarrossilva.laura2.ui.component.LauraTextField
 import com.jeanbarrossilva.laura2.ui.component.PriceField
+import com.jeanbarrossilva.laura2.ui.component.provider.WalletPreviewParameterProvider
 import com.jeanbarrossilva.laura2.ui.default.LauraTheme
+import java.util.*
 
+@ExperimentalFocus
 @Composable
 @Preview
-fun BalanceInfluenceComposerUI() {
+fun BalanceInfluenceComposerUI(@PreviewParameter(WalletPreviewParameterProvider::class) currency: Currency) {
     var name by remember { mutableStateOf("") }
     var price by remember { mutableStateOf<Float?>(null) }
 
@@ -25,8 +30,19 @@ fun BalanceInfluenceComposerUI() {
             Modifier.padding(20.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            LauraTextField(Modifier.fillMaxWidth(), label = stringResource(R.string.BalanceInfluenceComposer_hint_name)) { name = it }
-            PriceField(Modifier.fillMaxWidth()) { price = it.toFloatOrNull()  }
+            LauraTextField(
+                Modifier.fillMaxWidth(),
+                label = stringResource(R.string.BalanceInfluenceComposer_hint_name)
+            ) {
+                name = it
+            }
+
+            PriceField(
+                Modifier.fillMaxWidth(),
+                currency
+            ) {
+                price = it.toFloatOrNull()
+            }
         }
     }
 }

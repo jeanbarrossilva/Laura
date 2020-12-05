@@ -8,7 +8,7 @@ import com.jeanbarrossilva.laura2.ui.default.LauraTheme
 
 object ColumnX {
 	@Composable
-	fun ModalLayoutColumn(content: @Composable ColumnScope.() -> Unit) {
+	fun ModalDrawerLayoutColumn(content: @Composable ColumnScope.() -> Unit) {
 		LauraTheme.Wrap {
 			Column(Modifier.padding(horizontal = 5.dp)) {
 				Spacer(Modifier.height(10.dp))

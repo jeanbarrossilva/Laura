@@ -1,28 +1,23 @@
 package com.jeanbarrossilva.lauradata
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import com.jeanbarrossilva.lauradata.converter.CurrencyConverter
 import com.jeanbarrossilva.lauradata.extension.CurrencyX.localCurrency
-import java.io.Serializable
-import java.util.Currency
+import io.objectbox.annotation.Convert
+import io.objectbox.annotation.Entity
+import io.objectbox.annotation.Id
+import java.util.*
 
-@Entity(tableName = "wallets")
+@Entity
 data class Wallet(
-    @PrimaryKey(autoGenerate = true) val id: Long = 0L,
-    @ColumnInfo(name = "name") var name: String,
-    @ColumnInfo(name = "currency") val currency: Currency,
-    @ColumnInfo(name = "balance") var balance: Float
-) : Serializable {
-    operator fun plus(influence: BalanceInfluence) {
-        balance = if (influence.decreases) balance - influence.amount else balance + influence.amount
-    }
+	@Id var id: Long = 0L,
+	var name: String,
+	@Convert(converter = CurrencyConverter::class, dbType = String::class) var currency: Currency,
+	var balance: Float,
+	var limit: Float
+) {
+	val influences = mutableListOf<BalanceInfluence>()
 
-    operator fun minus(influence: BalanceInfluence) {
-        balance = if (influence.decreases) balance + influence.amount else balance - influence.amount
-    }
-
-    companion object {
-        val main = Wallet(id = 1, name = "Main", currency = localCurrency(), balance = 0f)
-    }
+	companion object {
+		val main = Wallet(name = "Main", currency = localCurrency(), balance = 0f, limit = 0f)
+	}
 }
