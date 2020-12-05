@@ -1,6 +1,7 @@
 package com.jeanbarrossilva.laura2.ui
 
 import android.text.InputType
+import androidx.compose.foundation.layout.ExperimentalLayout
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
@@ -32,6 +33,7 @@ import com.jeanbarrossilva.lauradata.BalanceInfluence
 import com.jeanbarrossilva.lauradata.BalanceInfluenceType.Rise
 import com.jeanbarrossilva.lauradata.default.ObjectBox
 
+@ExperimentalLayout
 @ExperimentalFocus
 @ExperimentalMaterialApi
 @Composable

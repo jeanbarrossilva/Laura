@@ -3,7 +3,7 @@ buildscript {
         app_version_code = 4
         app_version_name = '1.0.0-alpha04'
 
-        compose_version = '1.0.0-alpha07'
+        compose_version = '1.0.0-alpha08'
         kotlin_version = '1.4.20'
         material_dialogs_version = '3.3.0'
     }

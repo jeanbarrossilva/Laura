@@ -48,7 +48,7 @@ fun BalanceInfluenceCard(wallet: Wallet, influence: BalanceInfluence, onClick: (
 					.padding(vertical = 20.dp, horizontal = 30.dp),
 				verticalAlignment = Alignment.CenterVertically
 			) {
-				Box(Modifier.weight(0.85f)) {
+				Box(Modifier.fillMaxWidth(fraction = 0.85f)) {
 					FlowRow(
 						mainAxisSize = SizeMode.Wrap,
 						mainAxisSpacing = 30.dp
@@ -58,7 +58,7 @@ fun BalanceInfluenceCard(wallet: Wallet, influence: BalanceInfluence, onClick: (
 								.size(60.dp)
 								.background(color = LauraTheme.Color.balanceInfluenceIconBackground(), shape = RoundedCornerShape(20.dp))
 								.padding(20.dp),
-							alignment = Alignment.Center
+							contentAlignment = Alignment.Center
 						) {
 							Icon(Icons.Rounded.Favorite)
 						}
@@ -84,7 +84,7 @@ fun BalanceInfluenceCard(wallet: Wallet, influence: BalanceInfluence, onClick: (
 
 				Box(
 					Modifier.weight(0.15f),
-					alignment = Alignment.CenterEnd
+					contentAlignment = Alignment.CenterEnd
 				) {
 					Icon(
 						indicatorIcon,

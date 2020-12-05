@@ -10,7 +10,7 @@ import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawOpacity
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -38,7 +38,7 @@ fun WalletInfoCardFor(wallet: Wallet, onModifyClick: () -> Unit = { }) {
 					) {
 						Text(
 							wallet.name.upperCased,
-							Modifier.drawOpacity(0.5f),
+							Modifier.alpha(0.5f),
 							color = MaterialTheme.colors.onSecondary,
 							overflow = TextOverflow.Ellipsis,
 							maxLines = 1
@@ -54,22 +54,21 @@ fun WalletInfoCardFor(wallet: Wallet, onModifyClick: () -> Unit = { }) {
 
 					Box(
 						Modifier.weight(0.15f),
-						alignment = Alignment.CenterEnd
+						contentAlignment = Alignment.CenterEnd
 					) {
 						IconButton(
 							onModifyClick,
 							Modifier
 								.fillMaxWidth()
 								.aspectRatio(1f)
-								.border(width = 1.dp, color = MaterialTheme.colors.onSecondary.copy(alpha = 0.1f), shape = CircleShape),
-							icon = {
-								Icon(
-									Icons.Rounded.Settings,
-									Modifier.size(20.dp),
-									tint = MaterialTheme.colors.primary
-								)
-							}
-						)
+								.border(width = 1.dp, color = MaterialTheme.colors.onSecondary.copy(alpha = 0.1f), shape = CircleShape)
+						) {
+							Icon(
+								Icons.Rounded.Settings,
+								Modifier.size(20.dp),
+								tint = MaterialTheme.colors.primary
+							)
+						}
 					}
 				}
 			}

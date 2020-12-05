@@ -2,9 +2,9 @@ package com.jeanbarrossilva.laura2.ui.component
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.VectorAsset
-import androidx.navigation.compose.navigate
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavController
+import androidx.navigation.compose.navigate
 import com.jeanbarrossilva.laura2.extension.NavControllerX.isRoute
 import com.jeanbarrossilva.laura2.ui.default.LauraTheme
 
@@ -12,7 +12,7 @@ import com.jeanbarrossilva.laura2.ui.default.LauraTheme
 fun NavigatorModalDrawerLayoutItem(
 	modifier: Modifier = Modifier,
 	navController: NavController,
-	icon: VectorAsset,
+	icon: ImageVector,
 	title: String = "",
 	route: String,
 	isSelected: Boolean = false,

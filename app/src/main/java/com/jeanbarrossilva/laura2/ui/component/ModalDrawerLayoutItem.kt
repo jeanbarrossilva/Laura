@@ -10,15 +10,11 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.VectorAsset
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.jeanbarrossilva.laura2.ui.default.LauraTheme
@@ -27,7 +23,7 @@ import com.jeanbarrossilva.laura2.ui.default.LauraTheme
 fun ModalDrawerLayoutItem(
 	modifier: Modifier = Modifier,
 	spacing: Dp = 20.dp,
-	icon: VectorAsset,
+	icon: ImageVector,
 	title: String,
 	isSelected: Boolean = false,
 	selectsOnClick: Boolean = true,

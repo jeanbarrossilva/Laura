@@ -5,7 +5,7 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.VectorAsset
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import com.jeanbarrossilva.laura2.ui.default.LauraTheme
 
@@ -13,7 +13,7 @@ import com.jeanbarrossilva.laura2.ui.default.LauraTheme
 @Composable
 fun ModalBottomSheetLayoutItem(
 	state: ModalBottomSheetState?,
-	icon: VectorAsset,
+	icon: ImageVector,
 	title: String,
 	hidesSheetOnClick: Boolean = true,
 	onClick: () -> Unit = { }
