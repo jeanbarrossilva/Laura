@@ -4,5 +4,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.KEY_ROUTE
 
 object NavControllerX {
-	fun NavController.isRoute(route: String) = currentBackStackEntry?.arguments?.getString(KEY_ROUTE) == route
+	val NavController.currentRoute get() = currentBackStackEntry?.arguments?.getString(KEY_ROUTE)
+
+	fun NavController.isRoute(route: String) = currentRoute == route
 }

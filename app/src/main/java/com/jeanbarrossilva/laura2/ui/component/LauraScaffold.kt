@@ -2,8 +2,6 @@ package com.jeanbarrossilva.laura2.ui.component
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Menu
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.VectorAsset
@@ -13,6 +11,8 @@ import com.jeanbarrossilva.laura2.ui.default.LauraTheme
 
 @Composable
 fun LauraScaffold(
+    toolbarIcon: VectorAsset,
+    onToolbarButtonClick: (DrawerState) -> Unit = { _ -> },
     toolbarTitle: String = "",
     drawerItems: @Composable () -> Unit = { },
     fabIcon: VectorAsset,
@@ -43,10 +43,10 @@ fun LauraScaffold(
                         },
                         navigationIcon = {
                             IconButton(
-                                onClick = { if (drawerState.isClosed) drawerState.open() else drawerState.close() },
+                                onClick = { onToolbarButtonClick(drawerState) },
                                 icon = {
                                     Icon(
-                                        Icons.Rounded.Menu,
+                                        toolbarIcon,
                                         tint = toolbarContentColor
                                     )
                                 }
