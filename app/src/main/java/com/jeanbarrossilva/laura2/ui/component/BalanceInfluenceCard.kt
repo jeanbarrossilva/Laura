@@ -1,20 +1,18 @@
 package com.jeanbarrossilva.laura2.ui.component
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.ContentAlpha
 import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Favorite
 import androidx.compose.material.icons.rounded.KeyboardArrowDown
 import androidx.compose.material.icons.rounded.KeyboardArrowUp
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.font.FontWeight
@@ -53,20 +51,12 @@ fun BalanceInfluenceCard(wallet: Wallet, influence: BalanceInfluence, onClick: (
 						mainAxisSize = SizeMode.Wrap,
 						mainAxisSpacing = 30.dp
 					) {
-						Box(
-							Modifier
-								.size(60.dp)
-								.background(color = LauraTheme.Color.balanceInfluenceIconBackground(), shape = RoundedCornerShape(20.dp))
-								.padding(20.dp),
-							contentAlignment = Alignment.Center
-						) {
-							Icon(Icons.Rounded.Favorite)
-						}
+						BalanceInfluenceIcon(influence = influence)
 
 						Column(verticalArrangement = Arrangement.spacedBy(5.dp)) {
 							Text(
 								influence.name,
-								color = MaterialTheme.colors.onSecondary.copy(alpha = 0.5f),
+								Modifier.alpha(ContentAlpha.medium),
 								fontSize = 16.sp,
 								fontFamily = LauraTheme.FontFamily.syne,
 								maxLines = 1

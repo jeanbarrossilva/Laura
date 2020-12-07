@@ -47,7 +47,7 @@
     },
     {
       "id": "2:8967230772471502694",
-      "lastPropertyId": "4:6561818144676202102",
+      "lastPropertyId": "5:5812477296532657211",
       "name": "BalanceInfluence",
       "properties": [
         {
@@ -72,6 +72,11 @@
           "name": "amount",
           "type": 7,
           "flags": 4
+        },
+        {
+          "id": "5:5812477296532657211",
+          "name": "registrationDateTime",
+          "type": 9
         }
       ],
       "relations": []

@@ -37,12 +37,49 @@
           "flags": 4
         }
       ],
+      "relations": [
+        {
+          "id": "1:4275501877051937492",
+          "name": "influences",
+          "targetId": "2:8967230772471502694"
+        }
+      ]
+    },
+    {
+      "id": "2:8967230772471502694",
+      "lastPropertyId": "4:6561818144676202102",
+      "name": "BalanceInfluence",
+      "properties": [
+        {
+          "id": "1:3288957275869065620",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:6931071912579338149",
+          "name": "type",
+          "type": 5,
+          "flags": 2
+        },
+        {
+          "id": "3:3360733937698478978",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "4:6561818144676202102",
+          "name": "amount",
+          "type": 7,
+          "flags": 4
+        }
+      ],
       "relations": []
     }
   ],
-  "lastEntityId": "1:7046434563970476847",
+  "lastEntityId": "2:8967230772471502694",
   "lastIndexId": "0:0",
-  "lastRelationId": "0:0",
+  "lastRelationId": "1:4275501877051937492",
   "lastSequenceId": "0:0",
   "modelVersion": 5,
   "modelVersionParserMinimum": 5,

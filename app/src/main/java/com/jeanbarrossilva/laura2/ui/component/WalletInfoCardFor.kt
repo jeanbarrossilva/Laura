@@ -39,7 +39,7 @@ fun WalletInfoCardFor(wallet: Wallet, onModifyClick: () -> Unit = { }) {
 						Text(
 							wallet.name.upperCased,
 							Modifier.alpha(0.5f),
-							color = MaterialTheme.colors.onSecondary,
+							color = MaterialTheme.colors.onSurface.copy(alpha = 0.5f),
 							overflow = TextOverflow.Ellipsis,
 							maxLines = 1
 						)

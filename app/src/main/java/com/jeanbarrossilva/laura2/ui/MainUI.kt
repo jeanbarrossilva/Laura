@@ -5,10 +5,7 @@ import androidx.compose.material.DrawerState
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Add
-import androidx.compose.material.icons.rounded.ArrowBack
-import androidx.compose.material.icons.rounded.Check
-import androidx.compose.material.icons.rounded.Menu
+import androidx.compose.material.icons.rounded.*
 import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.*
 import androidx.compose.ui.focus.ExperimentalFocus
@@ -23,7 +20,9 @@ import com.jeanbarrossilva.laura2.extension.NavControllerX.currentRoute
 import com.jeanbarrossilva.laura2.ui.component.LauraScaffold
 import com.jeanbarrossilva.laura2.ui.component.NavigatorModalDrawerLayoutItem
 import com.jeanbarrossilva.laura2.ui.component.WalletModifierModalBottomSheetLayout
+import com.jeanbarrossilva.laura2.ui.constants.MainUIConstants.ARG_BALANCE_INFLUENCE
 import com.jeanbarrossilva.laura2.ui.constants.MainUIConstants.HOME_ROUTE
+import com.jeanbarrossilva.laura2.ui.constants.MainUIConstants.ROUTE_BALANCE_INFLUENCE
 import com.jeanbarrossilva.laura2.ui.constants.MainUIConstants.ROUTE_BALANCE_INFLUENCE_COMPOSER_UI
 import com.jeanbarrossilva.laura2.ui.constants.MainUIConstants.ROUTE_WALLET_UI
 import com.jeanbarrossilva.laura2.ui.default.LauraTheme
@@ -80,9 +79,24 @@ fun MainUI() {
                         WalletUI(navController, walletModifierBottomSheetState, wallet)
                     }
 
+                    composable(ROUTE_BALANCE_INFLUENCE) { entry ->
+                        toolbarTitle = ""
+                        onToolbarButtonClick = { navController.popBackStack() }
+                        fabIcon = Icons.Rounded.Edit
+                        onFabClick = { TODO() }
+
+                        entry.arguments?.getLong(ARG_BALANCE_INFLUENCE)?.let { influenceId ->
+                            BalanceInfluenceUI(
+                                wallet,
+                                wallet.influences.find { influence -> influence.id == influenceId }!!
+                            )
+                        }
+                    }
+
                     composable(ROUTE_BALANCE_INFLUENCE_COMPOSER_UI) {
                         toolbarTitle = stringResource(R.string.Screen_label_new_acquisition)
                         fabIcon = Icons.Rounded.Check
+                        onFabClick = { TODO() }
 
                         BalanceInfluenceComposerUI(wallet.currency)
                     }
