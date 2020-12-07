@@ -2,17 +2,10 @@
 <resources>
     <string name="app_name">Bill</string>
 
-    <string name="Screen_label_wallets">Wallet</string>
-    <string name="Screen_label_new_acquisition">New acquisition</string>
-    <string name="Screen_label_settings">Settings</string>
-    <string name="Screen_label_selected_items">%d selected items</string>
-
-    <string name="toolbar_action_delete">Delete</string>
-
-    <string name="onboarding_welcome">Welcome to %s!</string>
-    <string name="onboarding_question_salary">What\'s your salary?</string>
-
-    <string name="Wallet_balance">%s %s</string>
+    <string name="TopAppBar_title_wallets">Wallet</string>
+    <string name="TopAppBar_title_new_acquisition">New acquisition</string>
+    <string name="TopAppBar_title_settings">Settings</string>
+    <string name="TopAppBar_title_selected_items">%d selected items</string>
 
     <string name="WalletModifier_item_add_quantity">Add quantity</string>
     <string name="WalletModifier_item_new_wallet">New Wallet</string>

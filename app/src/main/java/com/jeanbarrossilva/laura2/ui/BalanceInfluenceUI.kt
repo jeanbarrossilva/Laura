@@ -60,8 +60,7 @@ fun BalanceInfluenceUI(wallet: Wallet, influence: BalanceInfluence) {
 							.alpha(ContentAlpha.medium)
 							.clickable(indication = null) {
 								didExpandRegistrationText = didExpandRegistrationText.not()
-								registrationDateTimeText =
-									if (didExpandRegistrationText) standardRegistrationText else expandedRegistrationText
+								registrationDateTimeText = if (didExpandRegistrationText) expandedRegistrationText else standardRegistrationText
 							},
 						fontSize = 17.sp
 					)

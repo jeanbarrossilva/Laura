@@ -52,7 +52,7 @@ fun MainUI() {
                     NavigatorModalDrawerLayoutItem(
                         navController = navController,
                         icon = vectorResource(R.drawable.ic_account_balance_wallet),
-                        title = stringResource(R.string.Screen_label_wallets),
+                        title = stringResource(R.string.TopAppBar_title_wallets),
                         route = ROUTE_WALLET_UI,
                         isSelected = true
                     )
@@ -72,7 +72,7 @@ fun MainUI() {
                     }
 
                     composable(ROUTE_WALLET_UI) {
-                        toolbarTitle = stringResource(R.string.Screen_label_wallets)
+                        toolbarTitle = stringResource(R.string.TopAppBar_title_wallets)
                         fabIcon = Icons.Rounded.Add
                         onFabClick = { navController.navigate(ROUTE_BALANCE_INFLUENCE_COMPOSER_UI) }
 
@@ -94,7 +94,7 @@ fun MainUI() {
                     }
 
                     composable(ROUTE_BALANCE_INFLUENCE_COMPOSER_UI) {
-                        toolbarTitle = stringResource(R.string.Screen_label_new_acquisition)
+                        toolbarTitle = stringResource(R.string.TopAppBar_title_new_acquisition)
                         fabIcon = Icons.Rounded.Check
                         onFabClick = { TODO() }
 
